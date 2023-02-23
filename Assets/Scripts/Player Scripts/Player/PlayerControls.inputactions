@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "Frapple",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "4b0ba5b7-0342-440d-acec-dc4e7005525f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -49,7 +49,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -60,7 +60,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -71,7 +71,7 @@
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -143,15 +143,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "d137dc48-3b1e-4f4d-b562-f7dcb2ea4b4d",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Press",
+                    "name": "Point and Click",
+                    "id": "7f58238f-29bb-4fcf-a4a4-173b6330f9e1",
+                    "path": "OneModifier",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Frapple",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "01f0f7b4-1910-44f9-88a8-3635008ff920",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Frapple",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "b0c791ed-7c50-4464-bd8b-aa09a99b5846",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Frapple",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
