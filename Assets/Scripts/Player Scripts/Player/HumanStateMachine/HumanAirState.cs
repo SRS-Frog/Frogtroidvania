@@ -8,7 +8,7 @@ public class HumanAirState : HumanBaseState
 
     public override void EnterState(HumanStateManager human, HumanAttributes attributes)
     {
-        Debug.Log("Hello from air state");
+        //Debug.Log("Hello from air state");
         this.attributes = attributes;
 
     }

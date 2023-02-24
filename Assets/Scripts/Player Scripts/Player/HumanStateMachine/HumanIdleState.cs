@@ -8,7 +8,7 @@ public class HumanIdleState : HumanBaseState
     
     public override void EnterState(HumanStateManager human, HumanAttributes attributes)
     {
-        Debug.Log("Hello from IdleState");
+        //Debug.Log("Hello from IdleState");
         this.attributes = attributes;
     }
 
