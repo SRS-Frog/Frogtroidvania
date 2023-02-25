@@ -18,11 +18,13 @@ public class FrappleController : MonoBehaviour
 
     //store our controls
     private InputAction frappleAction;
+    private InputAction moveAction;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         frappleAction = playerInput.actions["Frapple"];
+        moveAction = playerInput.actions["Move"];
 
         frappleEnd = transform.parent.GetChild(1).gameObject; // get the frapple game object
         frappleScript = frappleEnd.GetComponent<FrappleScript>(); // reference the frapple script of the frappleEnd
@@ -30,23 +32,18 @@ public class FrappleController : MonoBehaviour
         cam = Camera.main; //set the camera to the main camera
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
     private void OnEnable()
     {
-        frappleAction.started += FrappleControl;
         frappleAction.performed += FrappleControl;
-        frappleAction.canceled += FrappleControl;
+
+        moveAction.performed += FrappleStop; // when moving, stop frappling (if not hooked)
     }
 
     private void OnDisable()
     {
-        frappleAction.started -= FrappleControl;
         frappleAction.performed -= FrappleControl;
-        frappleAction.canceled -= FrappleControl;
+
+        moveAction.performed -= FrappleStop;
     }
 
     private void FrappleControl(InputAction.CallbackContext context)
@@ -55,6 +52,14 @@ public class FrappleController : MonoBehaviour
         {
             Vector2 pos = cam.ScreenToWorldPoint(context.ReadValue<Vector2>()); // position of the click in world space
             frappleScript.ShootFrapple(pos); // shoot the frapple toward target location
+        }
+    }
+
+    private void FrappleStop(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            frappleScript.CancelFrapple(); // cancel the frapple
         }
     }
 }
