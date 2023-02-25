@@ -13,7 +13,7 @@ public class FrappleScript : MonoBehaviour
     private GameObject daehyun;
 
     // inspector variables
-    [SerializeField] int frappleLength;
+    [SerializeField] float frappleLength;
     [SerializeField] float frappleSpeed = 30f;
     [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
 
@@ -29,10 +29,10 @@ public class FrappleScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); // rigidbody
         distanceJoint = GetComponent<DistanceJoint2D>(); // distance joint
         distanceJoint.enabled = false; // disable initially
+        distanceJoint.distance = frappleLength; // set the joint distance to frapple length
 
         // daehyun references
         daehyun = transform.parent.GetChild(0).gameObject; // get a reference to daehyun's game object
-        Debug.Log(transform.position);
     }
 
     private void FixedUpdate()
@@ -43,7 +43,7 @@ public class FrappleScript : MonoBehaviour
         if (retracting) // if frapple is in retracting state
         {
             rb.velocity = (startingPos - transform.position).normalized * frappleSpeed; // move frapple toward starting position
-        } else if (launched)
+        } else if (launched) // frapple is being launched outward
         {
             rb.velocity = (targetPos - transform.position).normalized * frappleSpeed; // move frapple toward a position
 
@@ -51,12 +51,7 @@ public class FrappleScript : MonoBehaviour
             {
                 retracting = true; // retract frapple
             }
-        } else
-        {
-            
-            transform.position = startingPos; // move to the expected starting position
-        }
-
+        } 
     }
 
     private void Toggle(bool toggle)
@@ -80,16 +75,21 @@ public class FrappleScript : MonoBehaviour
     /// <param name="pos"></param> the position to shoot the frapple to
     public void ShootFrapple(Vector2 pos)
     {
-        targetPos = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
-        
-        //if (Vector2.Distance(targetPos, transform.position) > frappleLength) // if the point is too far
-        //{
-        //    // shoot frapple in the direction of that point, but not exceeding the frapple length
-        //    Vector3 distanceBtwn = targetPos - transform.position; // the vector between the two points
-        //    distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength); // clamp the distance to the maximum length
-        //    targetPos = transform.position + distanceBtwn; //new target position to shoot toward
-        //}
-        Toggle(true);
+        if(!launched) // if not already launched, prevents spamming
+        {
+            targetPos = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
+            transform.position = startingPos; // move to the starting position
+
+            // clamp frapple to max length
+            if (Vector2.Distance(targetPos, transform.position) >= frappleLength) // if the point is too far
+            {
+                // shoot frapple in the direction of that point, but not exceeding the frapple length
+                Vector3 distanceBtwn = targetPos - transform.position; // the vector between the two points
+                distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength - 0.5f); // clamp the distance to slightly less than the maximum length, so player isn't pulled along
+                targetPos = transform.position + distanceBtwn; //new target position to shoot toward
+            }
+            Toggle(true);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -101,10 +101,8 @@ public class FrappleScript : MonoBehaviour
         }
         else if (collision.transform.CompareTag("Player"))
         {
-            Vector2 currOffset = transform.position - daehyun.transform.position; // current offset compared to daehyun's pivot
-            if (Vector2.Distance(currOffset, offset) < 0.1f) // if close enough to starting offset
+            if (Vector2.Distance(startingPos, transform.position) < 0.1f) // if close enough to starting position
             {
-                Debug.Log("toggled");
                 Toggle(false); // set inactive once returned to player
                 retracting = false; // no longer retracting the tongue
             }

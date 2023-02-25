@@ -19,9 +19,6 @@ public class FrappleController : MonoBehaviour
     //store our controls
     private InputAction frappleAction;
 
-    //bool for if keys are pressed
-    private bool frapplePressed = false;
-
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -57,14 +54,7 @@ public class FrappleController : MonoBehaviour
         if (context.performed)
         {
             Vector2 pos = cam.ScreenToWorldPoint(context.ReadValue<Vector2>()); // position of the click in world space
-            // Debug.Log(pos);
-
             frappleScript.ShootFrapple(pos); // shoot the frapple toward target location
         }
-    }
-
-    public bool IsGrapplePressed()
-    {
-        return frapplePressed;
     }
 }
