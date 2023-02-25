@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Yarn.Compiler.BasicBlock;
 
 public class FrappleScript : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class FrappleScript : MonoBehaviour
     private bool launched = false;
     private Vector3 targetPos;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); // rigidbody
         distanceJoint = GetComponent<DistanceJoint2D>(); // distance joint
@@ -27,6 +28,7 @@ public class FrappleScript : MonoBehaviour
 
         // daehyun references
         daehyun = transform.parent.GetChild(0).gameObject; // get a reference to daehyun's game object
+        Debug.Log(transform.position);
     }
 
     private void FixedUpdate()
@@ -35,12 +37,16 @@ public class FrappleScript : MonoBehaviour
         {
             rb.velocity = (targetPos - transform.position).normalized * frappleSpeed; // move frapple toward a position
 
-            if (Vector2.Distance(transform.position, targetPos) <= 1) // if the distance is small enough
+            if (Vector2.Distance(transform.position, targetPos) <= 0.1) // if the distance is small enough
             {
                 RetractFrapple(); // move the frapple back
             }
 
             //TODO: DIFFERENCE BETWEEN REACHED TARGET VS NEED TO RETRACT
+        } else
+        {
+            Vector2 daehyunPos = new Vector2(daehyun.transform.position.x, daehyun.transform.position.y);
+            transform.position = daehyunPos + offSet;
         }
 
     }
@@ -72,29 +78,34 @@ public class FrappleScript : MonoBehaviour
 
     private void RetractFrapple() // retract frapple to original location
     {
-        Vector2 daehyunPos = new Vector2(daehyun.transform.position.x, daehyun.transform.position.y);
-        ShootFrapple(daehyunPos + offSet); // return to offset
+        //Vector2 daehyunPos = new Vector2(daehyun.transform.position.x, daehyun.transform.position.y);
+        //ShootFrapple(daehyunPos + offSet); // return to offset
+        transform.position = Vector3.MoveTowards(transform.position, daehyun.transform.position, Time.deltaTime * frappleSpeed);
+        // Toggle(false);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("triggering");
-        Toggle(false); // stop the frapple
         if (collision.transform.CompareTag("Frappable")) // if it is frappable
         {
+            Toggle(false); // stop the frapple
             Frapple();
         }
         else if (collision.transform.CompareTag("Player"))
         {
-            Vector2 currOffset = daehyun.transform.position - transform.position;
-            if(Vector2.Distance(currOffset, offSet) < 0.1) // if close enough to starting offset
-            {
-                Toggle(false); // set inactive once returned to player
-            }
+            //Vector2 currOffset = transform.position - daehyun.transform.position; // current offset compared to daehyun's pivot
+            //Debug.Log(currOffset + " versus " + offSet);
+            //Debug.Log("distance is : " + Vector2.Distance(currOffset, offSet));
+            //Debug.Log("Close enough? " + (Vector2.Distance(currOffset, transform.position) < 0.1f));
+            //if (Vector2.Distance(currOffset, transform.position) < 0.1f) // if close enough to starting offset
+            //{
+            //    Debug.Log("toggled");
+            //    Toggle(false); // set inactive once returned to player
+            //}
         }
-        else
-        {
-            RetractFrapple();
-        }
+        //else
+        //{
+        //    RetractFrapple();
+        //}
     }
 
     private void Frapple() // frapple interactions
