@@ -45,7 +45,9 @@ public class FrappleScript : MonoBehaviour
 
     private void Update()
     {
-        
+        // render a line between the frapple head and the character
+        Vector3[] positions = {startingPos, transform.position};
+        lineRenderer.SetPositions(positions); 
     }
 
     private void FixedUpdate()
@@ -53,21 +55,28 @@ public class FrappleScript : MonoBehaviour
         Vector2 daehyunPos = new Vector2(daehyun.transform.position.x, daehyun.transform.position.y);
         startingPos = daehyunPos + offset;
 
-        if (retracting) // if frapple is in retracting state
+        if (!hooked)
         {
-            rb.velocity = (startingPos - transform.position).normalized * retractSpeed; // move frapple toward starting position
-            rope.enabled = false; //disable the joint
-        } else if (launched) // frapple is being launched outward
-        {
-            rb.velocity = (targetPos - transform.position).normalized * frappleSpeed; // move frapple toward a position
-
-            if (Vector2.Distance(transform.position, targetPos) <= 0.1) // if the distance is small enough, target reached
+            if (retracting) // if frapple is in retracting state
             {
-                retracting = true; // retract frapple
+                rb.velocity = (startingPos - transform.position).normalized * retractSpeed; // move frapple toward starting position
+            }
+            else if (launched) // frapple is being launched outward
+            {
+                rb.velocity = (targetPos - transform.position).normalized * frappleSpeed; // move frapple toward a position
+
+                if (Vector2.Distance(transform.position, targetPos) <= 0.1) // if the distance is small enough, target reached
+                {
+                    retracting = true; // retract frapple
+                }
+            }
+            else
+            {
+                transform.position = startingPos;
             }
         } else
         {
-            transform.position = startingPos;
+
         }
     }
 
@@ -77,21 +86,15 @@ public class FrappleScript : MonoBehaviour
         launched = toggle; // toggle whether it is launched
         spriteRenderer.enabled = toggle;
         lineRenderer.enabled = toggle;
-        rope.enabled = toggle;
+        rope.enabled = false;
 
         if (toggle) // if activate
         {
             rb.bodyType = RigidbodyType2D.Dynamic; // set rb to dynamic (can move)
         } else
         {
-            rb.bodyType = RigidbodyType2D.Kinematic; // set rb to kinematic (can't move)
+            rb.bodyType = RigidbodyType2D.Static; // set rb to static (can't move)
         }
-    }
-
-    private void Hooked(bool toggle)
-    {
-        hooked = toggle;
-        rb.bodyType = RigidbodyType2D.Kinematic; // stop moving
     }
 
     /// <summary>
@@ -100,6 +103,8 @@ public class FrappleScript : MonoBehaviour
     /// <param name="pos"></param> the position to shoot the frapple to
     public void ShootFrapple(Vector2 pos)
     {
+        hooked = false;
+        
         if(!launched) // if not already launched, prevents spamming
         {
             targetPos = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
@@ -112,8 +117,6 @@ public class FrappleScript : MonoBehaviour
                 Vector3 distanceBtwn = targetPos - transform.position; // the vector between the two points
                 distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength - 0.5f); // clamp the distance to slightly less than the maximum length, so player isn't pulled along
                 targetPos = transform.position + distanceBtwn; //new target position to shoot toward
-
-                rope.enabled = false;
             }
             Toggle(true);
         }
@@ -134,7 +137,6 @@ public class FrappleScript : MonoBehaviour
     {
         if (collision.transform.CompareTag("Frappable")) // if it is frappable
         {
-            Toggle(false); // stop the frapple
             Frapple();
         }
         else if (retracting && collision.transform.CompareTag("Player"))
@@ -145,7 +147,7 @@ public class FrappleScript : MonoBehaviour
                 retracting = false; // no longer retracting the tongue
             }
         }
-        else if (!collision.transform.CompareTag("Player"))
+        else if (!collision.transform.CompareTag("Frappable") && !collision.transform.CompareTag("Player"))
         {
             retracting = true;
         }
@@ -153,8 +155,12 @@ public class FrappleScript : MonoBehaviour
 
     private void Frapple() // frapple interactions
     {
-        Toggle(false);
-        //Hooked(true);
+        launched = false;
+        retracting = false;
+        hooked = true;
+        rope.enabled = true;
+        rb.bodyType = RigidbodyType2D.Static; // stop moving
+
         //float originalG = rope.connectedBody.gravityScale;
         //rope.connectedBody.gravityScale = originalG * frappleModifier; // up the gravity on the other object
     }
