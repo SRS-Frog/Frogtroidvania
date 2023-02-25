@@ -18,7 +18,9 @@ public class FrappleScript : MonoBehaviour
     [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
 
     // changes on runtime
+    // private enum States { launched, retracting }; // UNUSED RN
     private bool launched = false;
+    private bool retracting = false;
     private Vector3 targetPos;
     private Vector3 startingPos;
 
@@ -35,25 +37,31 @@ public class FrappleScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (launched)
+        Vector2 daehyunPos = new Vector2(daehyun.transform.position.x, daehyun.transform.position.y);
+        startingPos = daehyunPos + offset;
+
+        if (retracting) // if frapple is in retracting state
+        {
+            rb.velocity = (startingPos - transform.position).normalized * frappleSpeed; // move frapple toward starting position
+        } else if (launched)
         {
             rb.velocity = (targetPos - transform.position).normalized * frappleSpeed; // move frapple toward a position
 
-            if (Vector2.Distance(transform.position, targetPos) <= 0.1) // if the distance is small enough
+            if (Vector2.Distance(transform.position, targetPos) <= 0.1) // if the distance is small enough, target reached
             {
-                RetractFrapple(); // move the frapple back
+                retracting = true; // retract frapple
             }
         } else
         {
-            Vector2 daehyunPos = new Vector2(daehyun.transform.position.x, daehyun.transform.position.y);
-            transform.position = daehyunPos + offset;
+            
+            transform.position = startingPos; // move to the expected starting position
         }
 
     }
 
     private void Toggle(bool toggle)
     {
-        launched = toggle; // it is now launched
+        launched = toggle; // toggle whether it is launched
         transform.gameObject.SetActive(toggle);
         distanceJoint.enabled = toggle;
 
@@ -84,11 +92,6 @@ public class FrappleScript : MonoBehaviour
         Toggle(true);
     }
 
-    private void RetractFrapple() // retract frapple to original location
-    {
-        Vector2 daehyunPos = new Vector2(daehyun.transform.position.x, daehyun.transform.position.y);
-        ShootFrapple(daehyunPos + offset); // return to offset
-    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Frappable")) // if it is frappable
@@ -103,11 +106,12 @@ public class FrappleScript : MonoBehaviour
             {
                 Debug.Log("toggled");
                 Toggle(false); // set inactive once returned to player
+                retracting = false; // no longer retracting the tongue
             }
         }
         else
         {
-            RetractFrapple();
+            retracting = true;
         }
     }
 
