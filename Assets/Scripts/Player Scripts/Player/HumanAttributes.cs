@@ -11,14 +11,19 @@ public class HumanAttributes : MonoBehaviour
 
     //private float horDir; // -1 means move left, 1 means move right, 0 means stop
     //private float vertDir; // 1 means move up, 0 means stop
-    public float moveSpeed = 5.59f; // horizontal speed of player. ////We can edit this value later in the Unity editor.
+    public float topSpeed = 10f; // horizontal speed of player. ////We can edit this value later in the Unity editor.
+    public float acceleration = 5f; // acceleration to pick up speed, can be edited via the inspector, and actual acceleration depends on GRAVITY and FRICTION
+
+    // added for airstate to check whether it is hooked to limit speed to top speed
+    [HideInInspector] public bool isHooked = false; // TODO: bandaid solution (this is only true when the frapple is hooked, and false when character hits the ground)
+    public float frappleTopSpeed = 20f; // the top speed when frappling is > than when on the ground
 
     ////add these after you have showed movement left and right on Unity
-    public float jumpForce = 500f; // jump force of player
+    public float jumpForce = 10f; // jump force of player
 
                             ////you could also type public float jumpForce
     private bool jump; // true if player is on the ground and about to jump, false otherwise
-    public bool isGrounded; // true if player is touching the ground
+    [HideInInspector] public bool isGrounded; // true if player is touching the ground
     public Transform GroundCheck; // The position of a GameObject that will mark the player's feet
     public LayerMask groundLayer; // determines which layers count as the ground
 
@@ -63,6 +68,13 @@ public class HumanAttributes : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer);
         //Debug.Log("isGrounded " + isGrounded);
+        
+
+        // bandaid solution: for human attributes, between flying on / from frapple and landing, airstate is clamped at a higher speed than usual
+        if (isGrounded) // when grounded, it is no longer hooked
+        {
+            isHooked = false; // no longer hooked
+        }
 
         hit = Physics2D.Raycast(transform.position, Vector3.down, maxRayLength, groundLayer.value);
     }

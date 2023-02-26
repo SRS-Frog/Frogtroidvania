@@ -31,7 +31,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""4de1e350-5e22-4879-abce-26b5129122d7"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -99,9 +99,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""1D Axis"",
                     ""id"": ""8092c0e9-0071-4c29-9385-8d66c377dbba"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -110,7 +110,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""Negative"",
                     ""id"": ""ad5347bd-b521-4908-a08b-671609f5671c"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
@@ -121,7 +121,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""Positive"",
                     ""id"": ""c4e34572-6b1d-4443-895c-3e3a7a3f1ae9"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
@@ -132,9 +132,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""1D Axis"",
                     ""id"": ""6f9a3037-8be4-43a4-bae1-238b07beef8f"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -143,7 +143,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""Negative"",
                     ""id"": ""519d33f1-31da-432c-9127-a806f61fec82"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
@@ -154,7 +154,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""Positive"",
                     ""id"": ""ac6cf6c4-46e4-4462-b491-f7cc9d098d81"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",

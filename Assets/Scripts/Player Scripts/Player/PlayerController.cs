@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     //specific for movement
     private int dir;
+    private float horizontal;
 
     private void Awake()
     {
@@ -66,23 +67,24 @@ public class PlayerController : MonoBehaviour
 
     private void MoveControl(InputAction.CallbackContext context)
     {
-        Vector2 direction = moveAction.ReadValue<Vector2>();
-        if(context.started)
+        if(context.performed)
         {
-            if(direction.x == 1)
+            horizontal = moveAction.ReadValue<float>(); // get 1D axis float from movement input
+            if (horizontal > 0)
             {
                 dir = 1;
                 movePressed = true;
             }
-            else if(direction.x == -1)
+            else if(horizontal < 0)
             {
                 dir = -1;
                 movePressed = true;
             }
             //Debug.Log();
         }
-        else if(context.canceled && (direction.x != 1 || direction.x != -1))
+        else if(context.canceled)
         {
+            horizontal = 0; // set it to 0
             movePressed = false;
             //Debug.Log("Stop move left");
         }
@@ -107,20 +109,26 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //Vector2 move = moveAction.ReadValue<Vector2>();
-        //Debug.Log(move);
+
     }
 
 
     //Getter functions
-    public bool IsMovePressed() // edited to pass vector 2 instead
+    public bool IsMovePressed()
     {
         return movePressed;
     }
+
+    public float HorizontalVal()
+    {
+        return horizontal; // returns the horizontal input value
+    }
+
     public bool IsJumpPressed()
     {
         return jumpPressed;
     }
+
     public bool IsAttackPressed()
     {
         return attackPressed;

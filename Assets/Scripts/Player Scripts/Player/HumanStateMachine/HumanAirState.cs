@@ -30,7 +30,7 @@ public class HumanAirState : HumanBaseState
             human.SwitchState(human.IdleState);
         }
         else
-            Move(human.playerController.GetDir());
+            Move(human.playerController.GetDir(), human.playerController.HorizontalVal());
     }
 
     public override void OnCollisionEnter(HumanStateManager human, Collision collision)
@@ -39,16 +39,22 @@ public class HumanAirState : HumanBaseState
     }
 
     // deals with the the velocity of the player, and calls Flip() when applicable
-    public void Move(int dir)
+    public void Move(int dir, float horizontal)
     {
         // changes horizontal velocity of player
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
+        attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration
 
-        attributes.rb.velocity = new Vector2(dir * 
-        attributes.moveSpeed * Time.deltaTime, attributes.rb.velocity.y);
+        if (attributes.isHooked) // if the human is hooked, then clamp velocity to frapple top speed (else frapple along!!)
+        {
+            attributes.rb.velocity = Vector2.ClampMagnitude(attributes.rb.velocity, attributes.frappleTopSpeed); // clamp it to top speed
+        } else
+        {
+            attributes.rb.velocity = Vector2.ClampMagnitude(attributes.rb.velocity, attributes.topSpeed); // clamp it to top speed
+        }
 
         // flip the player if needed
-        if ((attributes.facingRight && dir == -1) || 
+        if ((attributes.facingRight && dir == -1) ||
             (!attributes.facingRight && dir == 1))
             Flip();
     }
