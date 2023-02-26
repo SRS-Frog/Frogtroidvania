@@ -42,7 +42,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1110360057, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: frappleSpeed
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110360057, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: shortenSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1110360057, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: frappleLength
@@ -254,8 +258,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4638912717219582304}
     m_Modifications:
+    - target: {fileID: 1503719458892697351, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: jumpForce
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: acceleration
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: frappleTopSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697359, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
+    - target: {fileID: 1503719458892697359, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_GravityScale
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697392, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
@@ -310,7 +334,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1503719458892697350, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
 --- !u!50 &6106584676155727059 stripped
 Rigidbody2D:

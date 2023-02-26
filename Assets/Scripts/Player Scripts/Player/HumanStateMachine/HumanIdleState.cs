@@ -30,7 +30,20 @@ public class HumanIdleState : HumanBaseState
 
     public override void FixedUpdateState(HumanStateManager human)
     {
-        
+        if (!human.playerController.IsMovePressed()) // if no movement keys pressed
+        {
+            Stop();
+            human.SwitchState(human.IdleState);
+        }
+    }
+
+    // Stops the player
+    private void Stop()
+    {
+        if (attributes.isGrounded)
+        {
+            attributes.rb.velocity = new Vector2(0, attributes.rb.velocity.y);
+        }
     }
 
     public override void OnCollisionEnter(HumanStateManager human, Collision collision)

@@ -36,7 +36,6 @@ public class HumanMovingState : HumanBaseState
         
         if(!human.playerController.IsMovePressed())
         {
-            //Stop();
             human.SwitchState(human.IdleState);
         }
         else
@@ -48,18 +47,10 @@ public class HumanMovingState : HumanBaseState
 
     }
 
-    // stops the player when no horizontal movement key is pressed
-    //private void Stop()
-    //{
-    //    if (attributes.isGrounded)
-    //    {
-    //        attributes.rb.velocity = new Vector2(0, attributes.rb.velocity.y);
-    //    }
-    //}
-
     // deals with the the velocity of the player, and calls Flip() when applicable
     public void Move(int dir, float horizontal)
     {
+        Debug.Log("Moving " + attributes.rb.velocity);
         // changes horizontal velocity of player
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
         attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration

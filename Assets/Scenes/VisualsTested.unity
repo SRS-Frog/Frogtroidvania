@@ -2920,8 +2920,17 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6106584676155727059, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
+    - target: {fileID: 6106584676155727059, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: m_GravityScale
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6106584676155727067, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
+    m_RemovedComponents:
+    - {fileID: 6106584676155727066, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}

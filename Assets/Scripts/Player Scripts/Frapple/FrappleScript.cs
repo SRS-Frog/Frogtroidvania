@@ -70,7 +70,7 @@ public class FrappleScript : MonoBehaviour
             {
                 rb.velocity = (targetPos - transform.position).normalized * frappleSpeed; // move frapple toward a position
 
-                if (Vector2.Distance(transform.position, targetPos) <= 0.1f) // if the distance is small enough, target reached
+                if (Vector2.Distance(transform.position, targetPos) <= 0.3f) // if the distance is small enough, target reached
                 {
                     RetractFrapple(); // retract frapple
                 }

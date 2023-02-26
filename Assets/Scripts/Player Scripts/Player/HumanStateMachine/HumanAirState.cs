@@ -25,7 +25,7 @@ public class HumanAirState : HumanBaseState
             human.SwitchState(human.IdleState);
             return;
         }
-        if (!human.playerController.IsMovePressed())
+        if (!human.playerController.IsMovePressed()) // if no movement keys pressed
         {
             human.SwitchState(human.IdleState);
         }
@@ -38,9 +38,20 @@ public class HumanAirState : HumanBaseState
 
     }
 
+    // Stops the player
+    private void Stop()
+    {
+        if (attributes.isGrounded)
+        {
+            attributes.rb.velocity = new Vector2(0, attributes.rb.velocity.y);
+        }
+    }
+
     // deals with the the velocity of the player, and calls Flip() when applicable
     public void Move(int dir, float horizontal)
     {
+        Debug.Log("Air Moving " + attributes.rb.velocity);
+
         // changes horizontal velocity of player
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
         attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration

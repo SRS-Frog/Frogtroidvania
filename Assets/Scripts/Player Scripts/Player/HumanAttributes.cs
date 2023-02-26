@@ -74,6 +74,7 @@ public class HumanAttributes : MonoBehaviour
         if (isGrounded) // when grounded, it is no longer hooked
         {
             isHooked = false; // no longer hooked
+            // Debug.Log("Grounded");
         }
 
         hit = Physics2D.Raycast(transform.position, Vector3.down, maxRayLength, groundLayer.value);
