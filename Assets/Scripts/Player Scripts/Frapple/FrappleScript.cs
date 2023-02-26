@@ -8,7 +8,7 @@ public class FrappleScript : MonoBehaviour
     // frapple variables
     private Rigidbody2D rb;
     private DistanceJoint2D rope; // store the distancejoint
-    private SpriteRenderer spriteRenderer; // store the spriterenderer
+    //private SpriteRenderer spriteRenderer; // store the spriterenderer
     private LineRenderer lineRenderer; // store the linerenderer
 
     //Daehyun variables
@@ -34,7 +34,7 @@ public class FrappleScript : MonoBehaviour
         rope = GetComponent<DistanceJoint2D>(); // distance joint
         rope.distance = frappleLength; // set the joint distance to frapple length
 
-        spriteRenderer = GetComponent<SpriteRenderer>(); // sprite renderer
+        //spriteRenderer = GetComponent<SpriteRenderer>(); // sprite renderer
         lineRenderer= GetComponent<LineRenderer>(); // line renderer
 
         Toggle(false);
@@ -84,7 +84,7 @@ public class FrappleScript : MonoBehaviour
     {
         // deactivate components
         launched = toggle; // toggle whether it is launched
-        spriteRenderer.enabled = toggle;
+        //spriteRenderer.enabled = toggle;
         lineRenderer.enabled = toggle;
         rope.enabled = false;
 
@@ -115,7 +115,7 @@ public class FrappleScript : MonoBehaviour
             {
                 // shoot frapple in the direction of that point, but not exceeding the frapple length
                 Vector3 distanceBtwn = targetPos - transform.position; // the vector between the two points
-                distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength - 0.5f); // clamp the distance to slightly less than the maximum length, so player isn't pulled along
+                distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength); // clamp the distance to slightly less than the maximum length, so player isn't pulled along
                 targetPos = transform.position + distanceBtwn; //new target position to shoot toward
             }
             Toggle(true);
