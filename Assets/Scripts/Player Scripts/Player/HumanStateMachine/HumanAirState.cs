@@ -27,7 +27,6 @@ public class HumanAirState : HumanBaseState
         }
         if (!human.playerController.IsMovePressed())
         {
-            Stop();
             human.SwitchState(human.IdleState);
         }
         else
@@ -37,12 +36,6 @@ public class HumanAirState : HumanBaseState
     public override void OnCollisionEnter(HumanStateManager human, Collision collision)
     {
 
-    }
-
-    // stops the player when no horizontal movement key is pressed
-    private void Stop()
-    {
-        attributes.rb.velocity = new Vector2(0, attributes.rb.velocity.y);
     }
 
     // deals with the the velocity of the player, and calls Flip() when applicable

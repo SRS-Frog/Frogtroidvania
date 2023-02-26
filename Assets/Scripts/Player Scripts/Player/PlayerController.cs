@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
 
     //Getter functions
-    public bool IsMovePressed()
+    public bool IsMovePressed() // edited to pass vector 2 instead
     {
         return movePressed;
     }
