@@ -15,7 +15,7 @@ public class FrappleScript : MonoBehaviour
     private GameObject daehyun;
 
     // inspector variables
-    [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f;
+    [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f, shortenSpeed = 20f; // retract speed for when nothing was hit, shorten speed for when hooked
     [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
 
     // changes on runtime
@@ -72,7 +72,7 @@ public class FrappleScript : MonoBehaviour
 
                 if (Vector2.Distance(transform.position, targetPos) <= 0.1f) // if the distance is small enough, target reached
                 {
-                    isRetracting = true; // retract frapple
+                    RetractFrapple(); // retract frapple
                 }
             }
             else
@@ -82,6 +82,7 @@ public class FrappleScript : MonoBehaviour
         } else
         {
             // shorten the rope
+            rope.distance -= shortenSpeed * rope.distance * Time.deltaTime;
         }
     }
 
@@ -105,19 +106,22 @@ public class FrappleScript : MonoBehaviour
     // change the state of the frapple when trigger enters or stays
     private void OnTriggerStay2D(Collider2D collision)
     {
+        //Debug.Log("Stay " + collision);
         FrappleStateChange(collision);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log("Enter " + collision);
         FrappleStateChange(collision);
     }
 
     // frapples if collides with a frappable block, turns off if collides with player, retracts if it collides with anything not frappable
     private void FrappleStateChange(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Frappable")) // if it is frappable
+        if (!isRetracting && isLaunched && collision.transform.CompareTag("Frappable")) // if it is frappable
         {
+            Debug.Log("collided with " + collision);
             Frapple();
         }
         else if (isRetracting && collision.transform.CompareTag("Player"))
@@ -126,16 +130,19 @@ public class FrappleScript : MonoBehaviour
             {
                 Toggle(false); // set inactive once returned to player
                 isRetracting = false; // no longer retracting the tongue
+
+                Debug.Log("fully retracted");
             }
         }
         else if (!collision.transform.CompareTag("Frappable") && !collision.transform.CompareTag("Player"))
         {
-            isRetracting = true;
+            RetractFrapple();
         }
     }
 
     private void Frapple() // frapple interactions
     {
+        Debug.Log("frapple");
         isLaunched = false;
         isRetracting = false;
         isHooked = true;
@@ -171,6 +178,17 @@ public class FrappleScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Retracts the frapple.
+    /// </summary>
+    public void RetractFrapple()
+    {
+        isRetracting = true;
+        isLaunched = false;
+        isHooked = false;
+        rope.enabled = false;
+        rb.bodyType = RigidbodyType2D.Dynamic; // start moving again
+    }
 
     ///// <summary>
     ///// Returns whether the frapple is currently hooked to an object.

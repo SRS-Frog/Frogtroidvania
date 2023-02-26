@@ -18,11 +18,13 @@ public class FrappleController : MonoBehaviour
 
     //store our controls
     private InputAction frappleAction;
+    private InputAction releaseAction;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         frappleAction = playerInput.actions["Frapple"];
+        releaseAction = playerInput.actions["Release"];
 
         frappleEnd = transform.parent.GetChild(1).gameObject; // get the frapple game object
         frappleScript = frappleEnd.GetComponent<FrappleScript>(); // reference the frapple script of the frappleEnd
@@ -33,19 +35,26 @@ public class FrappleController : MonoBehaviour
     private void OnEnable()
     {
         frappleAction.performed += FrappleControl;
+
+        releaseAction.performed += FrappleRelease;
     }
 
     private void OnDisable()
     {
         frappleAction.performed -= FrappleControl;
+
+        releaseAction.performed += FrappleRelease;
     }
 
     private void FrappleControl(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            Vector2 pos = cam.ScreenToWorldPoint(context.ReadValue<Vector2>()); // position of the click in world space
-            frappleScript.ShootFrapple(pos); // shoot the frapple toward target location
-        }
+        Vector2 pos = cam.ScreenToWorldPoint(context.ReadValue<Vector2>()); // position of the click in world space
+        frappleScript.ShootFrapple(pos); // shoot the frapple toward target location
+    }
+
+    private void FrappleRelease(InputAction.CallbackContext context)
+    {
+        Debug.Log("Right click");
+        frappleScript.RetractFrapple(); // retracts the frapple
     }
 }

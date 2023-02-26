@@ -62,6 +62,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Release"",
+                    ""type"": ""Button"",
+                    ""id"": ""d9dfae2e-d338-4a15-9d63-0bbfb4a5ab69"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +205,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Frapple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d40aa738-3b40-4f07-9c59-aebfdda8b666"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""Release"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -225,6 +245,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Frapple = m_Player.FindAction("Frapple", throwIfNotFound: true);
+        m_Player_Release = m_Player.FindAction("Release", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -288,6 +309,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Frapple;
+    private readonly InputAction m_Player_Release;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -296,6 +318,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Frapple => m_Wrapper.m_Player_Frapple;
+        public InputAction @Release => m_Wrapper.m_Player_Release;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -317,6 +340,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Frapple.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrapple;
                 @Frapple.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrapple;
                 @Frapple.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrapple;
+                @Release.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRelease;
+                @Release.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRelease;
+                @Release.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRelease;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -333,6 +359,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Frapple.started += instance.OnFrapple;
                 @Frapple.performed += instance.OnFrapple;
                 @Frapple.canceled += instance.OnFrapple;
+                @Release.started += instance.OnRelease;
+                @Release.performed += instance.OnRelease;
+                @Release.canceled += instance.OnRelease;
             }
         }
     }
@@ -352,5 +381,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnFrapple(InputAction.CallbackContext context);
+        void OnRelease(InputAction.CallbackContext context);
     }
 }

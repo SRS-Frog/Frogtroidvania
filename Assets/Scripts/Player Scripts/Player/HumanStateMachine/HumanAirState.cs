@@ -47,10 +47,12 @@ public class HumanAirState : HumanBaseState
 
         if (attributes.isHooked) // if the human is hooked, then clamp velocity to frapple top speed (else frapple along!!)
         {
-            attributes.rb.velocity = Vector2.ClampMagnitude(attributes.rb.velocity, attributes.frappleTopSpeed); // clamp it to top speed
+            float clampedX = Vector2.ClampMagnitude( new Vector2 (attributes.rb.velocity.x, 0), attributes.frappleTopSpeed).x; // clamp horizontal value to top speed
+            attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);
         } else
         {
-            attributes.rb.velocity = Vector2.ClampMagnitude(attributes.rb.velocity, attributes.topSpeed); // clamp it to top speed
+            float clampedX = Vector2.ClampMagnitude(new Vector2(attributes.rb.velocity.x, 0), attributes.topSpeed).x; // clamp horizontal value to top speed
+            attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);
         }
 
         // flip the player if needed
