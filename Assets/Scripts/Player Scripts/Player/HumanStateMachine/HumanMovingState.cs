@@ -74,7 +74,7 @@ public class HumanMovingState : HumanBaseState
     // add a vertical force to the player
     public void Jump()
     {
-        attributes.rb.AddForce(new Vector2(0f, 100 * attributes.jumpForce));
+        attributes.rb.AddForce(new Vector2(0f, attributes.jumpForce));
         //if (context.performed && !attributes.isGrounded) // if the player is grounded, jump normally
         //{
         //    attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpForce);
