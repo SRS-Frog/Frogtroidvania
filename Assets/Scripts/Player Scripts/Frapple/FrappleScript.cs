@@ -15,7 +15,7 @@ public class FrappleScript : MonoBehaviour
     private GameObject daehyun;
 
     // inspector variables
-    [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f, shortenSpeed = 20f; // retract speed for when nothing was hit, shorten speed for when hooked
+    [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f, shortenSpeed = 0.5f; // retract speed for when nothing was hit, shorten acceleration for when hooked
     [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
 
     // changes on runtime
@@ -38,11 +38,10 @@ public class FrappleScript : MonoBehaviour
         //spriteRenderer = GetComponent<SpriteRenderer>(); // sprite renderer
         lineRenderer= GetComponent<LineRenderer>(); // line renderer
 
-        Toggle(false);
+        Toggle(false); // toggle the frapple off
 
         // daehyun references
         daehyun = transform.parent.GetChild(0).gameObject; // get a reference to daehyun's game object
-
 
         //bandaid solution
         attributes = rope.connectedBody.GetComponent<HumanAttributes>(); // get the human attributes from the connected body
@@ -82,7 +81,18 @@ public class FrappleScript : MonoBehaviour
         } else
         {
             // shorten the rope
-            rope.distance -= shortenSpeed * rope.distance * Time.deltaTime;
+            rope.distance -= shortenSpeed * Time.deltaTime;
+
+            // if too close to the top, release
+            float tooClose = 3.5f;
+            Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
+            if(Vector2.Distance(targetPos, daehyunPos) <= tooClose)
+            {
+                // move back to starting pos and toggle everything false
+                transform.position = startingPos;
+                Toggle(false); // set inactive once returned to player
+                isRetracting = false; // no longer retracting the tongue
+            }
         }
     }
 
@@ -90,7 +100,6 @@ public class FrappleScript : MonoBehaviour
     {
         // deactivate components
         isLaunched = toggle; // toggle whether it is launched
-        //spriteRenderer.enabled = toggle;
         lineRenderer.enabled = toggle;
         rope.enabled = false;
 
@@ -148,6 +157,9 @@ public class FrappleScript : MonoBehaviour
         isHooked = true;
         rope.enabled = true;
         rb.bodyType = RigidbodyType2D.Static; // stop moving
+
+        // rope distance is distance from hooked point to the player's position (or maximum of rope length)
+        rope.distance = Mathf.Clamp(Vector2.Distance(targetPos, daehyun.transform.position), 0f, frappleLength);
 
         //bandaid solution
         attributes.isHooked = isHooked; // this is only changed when the frapple is hooked, and turned off when character hits the ground

@@ -41,6 +41,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4638912717219582304}
     m_Modifications:
     - target: {fileID: 1110360057, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: shortenAcc
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110360057, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: frappleSpeed
       value: 20
       objectReference: {fileID: 0}
@@ -258,6 +262,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4638912717219582304}
     m_Modifications:
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: d9dfae2e-d338-4a15-9d63-0bbfb4a5ab69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Player/Release[/Mouse/rightButton]
+      objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697351, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_Material
       value: 
@@ -272,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: frappleTopSpeed
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697359, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_Material
@@ -336,6 +352,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1503719458892697350, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+    - {fileID: 1503719458892697355, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+    - {fileID: 1503719458892697352, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
 --- !u!50 &6106584676155727059 stripped
 Rigidbody2D:
