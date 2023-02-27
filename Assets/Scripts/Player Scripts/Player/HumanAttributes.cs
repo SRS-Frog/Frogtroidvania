@@ -41,6 +41,10 @@ public class HumanAttributes : MonoBehaviour
     public GameObject attackArea;
     public float timeToAttack = 0.15f;
 
+    // coyote time
+    float coyoteTime = 0.1f;
+    float coyoteTimer = 0f;
+
     //public Animator animator; // the animator of the player
     //[HideInInspector] public GameObject player; // the player
     //[HideInInspector] public GameObject lowestBound; // an empty GameObject that marks the lowest point in your game
@@ -66,7 +70,23 @@ public class HumanAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer);
+        if(coyoteTimer > Mathf.Epsilon) // aka 0f
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
+        
+        if(Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer)) // if touching ground
+        {
+            coyoteTimer = coyoteTime; // coyote timer begins
+        }
+        if(coyoteTimer > Mathf.Epsilon) // if the coyote timer isn't over
+        {
+            isGrounded = true; // it counts as being grounded
+        } else
+        {
+            isGrounded= false; // it doesn't count as being grounded
+        }
+
         //Debug.Log("isGrounded " + isGrounded);
         
 
