@@ -139,4 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad7e704a40ed4e42b482376a7a992c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frappleLength: 0
   frappleSpeed: 5
+  retractSpeed: 30
+  shortenSpeed: 5
+  offset: {x: 0, y: 1}
