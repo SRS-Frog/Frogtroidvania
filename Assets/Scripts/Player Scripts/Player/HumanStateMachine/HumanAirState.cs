@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerController;
 
 public class HumanAirState : HumanBaseState
 {
     HumanAttributes attributes;
+
+    PlayerController.JumpStates jumpState;
 
     public override void EnterState(HumanStateManager human, HumanAttributes attributes)
     {
@@ -15,12 +18,21 @@ public class HumanAirState : HumanBaseState
 
     public override void UpdateState(HumanStateManager human)
     {
-        
+
     }
 
     public override void FixedUpdateState(HumanStateManager human)
     {
-        if(attributes.isGrounded)
+        jumpState = human.playerController.JumpState();
+        string jumpContext = jumpState.ToString();
+
+        // for small jumps
+        if (jumpContext == "canceled" && attributes.rb.velocity.y > 0) // if the jump key was canceled midjump, fall faster than usual
+        {
+            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.rb.velocity.y* 0.5f);
+        }
+
+        if (attributes.isGrounded)
         {
             human.SwitchState(human.IdleState);
             return;
@@ -60,6 +72,7 @@ public class HumanAirState : HumanBaseState
         {
             float clampedX = Vector2.ClampMagnitude( new Vector2 (attributes.rb.velocity.x, 0), attributes.frappleTopSpeed).x; // clamp horizontal value to top speed
             attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);
+            Debug.Log("Frapple Speed");
         } else
         {
             float clampedX = Vector2.ClampMagnitude(new Vector2(attributes.rb.velocity.x, 0), attributes.topSpeed).x; // clamp horizontal value to top speed

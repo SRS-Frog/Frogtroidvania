@@ -23,6 +23,14 @@ public class PlayerController : MonoBehaviour
     private int dir;
     private float horizontal;
 
+    public enum JumpStates // FAUSTINE: IDK IF THIS IS GOOD AT ALL, CONSIDER REFACTORING
+    {
+        started,
+        performed,
+        canceled
+    }
+    JumpStates jumpState = JumpStates.canceled;
+
     private void Awake()
     {
         //playerStates = GetComponent<PlayerStates>();
@@ -93,9 +101,11 @@ public class PlayerController : MonoBehaviour
     private void JumpControl(InputAction.CallbackContext context)
     {
         if(context.started)
-            jumpPressed = true;
+            jumpState = JumpStates.started;
+        else if(context.performed)
+            jumpState = JumpStates.performed;
         else if(context.canceled)
-            jumpPressed = false;
+            jumpState = JumpStates.canceled;
     }
 
     private void AttackControl(InputAction.CallbackContext context)
@@ -124,9 +134,9 @@ public class PlayerController : MonoBehaviour
         return horizontal; // returns the horizontal input value
     }
 
-    public bool IsJumpPressed()
+    public JumpStates JumpState()
     {
-        return jumpPressed;
+        return jumpState;
     }
 
     public bool IsAttackPressed()

@@ -7,6 +7,8 @@ public class HumanMovingState : HumanBaseState
 {
     HumanAttributes attributes;
 
+    PlayerController.JumpStates jumpState;
+
     public override void EnterState(HumanStateManager human, HumanAttributes attributes)
     {
         Debug.Log("Hello from the Moving State");
@@ -15,11 +17,14 @@ public class HumanMovingState : HumanBaseState
 
     public override void UpdateState(HumanStateManager human)
     {
-        if(!attributes.isGrounded)
+        jumpState = human.playerController.JumpState();
+        string jumpContext = jumpState.ToString();
+
+        if (!attributes.isGrounded)
         {
             human.SwitchState(human.AirState);
         }
-        else if(human.playerController.IsJumpPressed())
+        else if(jumpContext == "performed" || jumpContext == "started")
         {
             Debug.Log("Jump");
             Jump();
@@ -66,16 +71,10 @@ public class HumanMovingState : HumanBaseState
     // add a vertical force to the player
     public void Jump()
     {
-        attributes.rb.AddForce(new Vector2(0f, attributes.jumpForce));
-        //if (context.performed && attributes.isGrounded) // if the player is grounded, jump normally
-        //{
-        //    attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpForce);
-        //}
-
-        //if (context.canceled && attributes.rb.velocity.y > 0) // if the jump key was canceled midjump, fall faster than usual
-        //{
-        //    attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.rb.velocity.y * 0.5f);
-        //}
+        if (attributes.isGrounded) // if the player is grounded, jump normally
+        {
+            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpForce);
+        }
     }
 
     // flip the player

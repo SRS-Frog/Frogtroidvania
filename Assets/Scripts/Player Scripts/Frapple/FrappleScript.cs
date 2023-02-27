@@ -86,8 +86,8 @@ public class FrappleScript : MonoBehaviour
             rope.distance -= shortenSpeed * Time.deltaTime;
 
             // if too close to the top or daehyun is above the frapple, release
-            float tooClose = 1.5f;
-            Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
+            float tooClose = 1.8f;
+            // Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
             if (Vector2.Distance(rb.position, startingPos) <= tooClose || startingPos.y > rb.position.y)
             {
                 ReturnToStartPos();

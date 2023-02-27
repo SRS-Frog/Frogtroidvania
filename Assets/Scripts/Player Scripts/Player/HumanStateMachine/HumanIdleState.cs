@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerController;
 
 public class HumanIdleState : HumanBaseState
 {
     HumanAttributes attributes;
-    
+
+    PlayerController.JumpStates jumpState;
+
     public override void EnterState(HumanStateManager human, HumanAttributes attributes)
     {
         //Debug.Log("Hello from IdleState");
@@ -14,13 +17,16 @@ public class HumanIdleState : HumanBaseState
 
     public override void UpdateState(HumanStateManager human)
     {
-        if(!attributes.isGrounded)
+        jumpState = human.playerController.JumpState();
+        string jumpContext = jumpState.ToString();
+
+        if (!attributes.isGrounded)
             human.SwitchState(human.AirState);
         else if(human.playerController.IsAttackPressed())
             human.SwitchState(human.AttackState);
-        else if(human.playerController.IsJumpPressed() && attributes.isGrounded)
+        else if (jumpContext == "performed")
         {
-            Debug.Log("Idle Jump");
+            Debug.Log("Jump");
             Jump();
             human.SwitchState(human.AirState);
         }
@@ -54,6 +60,9 @@ public class HumanIdleState : HumanBaseState
     // add a vertical force to the player
     public void Jump()
     {
-        attributes.rb.AddForce(new Vector2(0f, attributes.jumpForce));
+        if (attributes.isGrounded) // if the player is grounded, jump normally
+        {
+            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpForce);
+        }
     }
 }
