@@ -85,13 +85,10 @@ public class FrappleScript : MonoBehaviour
 
             // if too close to the top, release
             float tooClose = 3.5f;
-            Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
-            if(Vector2.Distance(targetPos, daehyunPos) <= tooClose)
+            // Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
+            if (Vector2.Distance(targetPos, daehyunPos) <= tooClose)
             {
-                // move back to starting pos and toggle everything false
-                transform.position = startingPos;
-                Toggle(false); // set inactive once returned to player
-                isRetracting = false; // no longer retracting the tongue
+                ReturnToStartPos();
             }
         }
     }
@@ -130,17 +127,15 @@ public class FrappleScript : MonoBehaviour
     {
         if (!isRetracting && isLaunched && collision.transform.CompareTag("Frappable")) // if it is frappable
         {
-            Debug.Log("collided with " + collision);
+            // Debug.Log("collided with " + collision);
             Frapple();
         }
         else if (isRetracting && collision.transform.CompareTag("Player"))
         {
             if (Vector2.Distance(startingPos, transform.position) < 0.5f) // if close enough to starting position
             {
-                Toggle(false); // set inactive once returned to player
-                isRetracting = false; // no longer retracting the tongue
-
-                Debug.Log("fully retracted");
+                ReturnToStartPos();
+                // Debug.Log("fully retracted");
             }
         }
         else if (!collision.transform.CompareTag("Frappable") && !collision.transform.CompareTag("Player"))
@@ -163,6 +158,15 @@ public class FrappleScript : MonoBehaviour
 
         //bandaid solution
         attributes.isHooked = isHooked; // this is only changed when the frapple is hooked, and turned off when character hits the ground
+    }
+
+    // returns the frapple to starting position WITHOUT retraction animation
+    private void ReturnToStartPos()
+    {
+        // move back to starting pos and toggle everything false
+        transform.position = startingPos;
+        Toggle(false); // set inactive once returned to player
+        isRetracting = false; // no longer retracting the tongue
     }
 
     /// <summary>
