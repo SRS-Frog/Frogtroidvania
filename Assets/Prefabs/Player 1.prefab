@@ -161,20 +161,40 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2324145913322482146, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47843137
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324145913322482146, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: m_Color.g
+      value: 0.28235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324145913322482146, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324145913322482146, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2324145913322482147, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2324145913322482147, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324145913322482147, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324145913322482147, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4459243
+      value: -2.625001
       objectReference: {fileID: 0}
     - target: {fileID: 2324145913322482147, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.96752226
+      value: -1.2812505
       objectReference: {fileID: 0}
     - target: {fileID: 2324145913322482147, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: m_LocalPosition.z
@@ -360,15 +380,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionId
       value: d9dfae2e-d338-4a15-9d63-0bbfb4a5ab69
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: e0bdc639-d33d-448c-aa6a-6348f9bb4582
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: Player/Release[/Mouse/rightButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Player/Point[/Mouse/position]
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697351, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_Material
@@ -416,7 +444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697394, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.122719
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697394, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_LocalRotation.w
@@ -450,6 +478,7 @@ PrefabInstance:
     - {fileID: 1503719458892697350, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
     - {fileID: 1503719458892697355, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
     - {fileID: 1503719458892697352, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+    - {fileID: 1503719458892697348, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
 --- !u!50 &6106584676155727059 stripped
 Rigidbody2D:
