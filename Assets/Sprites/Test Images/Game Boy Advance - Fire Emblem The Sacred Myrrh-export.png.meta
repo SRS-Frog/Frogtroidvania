@@ -1,0 +1,948 @@
+fileFormatVersion: 2
+guid: c2ec25c60e333da428988aa9594210d2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 634
+        width: 61
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc530c151bcc2a1468f6388103b91ef3
+      internalID: 353231696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 606
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b82850b3729e547a0ccd0a22d98839
+      internalID: 1142401626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_2
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 597
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8bc5b102cce6f4fadbc25d9e0e51b8
+      internalID: -461468702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_3
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 596
+        width: 55
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b40985450983d4898caba3877e5e0f
+      internalID: -852383985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_4
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 590
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6774ffc68039a418781c1c769bb34b
+      internalID: -1421485000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_5
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 486
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a00d22ffc0ebe4cbcdb847ffe9593a
+      internalID: 1798999494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_6
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 484
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca3add3f803e7d4f863a72f348fac1b
+      internalID: -1165707353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_7
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 487
+        width: 46
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd28c8da46e111a47bbba966373decb6
+      internalID: 1490223167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_8
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 477
+        width: 29
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb610faf0a342e4aacb88540ec82099
+      internalID: -971511370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_9
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 475
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6534a9f1a55081a40af99a6da644dc8d
+      internalID: 1402346990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_10
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 467
+        width: 53
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80392bb80276cdd4b904fd03fdb50517
+      internalID: -1179587128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_11
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 456
+        width: 112
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135c2de702785e44ab6cb8c0785108cb
+      internalID: 1374264864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 475
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53afa2d8e2717fc41b4c23e86a440200
+      internalID: 1369622172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_13
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 471
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861bf15c686478c4f8605292ac502035
+      internalID: -2138506513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_14
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 470
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0766aec332d0546adf9723047b6b70
+      internalID: -1507053545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_15
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 470
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0b6556d07a30b418f24d11cb4885cd
+      internalID: 1644282385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_16
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 468
+        width: 34
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83032ad5778fdc248906c40a862c3330
+      internalID: 1453626455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_17
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 354
+        width: 111
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04da21620baad14449ac08267c7570a8
+      internalID: 137703827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 349
+        width: 111
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca99c8bb910443a4d8e4c8ff18b1cb01
+      internalID: -1935582979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_19
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 344
+        width: 113
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020e4511b13b92846acd173f322ce56d
+      internalID: 1987815206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_20
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 340
+        width: 112
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e894550a18ed2b9488af2ff9950c1191
+      internalID: -325370946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_21
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 335
+        width: 122
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b0840c72917b748a84d2c932047240
+      internalID: 815152378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_22
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 232
+        width: 120
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fdac2097a42cf45b1709850a6be3cc
+      internalID: 1504407462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_23
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 228
+        width: 114
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a0df2a45e4f7d4f8355bbcf75f712e
+      internalID: -273835035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_24
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 223
+        width: 122
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e8a91189b4eb446ba518a99de6f0de
+      internalID: 380431988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_25
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 219
+        width: 129
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 140ec0d70021a3241ba21226fbacd2ff
+      internalID: 1373261767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_26
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 214
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95243d2879658974097fd045767cd8fa
+      internalID: -1498503723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_27
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 115
+        width: 111
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75928ade802cdce48bcd14a8aeda855b
+      internalID: -2042093351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_28
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 104
+        width: 111
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f91f6ead8a68fe4daf792f5c8286632
+      internalID: -1046891842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 120
+        width: 94
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ad6687db33ebf4e9550d316d6e4b70
+      internalID: -1956640479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_30
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 15
+        width: 201
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a0c1766a75de24896034bc50098e41
+      internalID: 344913066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_31
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 36
+        width: 58
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2c218b7967d8f40b396c175cfefd96
+      internalID: 958078147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_32
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 35
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849cdbd573568d242810e79bc3b472ec
+      internalID: 765968225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_33
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 34
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f737701f45002d040a85a8c6d9aa193f
+      internalID: 307943554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_34
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 26
+        width: 20
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724f8efdae5fb0741886fb29326e4ca4
+      internalID: 240907663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_35
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 24
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6035c1d95f21d48938314b1751f233
+      internalID: 579454181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Fire Emblem The Sacred Myrrh-export_36
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 23
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9c0799be5f4fc4ea0820b8a1bac6e6
+      internalID: 1564857426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_24: 380431988
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_15: 1644282385
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_30: 344913066
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_26: -1498503723
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_18: -1935582979
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_32: 765968225
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_25: 1373261767
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_11: 1374264864
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_16: 1453626455
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_31: 958078147
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_33: 307943554
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_34: 240907663
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_5: 1798999494
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_20: -325370946
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_10: -1179587128
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_28: -1046891842
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_4: -1421485000
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_1: 1142401626
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_21: 815152378
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_9: 1402346990
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_19: 1987815206
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_29: -1956640479
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_12: 1369622172
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_3: -852383985
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_36: 1564857426
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_13: -2138506513
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_2: -461468702
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_35: 579454181
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_17: 137703827
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_8: -971511370
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_23: -273835035
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_27: -2042093351
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_14: -1507053545
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_22: 1504407462
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_6: -1165707353
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_0: 353231696
+      Game Boy Advance - Fire Emblem The Sacred Myrrh-export_7: 1490223167
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
