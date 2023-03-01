@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static Yarn.Compiler.BasicBlock;
 
 public class FrappleScript : MonoBehaviour
@@ -229,6 +230,24 @@ public class FrappleScript : MonoBehaviour
     public bool Frappable(Vector2 point)
     {
         return (Vector2.Distance(point, startingPos) <= frappleLength);
+    }
+
+    // DOESN'T WORK CONSISTENTLY
+    public void ReleaseTension(InputAction.CallbackContext context) // TODO: this can replace the original returntostartpos logic maybe :0 like players can hang on top of the ceiling if they want?
+    {
+        if (isHooked) // if hooked
+        {
+            float dir = Mathf.Sign(context.ReadValue<float>()); // direction of the input
+            Vector2 relativeDir = (rb.position - startingPos).normalized; // the frapple direction relative to the rigidbody
+
+            if(dir > Mathf.Epsilon && relativeDir.x < -Mathf.Epsilon) // if the rigidbody is moving to the right and the frapple end is behind the rigidbody
+            {
+                RetractFrapple();
+            } else if (dir < -Mathf.Epsilon && relativeDir.x > Mathf.Epsilon) // if the rigidbody is moving to the left and the frapple end is behind the rigidbody
+            {
+                RetractFrapple();
+            }
+        }
     }
 
     ///// <summary>

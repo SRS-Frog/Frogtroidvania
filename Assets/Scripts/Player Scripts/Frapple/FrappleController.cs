@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,12 +20,18 @@ public class FrappleController : MonoBehaviour
     private InputAction releaseAction;
     private InputAction pointAction;
 
+    // player movement control
+    private InputAction moveAction;
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         frappleAction = playerInput.actions["Frapple"];
         releaseAction = playerInput.actions["Release"];
         pointAction = playerInput.actions["Point"];
+
+        // sense player movement
+        moveAction = playerInput.actions["Move"];
 
         frappleScript = transform.parent.GetChild(1).gameObject.GetComponent<FrappleScript>(); // reference the frapple script of the frappleEnd
         frappleIndicator = transform.parent.GetChild(2).gameObject.GetComponent<FrappleIndicator>(); // get the frapple indicator
@@ -43,6 +48,10 @@ public class FrappleController : MonoBehaviour
         pointAction.performed += FrappleIndicate;
         pointAction.started += FrappleIndicate;
         pointAction.canceled += FrappleIndicate;
+
+        moveAction.performed += ReleaseTension;
+        moveAction.started += ReleaseTension;
+
     }
 
     private void OnDisable()
@@ -54,6 +63,9 @@ public class FrappleController : MonoBehaviour
         pointAction.performed -= FrappleIndicate;
         pointAction.started -= FrappleIndicate;
         pointAction.canceled -= FrappleIndicate;
+
+        moveAction.performed -= ReleaseTension;
+        moveAction.started -= ReleaseTension;
     }
 
     private void FrappleControl(InputAction.CallbackContext context)
@@ -64,8 +76,14 @@ public class FrappleController : MonoBehaviour
 
     private void FrappleRelease(InputAction.CallbackContext context)
     {
-        Debug.Log("Right click");
+        // Debug.Log("Right click");
         frappleScript.RetractFrapple(); // retracts the frapple
+    }
+
+    // DOESN'T WORK CONSISTENTLY
+    private void ReleaseTension(InputAction.CallbackContext context)
+    {
+        frappleScript.ReleaseTension(context);
     }
 
     private void FrappleIndicate(InputAction.CallbackContext context)
