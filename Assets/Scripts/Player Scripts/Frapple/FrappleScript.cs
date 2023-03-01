@@ -18,6 +18,7 @@ public class FrappleScript : MonoBehaviour
 
     // inspector variables
     [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f, shortenSpeed = 0.5f; // retract speed for when nothing was hit, shorten acceleration for when hooked
+    [SerializeField] float releaseLength = 1.8f; // if too close to the top or daehyun is above the frapple, release
     [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
 
     // changes on runtime
@@ -87,9 +88,8 @@ public class FrappleScript : MonoBehaviour
             rope.distance -= shortenSpeed * Time.deltaTime;
 
             // if too close to the top or daehyun is above the frapple, release
-            float tooClose = 1.8f;
             // Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
-            if (Vector2.Distance(rb.position, startingPos) <= tooClose || startingPos.y > rb.position.y)
+            if (Vector2.Distance(rb.position, startingPos) <= releaseLength || startingPos.y > rb.position.y)
             {
                 ReturnToStartPos();
             }

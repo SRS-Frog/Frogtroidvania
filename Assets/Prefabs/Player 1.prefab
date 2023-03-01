@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -398593037
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,6 +151,10 @@ PrefabInstance:
     - target: {fileID: 1110360057, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: frappleLength
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110360057, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
+      propertyPath: releaseLength
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2324145913322482144, guid: c30a565ce0f73b347ba8f343f96bc961, type: 3}
       propertyPath: m_Name
@@ -404,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: jumpForce
-      value: 800
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: acceleration
