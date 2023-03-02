@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-    [SerializeField] private int health = 100;
+    [SerializeField] private int startingHealth = 100;
 
-    private int MAX_HEALTH = 100;
+    public int health { get; private set; }
+
+    public const int MAX_HEALTH = 100; 
+
+    void Awake() {
+        health = startingHealth;
+    }
 
     // Update is called once per frame
     void Update() {
