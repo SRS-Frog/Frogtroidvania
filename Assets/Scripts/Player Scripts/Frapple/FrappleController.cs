@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class FrappleController : MonoBehaviour
 {
     // frapple variables
-    private FrappleIndicator frappleIndicator; // frapple indicator
     private FrappleScript frappleScript; //frapple script
     private Camera cam; // camera being used
 
@@ -18,23 +17,18 @@ public class FrappleController : MonoBehaviour
     //store our controls
     private InputAction frappleAction;
     private InputAction releaseAction;
-    private InputAction pointAction;
+    private InputAction dashAction; // can be collapsed into playerController
 
     // player movement control
-    private InputAction moveAction;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         frappleAction = playerInput.actions["Frapple"];
         releaseAction = playerInput.actions["Release"];
-        pointAction = playerInput.actions["Point"];
-
-        // sense player movement
-        moveAction = playerInput.actions["Move"];
+        dashAction = playerInput.actions["Dash"];
 
         frappleScript = transform.parent.GetChild(1).gameObject.GetComponent<FrappleScript>(); // reference the frapple script of the frappleEnd
-        frappleIndicator = transform.parent.GetChild(2).gameObject.GetComponent<FrappleIndicator>(); // get the frapple indicator
 
         cam = Camera.main; //set the camera to the main camera
     }
@@ -45,13 +39,7 @@ public class FrappleController : MonoBehaviour
 
         releaseAction.performed += FrappleRelease;
 
-        pointAction.performed += FrappleIndicate;
-        pointAction.started += FrappleIndicate;
-        pointAction.canceled += FrappleIndicate;
-
-        moveAction.performed += ReleaseTension;
-        moveAction.started += ReleaseTension;
-
+        dashAction.performed += FrappleFullRetract;
     }
 
     private void OnDisable()
@@ -60,12 +48,7 @@ public class FrappleController : MonoBehaviour
 
         releaseAction.performed -= FrappleRelease;
 
-        pointAction.performed -= FrappleIndicate;
-        pointAction.started -= FrappleIndicate;
-        pointAction.canceled -= FrappleIndicate;
-
-        moveAction.performed -= ReleaseTension;
-        moveAction.started -= ReleaseTension;
+        dashAction.performed -= FrappleFullRetract;
     }
 
     private void FrappleControl(InputAction.CallbackContext context)
@@ -80,15 +63,9 @@ public class FrappleController : MonoBehaviour
         frappleScript.RetractFrapple(); // retracts the frapple
     }
 
-    // DOESN'T WORK CONSISTENTLY
-    private void ReleaseTension(InputAction.CallbackContext context)
+    private void FrappleFullRetract(InputAction.CallbackContext context)
     {
-        frappleScript.ReleaseTension(context);
-    }
-
-    private void FrappleIndicate(InputAction.CallbackContext context)
-    {
-        Vector2 pos = cam.ScreenToWorldPoint(context.ReadValue<Vector2>()); // position the pointer is at
-        frappleIndicator.Move(pos); // indicate whether that position is frappable
+        frappleScript.ReturnToStartPos();
+        frappleScript.RetractFrapple();
     }
 }

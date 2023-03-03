@@ -38,7 +38,9 @@ public class HumanAttributes : MonoBehaviour
     private RaycastHit2D hit;
 
     [Header("Dash")]
-    public float dashStrength = 35f, dashTime = 0.2f, baseGravity;
+    public float dashStrength = 35f;
+    public float dashTime = 0.2f;
+    public float baseGravity;
     [HideInInspector] public bool canDash = false;
 
     [Header("Plunge")]

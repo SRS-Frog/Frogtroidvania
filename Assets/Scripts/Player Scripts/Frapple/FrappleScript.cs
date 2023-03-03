@@ -89,10 +89,10 @@ public class FrappleScript : MonoBehaviour
 
             // if too close to the top or daehyun is above the frapple, release
             // Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
-            if (Vector2.Distance(rb.position, startingPos) <= releaseLength || startingPos.y > rb.position.y)
-            {
-                ReturnToStartPos();
-            }
+            //if (Vector2.Distance(rb.position, startingPos) <= releaseLength || startingPos.y > rb.position.y)
+            //{
+            //    ReturnToStartPos();
+            //}
         }
     }
 
@@ -164,8 +164,10 @@ public class FrappleScript : MonoBehaviour
         attributes.isHooked = isHooked; // this is only changed when the frapple is hooked, and turned off when character hits the ground
     }
 
-    // returns the frapple to starting position WITHOUT retraction animation
-    private void ReturnToStartPos()
+    /// <summary>
+    /// returns the frapple to starting position WITHOUT retraction animation
+    /// </summary>
+    public void ReturnToStartPos()
     {
         // move back to starting pos and toggle everything false
         rb.position = startingPos;
@@ -231,31 +233,4 @@ public class FrappleScript : MonoBehaviour
     {
         return (Vector2.Distance(point, startingPos) <= frappleLength);
     }
-
-    // DOESN'T WORK CONSISTENTLY
-    public void ReleaseTension(InputAction.CallbackContext context) // TODO: this can replace the original returntostartpos logic maybe :0 like players can hang on top of the ceiling if they want?
-    {
-        if (isHooked) // if hooked
-        {
-            float dir = Mathf.Sign(context.ReadValue<float>()); // direction of the input
-            Vector2 relativeDir = (rb.position - startingPos).normalized; // the frapple direction relative to the rigidbody
-
-            if(dir > Mathf.Epsilon && relativeDir.x < -Mathf.Epsilon) // if the rigidbody is moving to the right and the frapple end is behind the rigidbody
-            {
-                RetractFrapple();
-            } else if (dir < -Mathf.Epsilon && relativeDir.x > Mathf.Epsilon) // if the rigidbody is moving to the left and the frapple end is behind the rigidbody
-            {
-                RetractFrapple();
-            }
-        }
-    }
-
-    ///// <summary>
-    ///// Returns whether the frapple is currently hooked to an object.
-    ///// </summary>
-    ///// <returns>isHooked</returns>
-    //public bool IsHooked()
-    //{
-    //    return isHooked;
-    //}
 }
