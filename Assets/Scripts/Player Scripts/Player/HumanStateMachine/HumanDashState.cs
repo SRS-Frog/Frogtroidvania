@@ -51,6 +51,7 @@ public class HumanDashState : HumanBaseState
 
     private void StopDash(HumanStateManager human) 
     {
+        attributes.rb.velocity = Vector2.zero; // no speed
         attributes.rb.gravityScale = attributes.baseGravity; // restore gravity
         human.SwitchState(human.AirState); // go to air state
     }

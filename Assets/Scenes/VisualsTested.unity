@@ -825,7 +825,7 @@ GameObject:
   - component: {fileID: 777449337}
   - component: {fileID: 777449341}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Tilemap Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1908,7 +1908,7 @@ GameObject:
   - component: {fileID: 1843391039}
   - component: {fileID: 1843391042}
   m_Layer: 7
-  m_Name: Bounds
+  m_Name: Camera Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4124,6 +4124,14 @@ PrefabInstance:
     - target: {fileID: 4638912717219582305, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: dashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: dashStrength
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
