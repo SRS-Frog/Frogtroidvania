@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static Yarn.Compiler.BasicBlock;
 
 public class FrappleScript : MonoBehaviour
@@ -17,6 +18,7 @@ public class FrappleScript : MonoBehaviour
 
     // inspector variables
     [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f, shortenSpeed = 0.5f; // retract speed for when nothing was hit, shorten acceleration for when hooked
+    [SerializeField] float releaseLength = 1.8f; // if too close to the top or daehyun is above the frapple, release
     [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
 
     // changes on runtime
@@ -86,9 +88,8 @@ public class FrappleScript : MonoBehaviour
             rope.distance -= shortenSpeed * Time.deltaTime;
 
             // if too close to the top or daehyun is above the frapple, release
-            float tooClose = 1.8f;
             // Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
-            if (Vector2.Distance(rb.position, startingPos) <= tooClose || startingPos.y > rb.position.y)
+            if (Vector2.Distance(rb.position, startingPos) <= releaseLength || startingPos.y > rb.position.y)
             {
                 ReturnToStartPos();
             }
@@ -229,6 +230,24 @@ public class FrappleScript : MonoBehaviour
     public bool Frappable(Vector2 point)
     {
         return (Vector2.Distance(point, startingPos) <= frappleLength);
+    }
+
+    // DOESN'T WORK CONSISTENTLY
+    public void ReleaseTension(InputAction.CallbackContext context) // TODO: this can replace the original returntostartpos logic maybe :0 like players can hang on top of the ceiling if they want?
+    {
+        if (isHooked) // if hooked
+        {
+            float dir = Mathf.Sign(context.ReadValue<float>()); // direction of the input
+            Vector2 relativeDir = (rb.position - startingPos).normalized; // the frapple direction relative to the rigidbody
+
+            if(dir > Mathf.Epsilon && relativeDir.x < -Mathf.Epsilon) // if the rigidbody is moving to the right and the frapple end is behind the rigidbody
+            {
+                RetractFrapple();
+            } else if (dir < -Mathf.Epsilon && relativeDir.x > Mathf.Epsilon) // if the rigidbody is moving to the left and the frapple end is behind the rigidbody
+            {
+                RetractFrapple();
+            }
+        }
     }
 
     ///// <summary>
