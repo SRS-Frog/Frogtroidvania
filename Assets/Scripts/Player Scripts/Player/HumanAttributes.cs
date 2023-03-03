@@ -45,7 +45,8 @@ public class HumanAttributes : MonoBehaviour
 
     [Header("Plunge")]
     [SerializeField] private float maxRayLength;
-    [SerializeField] private float plungeSpeed;
+    public float plungeSpeed;
+    [HideInInspector] public bool canPlunge;
 
     [Header("Attack")]
     //attacking
@@ -104,6 +105,7 @@ public class HumanAttributes : MonoBehaviour
         {
             isHooked = false; // no longer hooked
             canDash = true;
+            canPlunge = false;
             // Debug.Log("Grounded");
         }
 

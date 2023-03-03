@@ -14,6 +14,7 @@ public class HumanAirState : HumanBaseState
         //Debug.Log("Hello from air state");
         this.attributes = attributes;
 
+        attributes.canPlunge = true; // as soon as you are in the air, you can plunge again
     }
 
     public override void UpdateState(HumanStateManager human)
@@ -38,8 +39,16 @@ public class HumanAirState : HumanBaseState
             return;
         }
 
+        if(attributes.canPlunge && human.playerController.IsPlungePressed())
+        {
+            attributes.canDash = false;
+            human.SwitchState(human.PlungeState); // switch to the plunge state
+            return;
+        }
+
         if (attributes.canDash && human.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
         {
+            attributes.canPlunge = false; // cannot plunge
             human.SwitchState(human.DashState); 
             return;
         }
