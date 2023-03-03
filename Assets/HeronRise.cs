@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeronRise : StateMachineBehaviour
 {
     public float moveSpeed = 1.5f;
-    public float riseRange = 3f;
+    public float riseRange = 0.1f;
     Transform player;
     Rigidbody2D rb;
 
@@ -22,11 +22,14 @@ public class HeronRise : StateMachineBehaviour
         Vector2 target = new Vector2(rb.position.x, rb.position.y + 1);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, moveSpeed * Time.fixedDeltaTime);
 
+        Debug.Log(Time.fixedTime);
+
         if (Vector2.Distance(player.position, rb.position) <= riseRange)
         {
-            animator.SetTrigger("Idle");
+            animator.SetBool("RiseState", false);
             rb.MovePosition(newPos);
-            Debug.Log("Idle");
+            Debug.Log("Success");
+  
         }
     }
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

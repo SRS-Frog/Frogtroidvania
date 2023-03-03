@@ -23,13 +23,8 @@ public class HeronBehavior : StateMachineBehaviour
         Vector2 target = new Vector2(player.position.x, rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, moveSpeed * Time.fixedDeltaTime);
         
-
-        // if (Vector2.Distance(player.position, rb.position) > riseRange)
-        // {
-        //     animator.SetTrigger("Rise");
-        //     rb.MovePosition(newPos);
-        //     Debug.Log("Rising");
-        // }
+        
+  
          
     }
 
