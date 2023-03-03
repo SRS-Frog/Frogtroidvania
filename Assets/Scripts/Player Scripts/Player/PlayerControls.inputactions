@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "7f66f2a7-1cd0-45f8-9086-f234acda6160",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Frapple",
                     "type": "Value",
                     "id": "4b0ba5b7-0342-440d-acec-dc4e7005525f",
@@ -212,6 +221,17 @@
                     "processors": "",
                     "groups": "Keyboard+Mouse",
                     "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aaa25003-7557-4043-a918-68dabddec16e",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

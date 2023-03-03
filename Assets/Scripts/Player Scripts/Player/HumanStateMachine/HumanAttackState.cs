@@ -36,7 +36,11 @@ public class HumanAttackState : HumanBaseState
         
     }
 
-    public override void OnCollisionEnter(HumanStateManager human, Collision collision)
+    public override void OnCollisionEnter2D(HumanStateManager human, Collision2D collision)
+    {
+
+    }
+    public override void OnCollisionStay2D(HumanStateManager human, Collision2D collision)
     {
 
     }

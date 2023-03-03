@@ -10,6 +10,7 @@ public class HumanStateManager : MonoBehaviour
     public HumanAirState AirState = new HumanAirState();
     public HumanAttackState AttackState = new HumanAttackState();
     public HumanPlungeState PlungeState = new HumanPlungeState();
+    public HumanDashState DashState = new HumanDashState();
 
     [HideInInspector] public HumanAttributes humanAttributes;
     [HideInInspector] public PlayerController playerController;
@@ -24,9 +25,14 @@ public class HumanStateManager : MonoBehaviour
         currentState.EnterState(this, humanAttributes);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        currentState.OnCollisionEnter(this, collision);
+        currentState.OnCollisionEnter2D(this, collision);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        currentState.OnCollisionStay2D(this, collision);
     }
 
     // Update is called once per frame

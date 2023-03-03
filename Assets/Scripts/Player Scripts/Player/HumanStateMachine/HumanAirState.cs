@@ -37,6 +37,13 @@ public class HumanAirState : HumanBaseState
             human.SwitchState(human.IdleState);
             return;
         }
+
+        if (attributes.canDash && human.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
+        {
+            human.SwitchState(human.DashState); 
+            return;
+        }
+
         if (!human.playerController.IsMovePressed()) // if no movement keys pressed
         {
             human.SwitchState(human.IdleState);
@@ -45,7 +52,12 @@ public class HumanAirState : HumanBaseState
             Move(human.playerController.GetDir(), human.playerController.HorizontalVal());
     }
 
-    public override void OnCollisionEnter(HumanStateManager human, Collision collision)
+    public override void OnCollisionEnter2D(HumanStateManager human, Collision2D collision)
+    {
+
+    }
+
+    public override void OnCollisionStay2D(HumanStateManager human, Collision2D collision)
     {
 
     }

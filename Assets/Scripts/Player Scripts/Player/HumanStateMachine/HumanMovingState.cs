@@ -47,7 +47,11 @@ public class HumanMovingState : HumanBaseState
             Move(human.playerController.GetDir(), human.playerController.HorizontalVal());
     }
 
-    public override void OnCollisionEnter(HumanStateManager human, Collision collision)
+    public override void OnCollisionEnter2D(HumanStateManager human, Collision2D collision)
+    {
+
+    }
+    public override void OnCollisionStay2D(HumanStateManager human, Collision2D collision)
     {
 
     }
@@ -73,7 +77,7 @@ public class HumanMovingState : HumanBaseState
     {
         if (attributes.isGrounded) // if the player is grounded, jump normally
         {
-            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpForce);
+            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpStrength);
         }
     }
 

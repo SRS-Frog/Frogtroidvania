@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction attackAction;
+    private InputAction dashAction;
 
     //bool for if keys are pressed
     private bool movePressed;
     private bool jumpPressed;
     private bool attackPressed;
+    private bool dashPressed;
 
     //specific for movement
     private int dir;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
         attackAction = playerInput.actions["Attack"];
+        dashAction = playerInput.actions["Dash"];
 
         //player
     }
@@ -56,6 +59,10 @@ public class PlayerController : MonoBehaviour
         attackAction.started += AttackControl;
         attackAction.performed += AttackControl;
         attackAction.canceled += AttackControl;
+
+        dashAction.started += DashControl;
+        dashAction.performed += DashControl;
+        dashAction.canceled += DashControl;
     }
 
     private void OnDisable()
@@ -71,6 +78,10 @@ public class PlayerController : MonoBehaviour
         attackAction.started -= AttackControl;
         attackAction.performed -= AttackControl;
         attackAction.canceled -= AttackControl;
+
+        dashAction.started -= DashControl;
+        dashAction.performed -= DashControl;
+        dashAction.canceled -= DashControl;
     }
 
     private void MoveControl(InputAction.CallbackContext context)
@@ -117,6 +128,17 @@ public class PlayerController : MonoBehaviour
         Debug.Log("AttackPressed");
     }
 
+    private void DashControl(InputAction.CallbackContext context)
+    {
+        if(context.started || context.performed)
+        {
+            dashPressed = true;
+        } else if(context.canceled)
+        {
+            dashPressed = false;
+        }
+    }
+
     private void Update()
     {
 
@@ -142,6 +164,11 @@ public class PlayerController : MonoBehaviour
     public bool IsAttackPressed()
     {
         return attackPressed;
+    }
+
+    public bool IsDashPressed()
+    {
+        return dashPressed;
     }
 
     public int GetDir()

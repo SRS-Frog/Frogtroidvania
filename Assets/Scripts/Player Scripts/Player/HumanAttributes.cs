@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HumanAttributes : MonoBehaviour
 {
+    [Header("Movement")]
     public Rigidbody2D rb; // the Rigidbody2D component of the player 
     //private PlayerStates playerStates;
     //private PlayerAttributes playerAttributes;
@@ -19,9 +20,12 @@ public class HumanAttributes : MonoBehaviour
     public float frappleTopSpeed = 20f; // the top speed when frappling is > than when on the ground
 
     ////add these after you have showed movement left and right on Unity
-    public float jumpForce = 10f; // jump force of player
-
-                            ////you could also type public float jumpForce
+    public float jumpStrength = 10f; // jump force of player
+    
+    // coyote time
+    float coyoteTime = 0.1f;
+    float coyoteTimer = 0f;
+    ////you could also type public float jumpForce
     private bool jump; // true if player is on the ground and about to jump, false otherwise
     [HideInInspector] public bool isGrounded; // true if player is touching the ground
     public Transform GroundCheck; // The position of a GameObject that will mark the player's feet
@@ -33,17 +37,18 @@ public class HumanAttributes : MonoBehaviour
 
     private RaycastHit2D hit;
 
+    [Header("Dash")]
+    public float dashStrength = 35f, dashTime = 0.2f, baseGravity;
+    [HideInInspector] public bool canDash = false;
+
+    [Header("Plunge")]
     [SerializeField] private float maxRayLength;
     [SerializeField] private float plungeSpeed;
 
-
+    [Header("Attack")]
     //attacking
     public GameObject attackArea;
     public float timeToAttack = 0.15f;
-
-    // coyote time
-    float coyoteTime = 0.1f;
-    float coyoteTimer = 0f;
 
     //public Animator animator; // the animator of the player
     //[HideInInspector] public GameObject player; // the player
@@ -57,6 +62,8 @@ public class HumanAttributes : MonoBehaviour
         // find the Rigidbody2D component of the object that this script is attached to
         rb = GetComponent<Rigidbody2D>();
         attackArea = transform.GetChild(1).gameObject;
+
+        baseGravity = rb.gravityScale; // set the base gravity to the rb's gravity scale
         //playerStates = GetComponent<PlayerStates>();
         //playerAttributes = GetComponent<PlayerAttributes>();
         //playerController = GetComponent<PlayerController>();
@@ -94,6 +101,7 @@ public class HumanAttributes : MonoBehaviour
         if (isGrounded) // when grounded, it is no longer hooked
         {
             isHooked = false; // no longer hooked
+            canDash = true;
             // Debug.Log("Grounded");
         }
 
