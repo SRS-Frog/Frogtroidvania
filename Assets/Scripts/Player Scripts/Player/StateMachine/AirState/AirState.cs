@@ -3,27 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using static PlayerController;
 
-public class HumanAirState : HumanBaseState
+public abstract class AirState : BaseState
 {
-    HumanAttributes attributes;
+    PlayerAttributes attributes;
 
     PlayerController.JumpStates jumpState;
 
-    public override void EnterState(HumanStateManager human, HumanAttributes attributes)
+    public override void EnterState(StateManager player, PlayerAttributes attributes)
     {
         //Debug.Log("Hello from air state");
         this.attributes = attributes;
 
     }
 
-    public override void UpdateState(HumanStateManager human)
+    public override void UpdateState(StateManager player)
     {
 
     }
 
-    public override void FixedUpdateState(HumanStateManager human)
+    public override void FixedUpdateState(StateManager player)
     {
-        jumpState = human.playerController.JumpState();
+        jumpState = player.playerController.JumpState();
         string jumpContext = jumpState.ToString();
 
         // for small jumps
@@ -34,18 +34,18 @@ public class HumanAirState : HumanBaseState
 
         if (attributes.isGrounded)
         {
-            human.SwitchState(human.IdleState);
+            player.SwitchState(player.IdleState);
             return;
         }
-        if (!human.playerController.IsMovePressed()) // if no movement keys pressed
+        if (!player.playerController.IsMovePressed()) // if no movement keys pressed
         {
-            human.SwitchState(human.IdleState);
+            player.SwitchState(player.IdleState);
         }
         else
-            Move(human.playerController.GetDir(), human.playerController.HorizontalVal());
+            Move(player.playerController.GetDir(), player.playerController.HorizontalVal());
     }
 
-    public override void OnCollisionEnter(HumanStateManager human, Collision collision)
+    public override void OnCollisionEnter(StateManager player, Collision collision)
     {
 
     }
@@ -68,7 +68,7 @@ public class HumanAirState : HumanBaseState
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
         attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration
 
-        if (attributes.isHooked) // if the human is hooked, then clamp velocity to frapple top speed (else frapple along!!)
+        if (attributes.isHooked) // if the player is hooked, then clamp velocity to frapple top speed (else frapple along!!)
         {
             float clampedX = Vector2.ClampMagnitude( new Vector2 (attributes.rb.velocity.x, 0), attributes.frappleTopSpeed).x; // clamp horizontal value to top speed
             attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);

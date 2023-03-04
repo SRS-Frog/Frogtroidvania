@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttributes : MonoBehaviour
+public class PlayerAttributes_old : MonoBehaviour
 {
     [SerializeField] private float maxRayLength;
     [SerializeField] private float plungeSpeed;

@@ -3,51 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HumanMovingState : HumanBaseState
+public abstract class MovingState : BaseState
 {
-    HumanAttributes attributes;
+    PlayerAttributes attributes;
 
     PlayerController.JumpStates jumpState;
 
-    public override void EnterState(HumanStateManager human, HumanAttributes attributes)
+    public override void EnterState(StateManager player, PlayerAttributes attributes)
     {
         Debug.Log("Hello from the Moving State");
         this.attributes = attributes;
     }
 
-    public override void UpdateState(HumanStateManager human)
+    public override void UpdateState(StateManager player)
     {
-        jumpState = human.playerController.JumpState();
+        jumpState = player.playerController.JumpState();
         string jumpContext = jumpState.ToString();
 
         if (!attributes.isGrounded)
         {
-            human.SwitchState(human.AirState);
+            player.SwitchState(player.AirState);
         }
         else if(jumpContext == "performed" || jumpContext == "started")
         {
             Debug.Log("Jump");
             Jump();
-            human.SwitchState(human.AirState);
+            player.SwitchState(player.AirState);
         }
-        else if(human.playerController.IsAttackPressed())
+        else if(player.playerController.IsAttackPressed())
         {
-            human.SwitchState(human.AttackState);
+            player.SwitchState(player.AttackState);
         }
     }
 
-    public override void FixedUpdateState(HumanStateManager human)
+    public override void FixedUpdateState(StateManager player)
     {
         
-        if(!human.playerController.IsMovePressed())
+        if(!player.playerController.IsMovePressed())
         {
-            human.SwitchState(human.IdleState);
+            player.SwitchState(player.IdleState);
         }
         else
-            Move(human.playerController.GetDir(), human.playerController.HorizontalVal());
+            Move(player.playerController.GetDir(), player.playerController.HorizontalVal());
     }
 
-    public override void OnCollisionEnter(HumanStateManager human, Collision collision)
+    public override void OnCollisionEnter(StateManager player, Collision collision)
     {
 
     }

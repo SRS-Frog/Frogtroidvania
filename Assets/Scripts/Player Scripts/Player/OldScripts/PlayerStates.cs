@@ -65,39 +65,39 @@ public class PlayerStates : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ///things to check: move, can plunge, 
-        // checks if you are within 0.05 position in the Y of the ground layer
-        isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer);
-        Debug.Log("isGrounded " + isGrounded);
+        // ///things to check: move, can plunge, 
+        // // checks if you are within 0.05 position in the Y of the ground layer
+        // isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer);
+        // Debug.Log("isGrounded " + isGrounded);
 
-        hit = Physics2D.Raycast(transform.position, Vector3.down, playerAttributes.GetMaxRayLength(), groundLayer.value);
-        if(isGrounded)
-            isPlunging = false;
+        // hit = Physics2D.Raycast(transform.position, Vector3.down, playerAttributes.GetMaxRayLength(), groundLayer.value);
+        // if(isGrounded)
+        //     isPlunging = false;
         
-        //Debug.Log("isMoving in PlayerStates is " + isMoving);
-        if(movePressed && canMove)
-        {
-            playerMovement.Move(dir);
-            //isMoving = true;
-        }
-        else
-        {
-            //isMoving = false;
-            //playerMovement.Move(0);
-        }
-        if(jumpPressed && canJump)
-        {
-            playerMovement.Jump();
-            isJumping = true;
-        }
-        else
-            isJumping = false;
+        // //Debug.Log("isMoving in PlayerStates is " + isMoving);
+        // if(movePressed && canMove)
+        // {
+        //     playerMovement.Move(dir);
+        //     //isMoving = true;
+        // }
+        // else
+        // {
+        //     //isMoving = false;
+        //     //playerMovement.Move(0);
+        // }
+        // if(jumpPressed && canJump)
+        // {
+        //     playerMovement.Jump();
+        //     isJumping = true;
+        // }
+        // else
+        //     isJumping = false;
 
-        if(isPlunging || (plungePressed && canPlunge))
-        {
-            playerMovement.Plunge();
-            isPlunging = true;
-        }
+        // if(isPlunging || (plungePressed && canPlunge))
+        // {
+        //     playerMovement.Plunge();
+        //     isPlunging = true;
+        // }
     }
 
     //setter functions

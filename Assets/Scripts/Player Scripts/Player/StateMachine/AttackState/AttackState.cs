@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanAttackState : HumanBaseState
+public abstract class AttackState : BaseState
 {
-    HumanAttributes attributes;
+    PlayerAttributes attributes;
     private bool attacking;
     private float attackTimer = 0f;
 
-    public override void EnterState(HumanStateManager human, HumanAttributes attributes)
+    public override void EnterState(StateManager player, PlayerAttributes attributes)
     {
         Debug.Log("Hello from AttackState");
         this.attributes = attributes;
@@ -17,7 +17,7 @@ public class HumanAttackState : HumanBaseState
         attributes.attackArea.SetActive(attacking);
     }
 
-    public override void UpdateState(HumanStateManager human)
+    public override void UpdateState(StateManager player)
     {
         if(attacking) {
             attackTimer += Time.deltaTime;
@@ -28,15 +28,15 @@ public class HumanAttackState : HumanBaseState
             }
         }
         else
-            human.SwitchState(human.IdleState);
+            player.SwitchState(player.IdleState);
     }
 
-    public override void FixedUpdateState(HumanStateManager human)
+    public override void FixedUpdateState(StateManager player)
     {
         
     }
 
-    public override void OnCollisionEnter(HumanStateManager human, Collision collision)
+    public override void OnCollisionEnter(StateManager player, Collision collision)
     {
 
     }

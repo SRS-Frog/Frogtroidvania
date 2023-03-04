@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction attackAction;
+    private InputAction switchAction;
 
     //bool for if keys are pressed
     private bool movePressed;
     private bool jumpPressed;
     private bool attackPressed;
+    private bool switchPressed;
 
     //specific for movement
     private int dir;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
         attackAction = playerInput.actions["Attack"];
+        switchAction = playerInput.actions["Switch"];
 
         //player
     }
@@ -56,6 +59,10 @@ public class PlayerController : MonoBehaviour
         attackAction.started += AttackControl;
         attackAction.performed += AttackControl;
         attackAction.canceled += AttackControl;
+
+        switchAction.started += SwitchControl;
+        switchAction.performed += SwitchControl;
+        switchAction.canceled += SwitchControl;
     }
 
     private void OnDisable()
@@ -71,6 +78,10 @@ public class PlayerController : MonoBehaviour
         attackAction.started -= AttackControl;
         attackAction.performed -= AttackControl;
         attackAction.canceled -= AttackControl;
+
+        switchAction.started += SwitchControl;
+        switchAction.performed += SwitchControl;
+        switchAction.canceled += SwitchControl;
     }
 
     private void MoveControl(InputAction.CallbackContext context)
@@ -117,6 +128,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("AttackPressed");
     }
 
+    private void SwitchControl(InputAction.CallbackContext context)
+    {
+        if(context.started)
+            switchPressed = true;
+        else if(context.canceled)
+            switchPressed = false;
+    }
+
     private void Update()
     {
 
@@ -142,6 +161,16 @@ public class PlayerController : MonoBehaviour
     public bool IsAttackPressed()
     {
         return attackPressed;
+    }
+
+    public bool IsSwitchPressed()
+    {
+        return switchPressed;
+    }
+
+    public void clearSwitchPressedInput()
+    {
+        switchPressed = false;
     }
 
     public int GetDir()

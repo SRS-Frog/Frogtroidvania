@@ -80,6 +80,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""a37794da-84c3-47a8-ab8b-fecd58766667"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,6 +245,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78ac5ff1-46ce-4f55-85ec-9afb12b61117"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -267,6 +287,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Frapple = m_Player.FindAction("Frapple", throwIfNotFound: true);
         m_Player_Release = m_Player.FindAction("Release", throwIfNotFound: true);
         m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
+        m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +353,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Frapple;
     private readonly InputAction m_Player_Release;
     private readonly InputAction m_Player_Point;
+    private readonly InputAction m_Player_Switch;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -342,6 +364,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Frapple => m_Wrapper.m_Player_Frapple;
         public InputAction @Release => m_Wrapper.m_Player_Release;
         public InputAction @Point => m_Wrapper.m_Player_Point;
+        public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -369,6 +392,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Point.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
                 @Point.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
                 @Point.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
+                @Switch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                @Switch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                @Switch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -391,6 +417,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Point.started += instance.OnPoint;
                 @Point.performed += instance.OnPoint;
                 @Point.canceled += instance.OnPoint;
+                @Switch.started += instance.OnSwitch;
+                @Switch.performed += instance.OnSwitch;
+                @Switch.canceled += instance.OnSwitch;
             }
         }
     }
@@ -412,5 +441,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnFrapple(InputAction.CallbackContext context);
         void OnRelease(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
     }
 }

@@ -28,7 +28,7 @@ public class FrappleScript : MonoBehaviour
 
 
     // bandaid solution
-    private HumanAttributes attributes;
+    private PlayerAttributes attributes;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class FrappleScript : MonoBehaviour
         daehyunRB = daehyun.GetComponent<Rigidbody2D>(); // daehyun's rigidbody
 
         //bandaid solution
-        attributes = rope.connectedBody.GetComponent<HumanAttributes>(); // get the human attributes from the connected body
+        attributes = rope.connectedBody.GetComponent<PlayerAttributes>(); // get the human attributes from the connected body
     }
 
     private void Update()
