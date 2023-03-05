@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeronIdleState : StateMachineBehaviour
 {
     //Vector3 dist = Vector3.Distance(this.transform.position, player.transform.position);
-    // Use dist to get the distance between player and boss then use that to determine states
+    // Use dist to get the distance between player and boss then use that to determine states 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
