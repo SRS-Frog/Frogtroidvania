@@ -1,0 +1,960 @@
+fileFormatVersion: 2
+guid: 56475f7cc70e1482e8b13aa178f43f4c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 25, y: 0, z: 37, w: 68}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 634
+        width: 61
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5e561a415b744a49562ad9be863bd9
+      internalID: -1928172331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 606
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d252f918a47fc4208a06f39bf08f99bd
+      internalID: -691814964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_2
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 597
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c4e4515240f4e21885044025da5d86
+      internalID: -992983155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_3
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 596
+        width: 55
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14a26729dd2c47a09a00f7eb579f75a
+      internalID: 1804692796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_4
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 590
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bad979fe2d73422fbe9318f9d8322c2
+      internalID: 81647947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_5
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 486
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1566a41f167884883ac07cdf0747f0f9
+      internalID: 1498240595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_6
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 484
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf5340531d994c3097d9a32b894cac8
+      internalID: 43087010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_7
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 487
+        width: 46
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f65d4107ecb4a5c98322c53655d148
+      internalID: 407911498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_8
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 477
+        width: 29
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed3a892cb9af4201992dfd5a428f3d7
+      internalID: -1747318691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_9
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 475
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7408e1aae0f84a798980c73e2f2279e
+      internalID: -1154514958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_10
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 467
+        width: 53
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba4dc5c322d14c3fb7c0f797383b9fa
+      internalID: -1412273441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_11
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 456
+        width: 112
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39479c36e14404ee1bcd5b6a6962c017
+      internalID: 2033654530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 475
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c489943b6a74da295ca1059c3a6521
+      internalID: -819566588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_13
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 471
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070cd5508b7f7473e8d444918a373b61
+      internalID: -2046810106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_14
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 470
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be48f759a7d147ef8a7020d2f500339
+      internalID: 1859679398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_15
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 470
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d4687a0e02d74b80a83953963b97cdf
+      internalID: 2146601915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_16
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 468
+        width: 34
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a71a324389824ef09e81911a90168ef
+      internalID: -8951573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_17
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 354
+        width: 111
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c853823e81ff94222892bcc06a8f8a1b
+      internalID: 1653053592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 349
+        width: 111
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308222ea5fb2e46098247460f7bb207f
+      internalID: -1196036168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_19
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 344
+        width: 113
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7602310053ad543d18f19683997761d5
+      internalID: 1393287762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_20
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 340
+        width: 112
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17944be700b5e4998a8e785565327b0b
+      internalID: -867380309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_21
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 335
+        width: 122
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aac65374163d41d09fae8d364d90c7a
+      internalID: -376182006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_22
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 232
+        width: 120
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a111e660cf2d946f2a809bdfc5ee0943
+      internalID: -1751839304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_23
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 228
+        width: 114
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad185c1f44195489e8708bc97da7465c
+      internalID: -887196601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_24
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 223
+        width: 122
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb50abd00b0d410aadeb4d6caf960c3
+      internalID: -324626568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_25
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 219
+        width: 129
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f060313900d4e76a903d9ca76671a0
+      internalID: -1644115607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_26
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 214
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b51b7b4c7df42649692da5359de26e
+      internalID: 1756412186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_27
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 115
+        width: 111
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadfaf2cd1a764188a1916270f0ff30c
+      internalID: 326127884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_28
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 104
+        width: 111
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed44c817b57f14da79b961ee4e976362
+      internalID: 849175410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 120
+        width: 94
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db49ed56da9d49678eba837f9493f5e
+      internalID: 1189476275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_30
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 15
+        width: 201
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970725f08f1954f6ba4abfc70e58175f
+      internalID: 583144842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_31
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 36
+        width: 58
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1e494a9251e44029af4740a0fb598d
+      internalID: 2068856331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_32
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 35
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e7e3fa0e4204f1fadfe3020eaf5ad6
+      internalID: -779156738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_33
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 34
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77ba7ecbbdb84fdc918f34b45ac3291
+      internalID: 1224201985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_34
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 26
+        width: 20
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de00d021952a34c26afd4d82f2387d92
+      internalID: 1894593681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_35
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 24
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d42c5cec0ec5473a885029bde5627c0
+      internalID: -1494974781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyrrhSpritesTransparent_36
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 23
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ccdd75503ec446f83be485da0762be
+      internalID: -1658204840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MyrrhSpritesTransparent_13: -2046810106
+      MyrrhSpritesTransparent_7: 407911498
+      MyrrhSpritesTransparent_12: -819566588
+      MyrrhSpritesTransparent_28: 849175410
+      MyrrhSpritesTransparent_15: 2146601915
+      MyrrhSpritesTransparent_34: 1894593681
+      MyrrhSpritesTransparent_35: -1494974781
+      MyrrhSpritesTransparent_36: -1658204840
+      MyrrhSpritesTransparent_27: 326127884
+      MyrrhSpritesTransparent_6: 43087010
+      MyrrhSpritesTransparent_14: 1859679398
+      MyrrhSpritesTransparent_9: -1154514958
+      MyrrhSpritesTransparent_26: 1756412186
+      MyrrhSpritesTransparent_23: -887196601
+      MyrrhSpritesTransparent_32: -779156738
+      MyrrhSpritesTransparent_31: 2068856331
+      MyrrhSpritesTransparent_3: 1804692796
+      MyrrhSpritesTransparent_24: -324626568
+      MyrrhSpritesTransparent_8: -1747318691
+      MyrrhSpritesTransparent_10: -1412273441
+      MyrrhSpritesTransparent_2: -992983155
+      MyrrhSpritesTransparent_18: -1196036168
+      MyrrhSpritesTransparent_16: -8951573
+      MyrrhSpritesTransparent_0: -1928172331
+      MyrrhSpritesTransparent_22: -1751839304
+      MyrrhSpritesTransparent_30: 583144842
+      MyrrhSpritesTransparent_25: -1644115607
+      MyrrhSpritesTransparent_21: -376182006
+      MyrrhSpritesTransparent_1: -691814964
+      MyrrhSpritesTransparent_29: 1189476275
+      MyrrhSpritesTransparent_33: 1224201985
+      MyrrhSpritesTransparent_17: 1653053592
+      MyrrhSpritesTransparent_5: 1498240595
+      MyrrhSpritesTransparent_19: 1393287762
+      MyrrhSpritesTransparent_20: -867380309
+      MyrrhSpritesTransparent_11: 2033654530
+      MyrrhSpritesTransparent_4: 81647947
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
