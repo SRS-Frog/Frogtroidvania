@@ -22,7 +22,7 @@ public class HeronIdleState : StateMachineBehaviour
     {
         //Vector2 risenPosition = new Vector2(rb.position.x, rb.position.y + 3f);
         float playerDistance = Vector2.Distance(player.position, rb.position);
-        Debug.Log(playerDistance);
+        //Debug.Log(playerDistance);
 
        if (playerDistance <= 4f)
        {

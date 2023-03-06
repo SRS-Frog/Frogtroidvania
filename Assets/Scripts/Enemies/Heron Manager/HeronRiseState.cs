@@ -25,7 +25,7 @@ public class HeronRiseState : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, risenPosition, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
         rand = Random.value;
-        Debug.Log(rand);
+        //Debug.Log(rand);
 
        if (rand > 0.3)
        {
