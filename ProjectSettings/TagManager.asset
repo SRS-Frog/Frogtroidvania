@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Frapple
   - Frappable
+  - Heron
   layers:
   - Default
   - TransparentFX

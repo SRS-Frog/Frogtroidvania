@@ -3496,6 +3496,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1023270382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023270383}
+  m_Layer: 0
+  m_Name: hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1023270383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023270382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.35, y: -0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1402604391}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1070636878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4177,9 +4208,10 @@ GameObject:
   - component: {fileID: 1402604392}
   - component: {fileID: 1402604395}
   - component: {fileID: 1402604394}
+  - component: {fileID: 1402604396}
   m_Layer: 0
   m_Name: BossTest
-  m_TagString: Untagged
+  m_TagString: Heron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4267,7 +4299,8 @@ Transform:
   m_LocalPosition: {x: 15.02, y: -0.72, z: 0}
   m_LocalScale: {x: 1.647, y: 1.7861, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1023270383}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4330,6 +4363,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e843e9884a21d17498df1f8618a78f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 20
+  enragedAttackDamage: 40
+  hitbox: {fileID: 1023270383}
+  attackOffset: {x: 0, y: 0, z: 0}
+  attackRange: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1402604395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4344,6 +4385,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1000
   isImmune: 0
+--- !u!114 &1402604396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402604388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594455e6960853140b4cfebb93ae8ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  attackPoint: {fileID: 0}
+  hitbox: {fileID: 0}
+  pLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  rb: {fileID: 0}
 --- !u!1 &1623019355
 GameObject:
   m_ObjectHideFlags: 0
