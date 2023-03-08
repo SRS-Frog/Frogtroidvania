@@ -20,11 +20,7 @@ public abstract class MovingState : BaseState
         jumpState = player.playerController.JumpState();
         string jumpContext = jumpState.ToString();
 
-        if (!attributes.isGrounded)
-        {
-            player.SwitchState(player.AirState);
-        }
-        else if (player.playerController.IsSwitchPressed() && IsHumanState()) // frog-human swapping
+        if (player.playerController.IsSwitchPressed() && IsHumanState()) // frog-human swapping
         {
             player.SwitchState(player.FrogMovingState);
             player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
@@ -44,6 +40,10 @@ public abstract class MovingState : BaseState
         {
             player.SwitchState(player.AttackState);
         }
+        //else if (!attributes.isGrounded)
+        //{
+        //    player.SwitchState(player.AirState);
+        //}
     }
 
     public override void FixedUpdateState(StateManager player)

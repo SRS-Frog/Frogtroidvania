@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
             attackPressed = true;
         else if(context.canceled)
             attackPressed = false;
-        Debug.Log("AttackPressed");
+        //Debug.Log("AttackPressed");
     }
 
     private void SwitchControl(InputAction.CallbackContext context)
@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
         {
             plungePressed = false;
         }
+        Debug.Log("Plunge Pressed");
     }
 
     private void Update()

@@ -19,7 +19,7 @@ public abstract class AirState : BaseState
 
     public override void UpdateState(StateManager player)
     {
-
+        Debug.Log("Air State Update");
     }
 
     public override void FixedUpdateState(StateManager player)
@@ -39,7 +39,7 @@ public abstract class AirState : BaseState
             return;
         }
 
-        if(attributes.canPlunge && player.playerController.IsPlungePressed())
+        if(attributes.canPlunge && player.playerController.IsPlungePressed()) // if you can plunge, and plunge is pressed, plunge
         {
             attributes.canDash = false;
             player.SwitchState(player.PlungeState); // switch to the plunge state
@@ -63,12 +63,6 @@ public abstract class AirState : BaseState
         {
             player.SwitchState(player.HumanAirState);
             player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
-            return;
-        }
-
-        if (attributes.canDash && player.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
-        {
-            player.SwitchState(player.DashState); 
             return;
         }
 

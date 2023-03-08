@@ -52,14 +52,14 @@ public class PlayerAttributes : MonoBehaviour
     private RaycastHit2D hit;
 
     [Header("Dash")]
-    public float dashStrength = 35f;
+    public float dashStrength = 30f;
     public float dashTime = 0.2f;
     public float baseGravity;
-    [HideInInspector] public bool canDash = false;
+    [HideInInspector] public bool canDash = false; // this is reset every time you touch the ground, and you can only dash in the air
 
     [Header("Plunge")]
     [SerializeField] private float maxRayLength;
-    public float plungeSpeed;
+    public float plungeSpeed = 30f;
     [HideInInspector] public bool canPlunge;
 
     [Header("Attack")]

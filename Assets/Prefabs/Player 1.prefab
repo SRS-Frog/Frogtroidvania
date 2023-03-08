@@ -316,11 +316,15 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: dashTime
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: jumpForce
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: plungeSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: acceleration
@@ -328,7 +332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: dashStrength
-      value: 25
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: jumpStrength
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: frappleTopSpeed
