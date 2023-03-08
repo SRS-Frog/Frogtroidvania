@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using static PlayerController;
 
-public class HumanAirState : HumanBaseState
+public abstract class AirState : BaseState
 {
-    HumanAttributes attributes;
+    PlayerAttributes attributes;
 
     PlayerController.JumpStates jumpState;
 
-    public override void EnterState(HumanStateManager human, HumanAttributes attributes)
+    public override void EnterState(StateManager player, PlayerAttributes attributes)
     {
         //Debug.Log("Hello from air state");
         this.attributes = attributes;
@@ -17,14 +17,14 @@ public class HumanAirState : HumanBaseState
         attributes.canPlunge = true; // as soon as you are in the air, you can plunge again
     }
 
-    public override void UpdateState(HumanStateManager human)
+    public override void UpdateState(StateManager player)
     {
 
     }
 
-    public override void FixedUpdateState(HumanStateManager human)
+    public override void FixedUpdateState(StateManager player)
     {
-        jumpState = human.playerController.JumpState();
+        jumpState = player.playerController.JumpState();
         string jumpContext = jumpState.ToString();
 
         // for small jumps
@@ -35,38 +35,57 @@ public class HumanAirState : HumanBaseState
 
         if (attributes.isGrounded)
         {
-            human.SwitchState(human.IdleState);
+            player.SwitchState(player.IdleState);
             return;
         }
 
-        if(attributes.canPlunge && human.playerController.IsPlungePressed())
+        if(attributes.canPlunge && player.playerController.IsPlungePressed())
         {
             attributes.canDash = false;
-            human.SwitchState(human.PlungeState); // switch to the plunge state
+            player.SwitchState(player.PlungeState); // switch to the plunge state
             return;
         }
 
-        if (attributes.canDash && human.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
+        if (attributes.canDash && player.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
         {
             attributes.canPlunge = false; // cannot plunge
-            human.SwitchState(human.DashState); 
+            player.SwitchState(player.DashState);
+        }
+
+        // character swapping
+        if (player.playerController.IsSwitchPressed() && IsHumanState())
+        {
+            player.SwitchState(player.FrogAirState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+            return;
+        }
+        else if (player.playerController.IsSwitchPressed() && !IsHumanState())
+        {
+            player.SwitchState(player.HumanAirState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
             return;
         }
 
-        if (!human.playerController.IsMovePressed()) // if no movement keys pressed
+        if (attributes.canDash && player.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
         {
-            human.SwitchState(human.IdleState);
+            player.SwitchState(player.DashState); 
+            return;
+        }
+
+        if (!player.playerController.IsMovePressed()) // if no movement keys pressed
+        {
+            player.SwitchState(player.IdleState);
         }
         else
-            Move(human.playerController.GetDir(), human.playerController.HorizontalVal());
+            Move(player.playerController.GetDir(), player.playerController.HorizontalVal());
     }
 
-    public override void OnCollisionEnter2D(HumanStateManager human, Collision2D collision)
+    public override void OnCollisionEnter2D(StateManager player, Collision2D collision)
     {
 
     }
 
-    public override void OnCollisionStay2D(HumanStateManager human, Collision2D collision)
+    public override void OnCollisionStay2D(StateManager player, Collision2D collision)
     {
 
     }
@@ -89,7 +108,7 @@ public class HumanAirState : HumanBaseState
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
         attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration
 
-        if (attributes.isHooked) // if the human is hooked, then clamp velocity to frapple top speed (else frapple along!!)
+        if (attributes.isHooked) // if the player is hooked, then clamp velocity to frapple top speed (else frapple along!!)
         {
             float clampedX = Vector2.ClampMagnitude( new Vector2 (attributes.rb.velocity.x, 0), attributes.frappleTopSpeed).x; // clamp horizontal value to top speed
             attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);

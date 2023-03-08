@@ -105,10 +105,10 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public void Plunge()
-    {
-        rb.velocity = new Vector2(0, -playerAttributes.GetPlungeSpeed() * Time.deltaTime);
-    }
+    // public void Plunge()
+    // {
+    //     rb.velocity = new Vector2(0, -playerAttributes.GetPlungeSpeed() * Time.deltaTime);
+    // }
 
     // detects if the player has collided with an enemy
     private void OnTriggerEnter2D(Collider2D other)

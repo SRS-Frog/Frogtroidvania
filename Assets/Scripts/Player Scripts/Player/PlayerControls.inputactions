@@ -44,7 +44,7 @@
                 {
                     "name": "Dash",
                     "type": "Button",
-                    "id": "7f66f2a7-1cd0-45f8-9086-f234acda6160",
+                    "id": "2073923e-234e-4db4-953d-2d64a9f4842e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "a37794da-84c3-47a8-ab8b-fecd58766667",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -246,7 +255,18 @@
                 },
                 {
                     "name": "",
-                    "id": "aaa25003-7557-4043-a918-68dabddec16e",
+                    "id": "78ac5ff1-46ce-4f55-85ec-9afb12b61117",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7757649-8332-48f5-af00-e3586bd111fc",
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",

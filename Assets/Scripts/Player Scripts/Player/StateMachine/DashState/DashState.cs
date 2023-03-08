@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanDashState : HumanBaseState
+public abstract class DashState : BaseState
 {
-    HumanAttributes attributes;
+    PlayerAttributes attributes;
 
     private float dashTimer;
 
-    public override void EnterState(HumanStateManager human, HumanAttributes attributes)
+    public override void EnterState(StateManager player, PlayerAttributes attributes)
     {
         Debug.Log("Hello from DashState");
         this.attributes = attributes;
@@ -22,38 +22,38 @@ public class HumanDashState : HumanBaseState
         attributes.rb.velocity = new Vector2(dir * attributes.dashStrength, 0f); // quickly dash
     }
 
-    public override void UpdateState(HumanStateManager human)
+    public override void UpdateState(StateManager player)
     {
         dashTimer += Time.deltaTime; // add to timer
         if(dashTimer >= attributes.dashTime)
         {
-            StopDash(human);
+            StopDash(player);
         }
     }
 
-    public override void FixedUpdateState(HumanStateManager human)
+    public override void FixedUpdateState(StateManager player)
     {
         if (attributes.isGrounded)
         {
-            StopDash(human);
+            StopDash(player);
             return;
         }
     }
 
-    public override void OnCollisionEnter2D(HumanStateManager human, Collision2D collision)
+    public override void OnCollisionEnter2D(StateManager player, Collision2D collision)
     {
-        StopDash(human);
+        StopDash(player);
     }
-    public override void OnCollisionStay2D(HumanStateManager human, Collision2D collision)
+    public override void OnCollisionStay2D(StateManager player, Collision2D collision)
     {
-        StopDash(human);
+        StopDash(player);
     }
 
-    private void StopDash(HumanStateManager human) 
+    private void StopDash(StateManager player) 
     {
         attributes.rb.velocity = Vector2.zero; // no speed
         attributes.rb.gravityScale = attributes.baseGravity; // restore gravity
-        human.SwitchState(human.AirState); // go to air state
+        player.SwitchState(player.AirState); // go to air state
     }
 }
 
