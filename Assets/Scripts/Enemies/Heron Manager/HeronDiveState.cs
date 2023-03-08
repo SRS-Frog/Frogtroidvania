@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeronIdleState : StateMachineBehaviour
+public class HeronDiveState : StateMachineBehaviour
 {
     Transform player; 
     Rigidbody2D rb;
@@ -26,9 +26,7 @@ public class HeronIdleState : StateMachineBehaviour
 
        if (playerDistance <= 5f)
        {
-      //   animator.SetBool("riseState", true);
-      //   Debug.Log("rise successful");
-           animator.SetTrigger("Dive");
+        
        }
 
     }
@@ -38,4 +36,5 @@ public class HeronIdleState : StateMachineBehaviour
     {
        animator.ResetTrigger("Dive");
     }
+
 }

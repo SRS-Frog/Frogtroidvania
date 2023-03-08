@@ -4366,6 +4366,9 @@ MonoBehaviour:
   attackDamage: 20
   enragedAttackDamage: 40
   hitbox: {fileID: 1023270383}
+  pLayer:
+    serializedVersion: 2
+    m_Bits: 256
   attackOffset: {x: 0, y: 0, z: 0}
   attackRange: 1
   attackMask:

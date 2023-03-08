@@ -27,16 +27,21 @@ public class HeronAttacks : MonoBehaviour
 
     public void DiveAttack()
     {
-        Collider2D colInfo = Physics2D.OverlapCircleAll(hitbox.position, attackRange, attackMask);
-		if (colInfo != null)
+        Collider2D[] colInfo = Physics2D.OverlapCircleAll(hitbox.position, 5f, pLayer);
+
+		foreach (Collider2D player in colInfo)
 		{
-			colInfo.GetComponent<Health>().Damage(attackDamage);
-			Debug.Log("Current HP: " + colInfo.GetComponent<Health>().health);
+			player.GetComponent<Health>().Damage(attackDamage);
+			Debug.Log("Current HP: " + player.GetComponent<Health>().health);
 		}
     }
 
 	void OnDrawGizmosSelected()
 	{
-		if 
+		if (hitbox == null)
+		return;
+
+		Gizmos.DrawWireSphere(hitbox.position, 5f);
+
 	}
 }
