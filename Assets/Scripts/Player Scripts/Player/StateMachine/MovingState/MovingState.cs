@@ -30,6 +30,11 @@ public abstract class MovingState : BaseState
             player.SwitchState(player.HumanMovingState);
             player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
         }
+
+        if (!attributes.isGrounded)
+        {
+            player.SwitchState(player.AirState);
+        }
         else if (jumpContext == "performed" || jumpContext == "started")
         {
             Debug.Log("Jump");
@@ -40,23 +45,18 @@ public abstract class MovingState : BaseState
         {
             player.SwitchState(player.AttackState);
         }
-        //else if (!attributes.isGrounded)
-        //{
-        //    player.SwitchState(player.AirState);
-        //}
     }
 
     public override void FixedUpdateState(StateManager player)
     {
-        
-        if(!player.playerController.IsMovePressed())
+
+        if (!player.playerController.IsMovePressed())
         {
             player.SwitchState(player.IdleState);
         }
         else
             Move(player.playerController.GetDir(), player.playerController.HorizontalVal());
     }
-
     public override void OnCollisionEnter2D(StateManager player, Collision2D collision)
     {
 

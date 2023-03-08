@@ -19,7 +19,16 @@ public abstract class AirState : BaseState
 
     public override void UpdateState(StateManager player)
     {
-        Debug.Log("Air State Update");
+        if (player.playerController.IsSwitchPressed() && IsHumanState()) // frog-human swapping
+        {
+            player.SwitchState(player.FrogMovingState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+        }
+        else if (player.playerController.IsSwitchPressed() && !IsHumanState()) // frog-human swapping
+        {
+            player.SwitchState(player.HumanMovingState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+        }
     }
 
     public override void FixedUpdateState(StateManager player)
@@ -30,7 +39,7 @@ public abstract class AirState : BaseState
         // for small jumps
         if (jumpContext == "canceled" && attributes.rb.velocity.y > 0) // if the jump key was canceled midjump, fall faster than usual
         {
-            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.rb.velocity.y* 0.5f);
+            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.rb.velocity.y * 0.5f);
         }
 
         if (attributes.isGrounded)
@@ -39,7 +48,7 @@ public abstract class AirState : BaseState
             return;
         }
 
-        if(attributes.canPlunge && player.playerController.IsPlungePressed()) // if you can plunge, and plunge is pressed, plunge
+        if (attributes.canPlunge && player.playerController.IsPlungePressed())
         {
             attributes.canDash = false;
             player.SwitchState(player.PlungeState); // switch to the plunge state
@@ -50,19 +59,6 @@ public abstract class AirState : BaseState
         {
             attributes.canPlunge = false; // cannot plunge
             player.SwitchState(player.DashState);
-        }
-
-        // character swapping
-        if (player.playerController.IsSwitchPressed() && IsHumanState())
-        {
-            player.SwitchState(player.FrogAirState);
-            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
-            return;
-        }
-        else if (player.playerController.IsSwitchPressed() && !IsHumanState())
-        {
-            player.SwitchState(player.HumanAirState);
-            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
             return;
         }
 

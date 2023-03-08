@@ -17,37 +17,42 @@ public abstract class IdleState : BaseState
         this.attributes = attributes;
     }
 
-    public override void UpdateState(StateManager stateManager)
+    public override void UpdateState(StateManager player)
     {
-        jumpState = stateManager.playerController.JumpState();
+        jumpState = player.playerController.JumpState();
         string jumpContext = jumpState.ToString();
 
+        if (player.playerController.IsSwitchPressed() && IsHumanState()) // frog-human swapping
+        {
+            player.SwitchState(player.FrogMovingState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+        }
+        else if (player.playerController.IsSwitchPressed() && !IsHumanState()) // frog-human swapping
+        {
+            player.SwitchState(player.HumanMovingState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+        }
+
         if (!attributes.isGrounded)
-            stateManager.SwitchState(stateManager.AirState);
-        else if (stateManager.playerController.IsSwitchPressed() && IsHumanState()) {
-            stateManager.SwitchState(stateManager.FrogIdleState);
-            stateManager.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
-        } else if (stateManager.playerController.IsSwitchPressed() && !IsHumanState()) {
-            stateManager.SwitchState(stateManager.HumanIdleState);
-            stateManager.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
-        } else if(stateManager.playerController.IsAttackPressed())
-            stateManager.SwitchState(stateManager.AttackState);
+            player.SwitchState(player.AirState);
+        else if (player.playerController.IsAttackPressed())
+            player.SwitchState(player.AttackState);
         else if (jumpContext == "performed")
         {
             Debug.Log("Jump");
             Jump();
-            stateManager.SwitchState(stateManager.AirState);
+            player.SwitchState(player.AirState);
         }
-        else if(stateManager.playerController.IsMovePressed())
-            stateManager.SwitchState(stateManager.MovingState);
+        else if (player.playerController.IsMovePressed())
+            player.SwitchState(player.MovingState);
     }
 
-    public override void FixedUpdateState(StateManager stateManager)
+    public override void FixedUpdateState(StateManager player)
     {
-        if (!stateManager.playerController.IsMovePressed()) // if no movement keys pressed
+        if (!player.playerController.IsMovePressed()) // if no movement keys pressed
         {
             Stop();
-            stateManager.SwitchState(stateManager.IdleState);
+            player.SwitchState(player.IdleState);
         }
     }
 
