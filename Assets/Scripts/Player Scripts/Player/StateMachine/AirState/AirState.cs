@@ -37,6 +37,13 @@ public abstract class AirState : BaseState
             player.SwitchState(player.IdleState);
             return;
         }
+
+        if (attributes.canDash && player.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
+        {
+            player.SwitchState(player.DashState); 
+            return;
+        }
+
         if (!player.playerController.IsMovePressed()) // if no movement keys pressed
         {
             player.SwitchState(player.IdleState);
@@ -45,7 +52,12 @@ public abstract class AirState : BaseState
             Move(player.playerController.GetDir(), player.playerController.HorizontalVal());
     }
 
-    public override void OnCollisionEnter(StateManager player, Collision collision)
+    public override void OnCollisionEnter2D(StateManager player, Collision2D collision)
+    {
+
+    }
+
+    public override void OnCollisionStay2D(StateManager player, Collision2D collision)
     {
 
     }

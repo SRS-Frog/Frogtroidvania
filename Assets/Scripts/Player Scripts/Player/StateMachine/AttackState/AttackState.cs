@@ -36,7 +36,11 @@ public abstract class AttackState : BaseState
         
     }
 
-    public override void OnCollisionEnter(StateManager player, Collision collision)
+    public override void OnCollisionEnter2D(StateManager player, Collision2D collision)
+    {
+
+    }
+    public override void OnCollisionStay2D(StateManager player, Collision2D collision)
     {
 
     }

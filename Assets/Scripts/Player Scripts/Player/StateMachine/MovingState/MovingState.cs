@@ -47,7 +47,11 @@ public abstract class MovingState : BaseState
             Move(player.playerController.GetDir(), player.playerController.HorizontalVal());
     }
 
-    public override void OnCollisionEnter(StateManager player, Collision collision)
+    public override void OnCollisionEnter2D(StateManager player, Collision2D collision)
+    {
+
+    }
+    public override void OnCollisionStay2D(StateManager player, Collision2D collision)
     {
 
     }
@@ -73,7 +77,7 @@ public abstract class MovingState : BaseState
     {
         if (attributes.isGrounded) // if the player is grounded, jump normally
         {
-            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpForce);
+            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpStrength);
         }
     }
 

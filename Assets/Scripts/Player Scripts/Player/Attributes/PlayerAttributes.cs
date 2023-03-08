@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttributes : MonoBehaviour
 {
+    [Header("Movement")]
     public Rigidbody2D rb; // the Rigidbody2D component of the player 
     public CapsuleCollider2D humanCollider;
     public CapsuleCollider2D frogCollider;
@@ -32,7 +33,14 @@ public class PlayerAttributes : MonoBehaviour
     [HideInInspector] public bool isHooked = false; // TODO: bandaid solution (this is only true when the frapple is hooked, and false when character hits the ground)
     public float frappleTopSpeed = 20f; // the top speed when frappling is > than when on the ground
 
-                            ////you could also type public float jumpForce
+    ////add these after you have showed movement left and right on Unity
+    public float jumpStrength = 10f; // jump force of player
+    
+    // coyote time
+    float coyoteTime = 0.1f;
+    float coyoteTimer = 0f;
+    ////you could also type public float jumpForce
+
     private bool jump; // true if player is on the ground and about to jump, false otherwise
     [HideInInspector] public bool isGrounded; // true if player is touching the ground
     public Transform GroundCheck; // The position of a GameObject that will mark the player's feet
@@ -44,17 +52,20 @@ public class PlayerAttributes : MonoBehaviour
 
     private RaycastHit2D hit;
 
+    [Header("Dash")]
+    public float dashStrength = 35f;
+    public float dashTime = 0.2f;
+    public float baseGravity;
+    [HideInInspector] public bool canDash = false;
+
+    [Header("Plunge")]
     [SerializeField] private float maxRayLength;
     [SerializeField] private float plungeSpeed;
 
-
+    [Header("Attack")]
     //attacking
     public GameObject attackArea;
     public float timeToAttack = 0.15f;
-
-    // coyote time
-    float coyoteTime = 0.1f;
-    float coyoteTimer = 0f;
 
     // Sprites
     public SpriteRenderer spriteRenderer;
@@ -74,6 +85,8 @@ public class PlayerAttributes : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         attackArea = transform.GetChild(1).gameObject;
+
+        baseGravity = rb.gravityScale; // set the base gravity to the rb's gravity scale
         //playerStates = GetComponent<PlayerStates>();
         //playerAttributes = GetComponent<PlayerAttributes>();
         //playerController = GetComponent<PlayerController>();
@@ -111,6 +124,7 @@ public class PlayerAttributes : MonoBehaviour
         if (isGrounded) // when grounded, it is no longer hooked
         {
             isHooked = false; // no longer hooked
+            canDash = true;
             // Debug.Log("Grounded");
         }
 

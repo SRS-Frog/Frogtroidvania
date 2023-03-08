@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static Yarn.Compiler.BasicBlock;
 
 public class FrappleScript : MonoBehaviour
@@ -17,6 +18,7 @@ public class FrappleScript : MonoBehaviour
 
     // inspector variables
     [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f, shortenSpeed = 0.5f; // retract speed for when nothing was hit, shorten acceleration for when hooked
+    [SerializeField] float releaseLength = 1.8f; // if too close to the top or daehyun is above the frapple, release
     [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
 
     // changes on runtime
@@ -86,12 +88,11 @@ public class FrappleScript : MonoBehaviour
             rope.distance -= shortenSpeed * Time.deltaTime;
 
             // if too close to the top or daehyun is above the frapple, release
-            float tooClose = 1.8f;
             // Debug.Log("Distance between daehyun and target pos " + Vector2.Distance(targetPos, daehyunPos));
-            if (Vector2.Distance(rb.position, startingPos) <= tooClose || startingPos.y > rb.position.y)
-            {
-                ReturnToStartPos();
-            }
+            //if (Vector2.Distance(rb.position, startingPos) <= releaseLength || startingPos.y > rb.position.y)
+            //{
+            //    ReturnToStartPos();
+            //}
         }
     }
 
@@ -163,8 +164,10 @@ public class FrappleScript : MonoBehaviour
         attributes.isHooked = isHooked; // this is only changed when the frapple is hooked, and turned off when character hits the ground
     }
 
-    // returns the frapple to starting position WITHOUT retraction animation
-    private void ReturnToStartPos()
+    /// <summary>
+    /// returns the frapple to starting position WITHOUT retraction animation
+    /// </summary>
+    public void ReturnToStartPos()
     {
         // move back to starting pos and toggle everything false
         rb.position = startingPos;
@@ -230,13 +233,4 @@ public class FrappleScript : MonoBehaviour
     {
         return (Vector2.Distance(point, startingPos) <= frappleLength);
     }
-
-    ///// <summary>
-    ///// Returns whether the frapple is currently hooked to an object.
-    ///// </summary>
-    ///// <returns>isHooked</returns>
-    //public bool IsHooked()
-    //{
-    //    return isHooked;
-    //}
 }
