@@ -38,6 +38,20 @@ public abstract class AirState : BaseState
             return;
         }
 
+        // character swapping
+        if (player.playerController.IsSwitchPressed() && IsHumanState())
+        {
+            player.SwitchState(player.FrogAirState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+            return;
+        }
+        else if (player.playerController.IsSwitchPressed() && !IsHumanState())
+        {
+            player.SwitchState(player.HumanAirState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+            return;
+        }
+
         if (attributes.canDash && player.playerController.IsDashPressed()) // if you can dash and dash is pressed, dash
         {
             player.SwitchState(player.DashState); 

@@ -24,13 +24,23 @@ public abstract class MovingState : BaseState
         {
             player.SwitchState(player.AirState);
         }
-        else if(jumpContext == "performed" || jumpContext == "started")
+        else if (player.playerController.IsSwitchPressed() && IsHumanState()) // frog-human swapping
+        {
+            player.SwitchState(player.FrogMovingState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+        }
+        else if (player.playerController.IsSwitchPressed() && !IsHumanState()) // frog-human swapping
+        {
+            player.SwitchState(player.HumanMovingState);
+            player.playerController.clearSwitchPressedInput();    // Need to clear input so that switch only happens once
+        }
+        else if (jumpContext == "performed" || jumpContext == "started")
         {
             Debug.Log("Jump");
             Jump();
             player.SwitchState(player.AirState);
         }
-        else if(player.playerController.IsAttackPressed())
+        else if (player.playerController.IsAttackPressed())
         {
             player.SwitchState(player.AttackState);
         }
