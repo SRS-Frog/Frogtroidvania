@@ -25,6 +25,7 @@ public abstract class DashState : BaseState
     public override void UpdateState(StateManager player)
     {
         dashTimer += Time.deltaTime; // add to timer
+        Debug.Log("dashtimer " + dashTimer);
         if(dashTimer >= attributes.dashTime)
         {
             StopDash(player);
@@ -51,6 +52,8 @@ public abstract class DashState : BaseState
 
     private void StopDash(StateManager player) 
     {
+        Debug.Log("stop dash");
+        attributes.rb.velocity = Vector2.zero; // no speed
         attributes.rb.gravityScale = attributes.baseGravity; // restore gravity
         player.SwitchState(player.AirState); // go to air state
     }

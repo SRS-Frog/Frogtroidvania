@@ -42,6 +42,8 @@ public class StateManager : MonoBehaviour
         IdleState = HumanIdleState; 
         AirState = HumanAirState;
         MovingState = HumanMovingState;
+        PlungeState = HumanPlungeState;
+        DashState = HumanDashState;
         currentState = IdleState;
 
         currentState.EnterState(this, playerAttributes);
@@ -61,7 +63,7 @@ public class StateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
-        Debug.Log("is Human?" + currentState.IsHumanState());
+        //Debug.Log("is Human?" + currentState.IsHumanState());
     }
 
     void FixedUpdate()
@@ -84,6 +86,7 @@ public class StateManager : MonoBehaviour
                 MovingState = HumanMovingState;
                 PlungeState = HumanPlungeState;
                 AttackState = HumanAttackState;
+                DashState = HumanDashState;
 
                 // swap into human attributes
                 playerAttributes.spriteRenderer.sprite = playerAttributes.humanSprite;
@@ -97,6 +100,7 @@ public class StateManager : MonoBehaviour
                 MovingState = FrogMovingState;
                 PlungeState = FrogPlungeState;
                 AttackState = FrogAttackState;
+                DashState = FrogDashState;
 
                 // swap into frog attributes
                 playerAttributes.spriteRenderer.sprite = playerAttributes.frogSprite;

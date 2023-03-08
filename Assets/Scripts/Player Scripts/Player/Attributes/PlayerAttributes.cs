@@ -52,14 +52,15 @@ public class PlayerAttributes : MonoBehaviour
     private RaycastHit2D hit;
 
     [Header("Dash")]
-    public float dashStrength = 35f;
+    public float dashStrength = 30f;
     public float dashTime = 0.2f;
     public float baseGravity;
-    [HideInInspector] public bool canDash = false;
+    [HideInInspector] public bool canDash = false; // this is reset every time you touch the ground, and you can only dash in the air
 
     [Header("Plunge")]
     [SerializeField] private float maxRayLength;
-    [SerializeField] private float plungeSpeed;
+    public float plungeSpeed = 30f;
+    [HideInInspector] public bool canPlunge;
 
     [Header("Attack")]
     //attacking
@@ -99,31 +100,32 @@ public class PlayerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(coyoteTimer > Mathf.Epsilon) // aka 0f
+        if (coyoteTimer > Mathf.Epsilon) // aka 0f
         {
             coyoteTimer -= Time.deltaTime;
         }
-        
-        if(Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer)) // if touching ground
+
+        if (Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer)) // if touching ground
         {
             coyoteTimer = coyoteTime; // coyote timer begins
         }
-        if(coyoteTimer > Mathf.Epsilon) // if the coyote timer isn't over
+        if (coyoteTimer > Mathf.Epsilon) // if the coyote timer isn't over
         {
             isGrounded = true; // it counts as being grounded
         } else
         {
-            isGrounded= false; // it doesn't count as being grounded
+            isGrounded = false; // it doesn't count as being grounded
         }
 
         //Debug.Log("isGrounded " + isGrounded);
-        
+
 
         // bandaid solution: for human attributes, between flying on / from frapple and landing, airstate is clamped at a higher speed than usual
         if (isGrounded) // when grounded, it is no longer hooked
         {
             isHooked = false; // no longer hooked
             canDash = true;
+            canPlunge = false;
             // Debug.Log("Grounded");
         }
 

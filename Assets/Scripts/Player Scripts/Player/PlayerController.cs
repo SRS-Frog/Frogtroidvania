@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private InputAction attackAction;
     private InputAction switchAction;
     private InputAction dashAction;
+    private InputAction plungeAction;
 
     //bool for if keys are pressed
     private bool movePressed;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool attackPressed;
     private bool switchPressed;
     private bool dashPressed;
+    private bool plungePressed;
 
     //specific for movement
     private int dir;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         attackAction = playerInput.actions["Attack"];
         switchAction = playerInput.actions["Switch"];
         dashAction = playerInput.actions["Dash"];
+        plungeAction = playerInput.actions["Plunge"];
 
         //player
     }
@@ -70,6 +73,10 @@ public class PlayerController : MonoBehaviour
         dashAction.started += DashControl;
         dashAction.performed += DashControl;
         dashAction.canceled += DashControl;
+
+        plungeAction.started += PlungeControl;
+        plungeAction.performed += PlungeControl;
+        plungeAction.canceled += PlungeControl;
     }
 
     private void OnDisable()
@@ -93,6 +100,10 @@ public class PlayerController : MonoBehaviour
         dashAction.started -= DashControl;
         dashAction.performed -= DashControl;
         dashAction.canceled -= DashControl;
+
+        plungeAction.started -= PlungeControl;
+        plungeAction.performed -= PlungeControl;
+        plungeAction.canceled -= PlungeControl;
     }
 
     private void MoveControl(InputAction.CallbackContext context)
@@ -123,11 +134,20 @@ public class PlayerController : MonoBehaviour
     private void JumpControl(InputAction.CallbackContext context)
     {
         if(context.started)
+        {
+            jumpPressed = true;
             jumpState = JumpStates.started;
+        }
         else if(context.performed)
+        {
+            jumpPressed = true;
             jumpState = JumpStates.performed;
-        else if(context.canceled)
+        } 
+        else if (context.canceled)
+        {
+            jumpPressed = false;
             jumpState = JumpStates.canceled;
+        }      
     }
 
     private void AttackControl(InputAction.CallbackContext context)
@@ -136,7 +156,7 @@ public class PlayerController : MonoBehaviour
             attackPressed = true;
         else if(context.canceled)
             attackPressed = false;
-        Debug.Log("AttackPressed");
+        //Debug.Log("AttackPressed");
     }
 
     private void SwitchControl(InputAction.CallbackContext context)
@@ -158,6 +178,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void PlungeControl(InputAction.CallbackContext context)
+    {
+        if (context.started || context.performed)
+        {
+            plungePressed = true;
+        }
+        else if (context.canceled)
+        {
+            plungePressed = false;
+        }
+        Debug.Log("Plunge Pressed");
+    }
+
     private void Update()
     {
 
@@ -173,6 +206,11 @@ public class PlayerController : MonoBehaviour
     public float HorizontalVal()
     {
         return horizontal; // returns the horizontal input value
+    }
+
+    public bool IsJumpPressed()
+    {
+        return jumpPressed;
     }
 
     public JumpStates JumpState()
@@ -198,6 +236,11 @@ public class PlayerController : MonoBehaviour
     public bool IsDashPressed()
     {
         return dashPressed;
+    }
+
+    public bool IsPlungePressed()
+    {
+        return plungePressed;
     }
 
     public int GetDir()

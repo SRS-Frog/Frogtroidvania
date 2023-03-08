@@ -18,6 +18,7 @@ public class FrappleController : MonoBehaviour
     private InputAction frappleAction;
     private InputAction releaseAction;
     private InputAction dashAction; // can be collapsed into playerController
+    private InputAction plungeAction;
 
     // player movement control
 
@@ -27,6 +28,7 @@ public class FrappleController : MonoBehaviour
         frappleAction = playerInput.actions["Frapple"];
         releaseAction = playerInput.actions["Release"];
         dashAction = playerInput.actions["Dash"];
+        plungeAction = playerInput.actions["Plunge"];
 
         frappleScript = transform.parent.GetChild(1).gameObject.GetComponent<FrappleScript>(); // reference the frapple script of the frappleEnd
 
@@ -40,6 +42,8 @@ public class FrappleController : MonoBehaviour
         releaseAction.performed += FrappleRelease;
 
         dashAction.performed += FrappleFullRetract;
+
+        plungeAction.performed += FrappleFullRetract;
     }
 
     private void OnDisable()
@@ -49,6 +53,8 @@ public class FrappleController : MonoBehaviour
         releaseAction.performed -= FrappleRelease;
 
         dashAction.performed -= FrappleFullRetract;
+
+        plungeAction.performed -= FrappleFullRetract;
     }
 
     private void FrappleControl(InputAction.CallbackContext context)
