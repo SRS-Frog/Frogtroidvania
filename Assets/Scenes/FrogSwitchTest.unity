@@ -1263,11 +1263,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &791908654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6106584676155727084, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-  m_PrefabInstance: {fileID: 4638912717248474687}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &846779220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,27 +1731,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6106584676155727086, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
   m_PrefabInstance: {fileID: 4638912717248474687}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &1303902126 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6106584676155727067, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-  m_PrefabInstance: {fileID: 4638912717248474687}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &1303902132
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791908654}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.08140993, y: 0.5115285}
-  m_Size: {x: 0.8660383, y: 1.023057}
-  m_Direction: 0
 --- !u!1 &1348895433
 GameObject:
   m_ObjectHideFlags: 0
@@ -4059,18 +4033,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1777465579, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.406251
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777465579, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.343752
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777465579, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4638912717219582304, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4119,37 +4081,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: jumpForce
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frogSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 07ad01e36b6bb42c5a2a8e996baecb14, type: 3}
-    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: humanSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b6f40d76cd30f1246b3a6a5a71752bc1, type: 3}
-    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frogCollider
-      value: 
-      objectReference: {fileID: 1303902132}
-    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: humanCollider
-      value: 
-      objectReference: {fileID: 1303902126}
-    - target: {fileID: 6106584676155727086, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.2187524
-      objectReference: {fileID: 0}
-    - target: {fileID: 6106584676155727086, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6106584676155727087, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b6f40d76cd30f1246b3a6a5a71752bc1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}

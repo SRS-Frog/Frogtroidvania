@@ -284,7 +284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionId
@@ -296,7 +296,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_ActionId
-      value: 7f66f2a7-1cd0-45f8-9086-f234acda6160
+      value: 00e0d1a5-a40c-4296-af4d-9653227bfac9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 2073923e-234e-4db4-953d-2d64a9f4842e
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: a37794da-84c3-47a8-ab8b-fecd58766667
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
@@ -308,7 +316,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Player/Plunge[/Keyboard/s,/Keyboard/downArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
       value: Player/Dash[/Keyboard/x]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697349, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: Player/Switch[/Keyboard/c]
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697351, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_Material
@@ -323,6 +339,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: frogSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07ad01e36b6bb42c5a2a8e996baecb14, type: 3}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: humanSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b6f40d76cd30f1246b3a6a5a71752bc1, type: 3}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: plungeSpeed
       value: 30
       objectReference: {fileID: 0}
@@ -335,9 +359,17 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: frogCollider
+      value: 
+      objectReference: {fileID: 1303902132}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: jumpStrength
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+      propertyPath: humanCollider
+      value: 
+      objectReference: {fileID: 6106584676155727067}
     - target: {fileID: 1503719458892697358, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: frappleTopSpeed
       value: 15
@@ -364,11 +396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697394, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.656251
+      value: -7.2187524
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697394, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2812507
+      value: 3.000001
       objectReference: {fileID: 0}
     - target: {fileID: 1503719458892697394, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
       propertyPath: m_LocalPosition.z
@@ -413,6 +445,32 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1503719458892697359, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
   m_PrefabInstance: {fileID: 4638912717258707932}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &6106584676155727067 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1503719458892697351, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+  m_PrefabInstance: {fileID: 4638912717258707932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6106584676155727084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1503719458892697392, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
+  m_PrefabInstance: {fileID: 4638912717258707932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1303902132
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106584676155727084}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: a53c3d6ac28abb84f86e78ea1b2f536e, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08140993, y: 0.5115285}
+  m_Size: {x: 0.8660383, y: 1.023057}
+  m_Direction: 0
 --- !u!4 &6106584676155727086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1503719458892697394, guid: 6975e6c52651a5a4bb816cdfed01cc05, type: 3}
