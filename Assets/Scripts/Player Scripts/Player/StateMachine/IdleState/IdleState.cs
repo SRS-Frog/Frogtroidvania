@@ -75,7 +75,7 @@ public abstract class IdleState : BaseState
     {
         if (attributes.isGrounded) // if the player is grounded, jump normally
         {
-            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpForce);
+            attributes.rb.velocity = new Vector2(attributes.rb.velocity.x, attributes.jumpStrength);
         }
     }
 }

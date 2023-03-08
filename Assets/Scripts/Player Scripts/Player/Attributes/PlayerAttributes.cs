@@ -20,13 +20,13 @@ public class PlayerAttributes : MonoBehaviour
     public const float humanTopSpeed = 10f; ////We can edit this value later in the Unity editor.
     public const float frogTopSpeed = 20f;
    [HideInInspector] public float topSpeed = humanTopSpeed; // horizontal speed of player. 
-    public const float humanAcceleration = 5f; // can be editied via inspector
-    public const float frogAcceleration = 10f;
+    public const float humanAcceleration = 40f; // can be editied via inspector
+    public const float frogAcceleration = 60f;
     [HideInInspector] public float acceleration = humanAcceleration; // acceleration to pick up speed, and actual acceleration depends on GRAVITY and FRICTION
     //add these after you have showed movement left and right on Unity
-    public const float humanJumpForce = 10f;
-    public const float frogJumpForce = 20f;
-    [HideInInspector] public float jumpForce = humanJumpForce; // jump force of player
+    public const float humanJumpStrength = 10f;
+    public const float frogJumpStrength = 20f;
+    [HideInInspector] public float jumpStrength = humanJumpStrength; // jump force of player
     //-------------------------------------------------------------------------------------------------------------
 
     // added for airstate to check whether it is hooked to limit speed to top speed
@@ -34,7 +34,6 @@ public class PlayerAttributes : MonoBehaviour
     public float frappleTopSpeed = 15f; // the top speed when frappling is > than when on the ground
 
     ////add these after you have showed movement left and right on Unity
-    //public float jumpStrength = 10f; // jump force of player
     
     // coyote time
     float coyoteTime = 0.1f;

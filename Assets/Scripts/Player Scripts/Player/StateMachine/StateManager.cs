@@ -89,7 +89,7 @@ public class StateManager : MonoBehaviour
                 playerAttributes.spriteRenderer.sprite = playerAttributes.humanSprite;
                 playerAttributes.topSpeed = PlayerAttributes.humanTopSpeed;
                 playerAttributes.acceleration = PlayerAttributes.humanAcceleration;
-                playerAttributes.jumpForce = PlayerAttributes.humanJumpForce;
+                playerAttributes.jumpStrength = PlayerAttributes.humanJumpStrength;
             } else {
                 // Switch to Frog States, sprites and attributes
                 IdleState = FrogIdleState;
@@ -102,7 +102,7 @@ public class StateManager : MonoBehaviour
                 playerAttributes.spriteRenderer.sprite = playerAttributes.frogSprite;
                 playerAttributes.topSpeed = PlayerAttributes.frogTopSpeed;
                 playerAttributes.acceleration = PlayerAttributes.frogAcceleration;
-                playerAttributes.jumpForce = PlayerAttributes.frogJumpForce;
+                playerAttributes.jumpStrength = PlayerAttributes.frogJumpStrength;
             }
         }
         currentState = state;
