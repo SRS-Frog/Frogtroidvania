@@ -60,7 +60,12 @@ public abstract class IdleState : BaseState
         }
     }
 
-    public override void OnCollisionEnter(StateManager stateManager, Collision collision)
+    public override void OnCollisionEnter2D(StateManager stateManager, Collision2D collision)
+    {
+
+    }
+
+    public override void OnCollisionStay2D(StateManager stateManager, Collision2D collision)
     {
 
     }

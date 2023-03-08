@@ -31,10 +31,10 @@ public class PlayerAttributes : MonoBehaviour
 
     // added for airstate to check whether it is hooked to limit speed to top speed
     [HideInInspector] public bool isHooked = false; // TODO: bandaid solution (this is only true when the frapple is hooked, and false when character hits the ground)
-    public float frappleTopSpeed = 20f; // the top speed when frappling is > than when on the ground
+    public float frappleTopSpeed = 15f; // the top speed when frappling is > than when on the ground
 
     ////add these after you have showed movement left and right on Unity
-    public float jumpStrength = 10f; // jump force of player
+    //public float jumpStrength = 10f; // jump force of player
     
     // coyote time
     float coyoteTime = 0.1f;

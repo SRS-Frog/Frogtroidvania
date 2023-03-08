@@ -14,6 +14,7 @@ public class StateManager : MonoBehaviour
     public MovingState HumanMovingState = new HumanMovingState();
     public AttackState HumanAttackState = new HumanAttackState();
     public PlungeState HumanPlungeState = new HumanPlungeState();
+    public DashState HumanDashState = new HumanDashState();
 
     // Instantiate Frog states 
     public IdleState FrogIdleState = new FrogIdleState();
@@ -21,6 +22,7 @@ public class StateManager : MonoBehaviour
     public MovingState FrogMovingState = new FrogMovingState();
     public AttackState FrogAttackState = new FrogAttackState();
     public PlungeState FrogPlungeState = new FrogPlungeState();
+    public DashState FrogDashState = new FrogDashState();
 
     // Assign these variables depending on if player is in Frog or Human state
     // Mostly here so I get to rewrite less code
@@ -29,6 +31,7 @@ public class StateManager : MonoBehaviour
     public AirState AirState; 
     public AttackState AttackState;
     public PlungeState PlungeState;
+    public DashState DashState;
 
     // Start is called before the first frame update
     void Start()
@@ -44,9 +47,14 @@ public class StateManager : MonoBehaviour
         currentState.EnterState(this, playerAttributes);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        currentState.OnCollisionEnter(this, collision);
+        currentState.OnCollisionEnter2D(this, collision);
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        currentState.OnCollisionStay2D(this, collision);
     }
 
     // Update is called once per frame
@@ -76,6 +84,8 @@ public class StateManager : MonoBehaviour
                 MovingState = HumanMovingState;
                 PlungeState = HumanPlungeState;
                 AttackState = HumanAttackState;
+
+                // swap into human attributes
                 playerAttributes.spriteRenderer.sprite = playerAttributes.humanSprite;
                 playerAttributes.topSpeed = PlayerAttributes.humanTopSpeed;
                 playerAttributes.acceleration = PlayerAttributes.humanAcceleration;
@@ -87,6 +97,8 @@ public class StateManager : MonoBehaviour
                 MovingState = FrogMovingState;
                 PlungeState = FrogPlungeState;
                 AttackState = FrogAttackState;
+
+                // swap into frog attributes
                 playerAttributes.spriteRenderer.sprite = playerAttributes.frogSprite;
                 playerAttributes.topSpeed = PlayerAttributes.frogTopSpeed;
                 playerAttributes.acceleration = PlayerAttributes.frogAcceleration;
