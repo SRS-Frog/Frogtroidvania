@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction attackAction;
+    private InputAction switchAction;
     private InputAction dashAction;
 
     //bool for if keys are pressed
     private bool movePressed;
     private bool jumpPressed;
     private bool attackPressed;
+    private bool switchPressed;
     private bool dashPressed;
 
     //specific for movement
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
         attackAction = playerInput.actions["Attack"];
+        switchAction = playerInput.actions["Switch"];
         dashAction = playerInput.actions["Dash"];
 
         //player
@@ -60,6 +63,10 @@ public class PlayerController : MonoBehaviour
         attackAction.performed += AttackControl;
         attackAction.canceled += AttackControl;
 
+        switchAction.started += SwitchControl;
+        switchAction.performed += SwitchControl;
+        switchAction.canceled += SwitchControl;
+
         dashAction.started += DashControl;
         dashAction.performed += DashControl;
         dashAction.canceled += DashControl;
@@ -78,6 +85,10 @@ public class PlayerController : MonoBehaviour
         attackAction.started -= AttackControl;
         attackAction.performed -= AttackControl;
         attackAction.canceled -= AttackControl;
+
+        switchAction.started += SwitchControl;
+        switchAction.performed += SwitchControl;
+        switchAction.canceled += SwitchControl;
 
         dashAction.started -= DashControl;
         dashAction.performed -= DashControl;
@@ -128,6 +139,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("AttackPressed");
     }
 
+    private void SwitchControl(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            switchPressed = true;
+        else if (context.canceled)
+            switchPressed = false;
+    }
+
     private void DashControl(InputAction.CallbackContext context)
     {
         if(context.started || context.performed)
@@ -164,6 +183,16 @@ public class PlayerController : MonoBehaviour
     public bool IsAttackPressed()
     {
         return attackPressed;
+    }
+
+    public bool IsSwitchPressed()
+    {
+        return switchPressed;
+    }
+
+    public void clearSwitchPressedInput()
+    {
+        switchPressed = false;
     }
 
     public bool IsDashPressed()
