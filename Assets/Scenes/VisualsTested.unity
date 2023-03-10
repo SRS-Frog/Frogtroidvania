@@ -1218,6 +1218,11 @@ Transform:
   m_Father: {fileID: 304736762}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &875048773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6106584676155727084, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+  m_PrefabInstance: {fileID: 4638912717248474687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &890213010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,6 +1648,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6106584676155727086, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
   m_PrefabInstance: {fileID: 4638912717248474687}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1303902133
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875048773}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7d857542b6596a45952425e0f8125a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1348895433
 GameObject:
   m_ObjectHideFlags: 0
@@ -4205,6 +4230,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1828278151, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828278151, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -398593037
+      objectReference: {fileID: 0}
     - target: {fileID: 4638912717219582304, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4253,5 +4286,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: daehyunController
+      value: 
+      objectReference: {fileID: 9100000, guid: e7d857542b6596a45952425e0f8125a5, type: 2}
+    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: froghyunController
+      value: 
+      objectReference: {fileID: 9100000, guid: dafd2c0279ab1ce4e821ec7b628a3d41, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
