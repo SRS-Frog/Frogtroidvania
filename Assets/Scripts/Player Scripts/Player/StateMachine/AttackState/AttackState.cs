@@ -12,6 +12,7 @@ public abstract class AttackState : BaseState
     {
         Debug.Log("Hello from AttackState");
         this.attributes = attributes;
+        attributes.state = PlayerAttributes.PlayerStates.Attacking;
 
         attacking = true;
         attributes.attackArea.SetActive(attacking);

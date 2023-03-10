@@ -45,6 +45,7 @@ public abstract class AirState : BaseState
         if (attributes.isGrounded)
         {
             player.SwitchState(player.IdleState);
+            attributes.state = PlayerAttributes.PlayerStates.Idle;
             return;
         }
 
@@ -68,6 +69,8 @@ public abstract class AirState : BaseState
         }
         else
             Move(player.playerController.GetDir(), player.playerController.HorizontalVal());
+
+        Animate(); // animate
     }
 
     public override void OnCollisionEnter2D(StateManager player, Collision2D collision)
@@ -113,6 +116,20 @@ public abstract class AirState : BaseState
         if ((attributes.facingRight && dir == -1) ||
             (!attributes.facingRight && dir == 1))
             Flip();
+    }
+
+    private void Animate()
+    {
+        if(attributes.rb.velocity.y > Mathf.Epsilon) // moving upward
+        {
+            attributes.state = PlayerAttributes.PlayerStates.Jumping;
+        } else if(attributes.rb.velocity.y < -Mathf.Epsilon) // falling downward
+        {
+            attributes.state = PlayerAttributes.PlayerStates.Falling;
+        } if(attributes.isGrounded) // if grounded and no vertical velocity
+        {
+            attributes.state = PlayerAttributes.PlayerStates.Idle;
+        }
     }
 
     // flip the player
