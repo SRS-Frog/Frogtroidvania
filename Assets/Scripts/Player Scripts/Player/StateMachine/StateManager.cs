@@ -90,6 +90,7 @@ public class StateManager : MonoBehaviour
 
                 // swap into human attributes
                 playerAttributes.spriteRenderer.sprite = playerAttributes.humanSprite;
+                playerAttributes.anim.runtimeAnimatorController = playerAttributes.daehyunController; // swap to daehyun controller
                 playerAttributes.topSpeed = PlayerAttributes.humanTopSpeed;
                 playerAttributes.acceleration = PlayerAttributes.humanAcceleration;
                 playerAttributes.jumpStrength = PlayerAttributes.humanJumpStrength;
@@ -104,6 +105,7 @@ public class StateManager : MonoBehaviour
 
                 // swap into frog attributes
                 playerAttributes.spriteRenderer.sprite = playerAttributes.frogSprite;
+                playerAttributes.anim.runtimeAnimatorController = playerAttributes.froghyunController; // swap to frog hyun controller
                 playerAttributes.topSpeed = PlayerAttributes.frogTopSpeed;
                 playerAttributes.acceleration = PlayerAttributes.frogAcceleration;
                 playerAttributes.jumpStrength = PlayerAttributes.frogJumpStrength;

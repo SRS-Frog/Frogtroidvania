@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerAttributes : MonoBehaviour
@@ -72,6 +73,11 @@ public class PlayerAttributes : MonoBehaviour
     public Sprite humanSprite;
     public Sprite frogSprite;
 
+    // Animator
+    public Animator anim; // the animator on the player
+    public RuntimeAnimatorController daehyunController;
+    public RuntimeAnimatorController froghyunController;
+
     //public Animator animator; // the animator of the player
     //[HideInInspector] public GameObject player; // the player
     //[HideInInspector] public GameObject lowestBound; // an empty GameObject that marks the lowest point in your game
@@ -83,6 +89,7 @@ public class PlayerAttributes : MonoBehaviour
     {
         // find the Rigidbody2D component of the object that this script is attached to
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator> ();
         spriteRenderer = GetComponent<SpriteRenderer>();
         attackArea = transform.GetChild(1).gameObject;
 
