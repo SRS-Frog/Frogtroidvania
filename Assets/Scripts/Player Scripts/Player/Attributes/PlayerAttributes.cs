@@ -130,7 +130,8 @@ public class PlayerAttributes : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
 
-        if (Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer)) // if touching ground
+        // Physics2D.OverlapCircle(GroundCheck.position, 0.05f, groundLayer) original ground check implementation
+        if (Physics2D.CircleCast(GroundCheck.position,0.05f,Vector2.down, 0.2f, groundLayer)) // if touching ground
         {
             coyoteTimer = coyoteTime; // coyote timer begins
         }
