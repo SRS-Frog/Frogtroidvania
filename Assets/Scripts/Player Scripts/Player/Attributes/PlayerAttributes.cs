@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+// using static Unity.VisualScripting.Round<TInput, TOutput>;
+using UnityEngine.UIElements.Experimental;
 
 public class PlayerAttributes : MonoBehaviour
 {
@@ -69,6 +71,7 @@ public class PlayerAttributes : MonoBehaviour
     public float timeToAttack = 0.15f;
 
     // Sprites
+    [Header("Visuals")]
     public SpriteRenderer spriteRenderer;
     public Sprite humanSprite;
     public Sprite frogSprite;
@@ -77,6 +80,19 @@ public class PlayerAttributes : MonoBehaviour
     public Animator anim; // the animator on the player
     public RuntimeAnimatorController daehyunController;
     public RuntimeAnimatorController froghyunController;
+
+    [HideInInspector] public enum PlayerStates
+    {
+        Plunging,
+        Walking,
+        Running,
+        Idle,
+        Dashing,
+        Attacking,
+        Jumping,
+        Falling
+    }
+    public PlayerStates state; // state of the character
 
     //public Animator animator; // the animator of the player
     //[HideInInspector] public GameObject player; // the player
@@ -107,6 +123,8 @@ public class PlayerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Animate();
+        
         if (coyoteTimer > Mathf.Epsilon) // aka 0f
         {
             coyoteTimer -= Time.deltaTime;
@@ -137,5 +155,108 @@ public class PlayerAttributes : MonoBehaviour
         }
 
         hit = Physics2D.Raycast(transform.position, Vector3.down, maxRayLength, groundLayer.value);
+    }
+
+    private void Animate()
+    {
+        //Debug.Log(state);
+        switch (state)
+        {
+            case PlayerStates.Plunging:
+                anim.SetBool("Plunging", true);
+
+                // set everything else false
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dashing", false);
+                anim.SetBool("Attacking", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                break;
+            case PlayerStates.Walking:
+                anim.SetBool("Walking", true);
+
+                // set everything else false
+                anim.SetBool("Plunging", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dashing", false);
+                anim.SetBool("Attacking", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                break;
+            case PlayerStates.Running:
+                anim.SetBool("Running", true);
+
+                // set everything else as false
+                anim.SetBool("Plunging", false);
+                anim.SetBool("Walking", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dashing", false);
+                anim.SetBool("Attacking", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                break;
+            case PlayerStates.Idle:
+                anim.SetBool("Idle", true);
+
+                // set false
+                anim.SetBool("Plunging", false);
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Dashing", false);
+                anim.SetBool("Attacking", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                break;
+            case PlayerStates.Dashing:
+                anim.SetBool("Dashing", true);
+
+                anim.SetBool("Plunging", false);
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Attacking", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                break;
+            case PlayerStates.Attacking:
+                anim.SetBool("Attacking", true);
+
+                anim.SetBool("Plunging", false);
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dashing", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                break;
+            case PlayerStates.Jumping:
+                anim.SetBool("Jumping", true);
+
+                anim.SetBool("Plunging", false);
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dashing", false);
+                anim.SetBool("Attacking", false);
+                anim.SetBool("Falling", false);
+                break;
+            case PlayerStates.Falling:
+                anim.SetBool("Falling", true);
+
+                anim.SetBool("Plunging", false);
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dashing", false);
+                anim.SetBool("Attacking", false);
+                anim.SetBool("Jumping", false);
+                break;
+            default:
+                // code block
+                break;
+        }
     }
 }

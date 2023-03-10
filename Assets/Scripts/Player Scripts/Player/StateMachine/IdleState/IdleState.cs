@@ -15,6 +15,8 @@ public abstract class IdleState : BaseState
     {
         //Debug.Log("Hello from IdleState");
         this.attributes = attributes;
+
+        attributes.state = PlayerAttributes.PlayerStates.Idle;
     }
 
     public override void UpdateState(StateManager player)

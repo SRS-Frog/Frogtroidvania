@@ -11,6 +11,7 @@ public abstract class PlungeState : BaseState
         Debug.Log("Hello from Plungestate");
 
         this.attributes = attributes;
+        attributes.state = PlayerAttributes.PlayerStates.Plunging;
 
         attributes.rb.velocity = new Vector2(0f, -attributes.plungeSpeed);
         attributes.canPlunge = false;

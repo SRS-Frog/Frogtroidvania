@@ -12,7 +12,9 @@ public abstract class MovingState : BaseState
     public override void EnterState(StateManager player, PlayerAttributes attributes)
     {
         Debug.Log("Hello from the Moving State");
+        
         this.attributes = attributes;
+        attributes.state = PlayerAttributes.PlayerStates.Walking;
     }
 
     public override void UpdateState(StateManager player)
@@ -49,7 +51,6 @@ public abstract class MovingState : BaseState
 
     public override void FixedUpdateState(StateManager player)
     {
-
         if (!player.playerController.IsMovePressed())
         {
             player.SwitchState(player.IdleState);
@@ -77,9 +78,24 @@ public abstract class MovingState : BaseState
         attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);
 
         // flip the player if needed
-        if ((attributes.facingRight && dir == -1) || 
+        if ((attributes.facingRight && dir == -1) ||
             (!attributes.facingRight && dir == 1))
             Flip();
+
+        // animations
+        Animate();
+    }
+
+    private void Animate()
+    {
+        if (Mathf.Abs(attributes.rb.velocity.x) >= (attributes.topSpeed * 0.95f)) // if at about 95% of top speed
+        {
+            attributes.state = PlayerAttributes.PlayerStates.Running;
+        }
+        else
+        {
+            attributes.state = PlayerAttributes.PlayerStates.Walking;
+        }
     }
 
     // add a vertical force to the player

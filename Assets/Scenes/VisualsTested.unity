@@ -1658,7 +1658,7 @@ Animator:
   m_GameObject: {fileID: 875048773}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e7d857542b6596a45952425e0f8125a5, type: 2}
+  m_Controller: {fileID: 9100000, guid: dafd2c0279ab1ce4e821ec7b628a3d41, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4230,6 +4230,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1828278151, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828278151, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -398593037
+      objectReference: {fileID: 0}
     - target: {fileID: 4638912717219582304, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4277,6 +4285,10 @@ PrefabInstance:
     - target: {fileID: 4638912717219582305, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: offset.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: daehyunController

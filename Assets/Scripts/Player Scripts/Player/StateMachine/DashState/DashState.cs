@@ -12,6 +12,7 @@ public abstract class DashState : BaseState
     {
         Debug.Log("Hello from DashState");
         this.attributes = attributes;
+        attributes.state = PlayerAttributes.PlayerStates.Dashing;
 
         dashTimer = 0f; //restart dash timer
         attributes.canDash = false;
