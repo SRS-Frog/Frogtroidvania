@@ -40,9 +40,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //playerStates = GetComponent<PlayerStates>();
-        var rebinds = PlayerPrefs.GetString("rebinds");
-        if (!string.IsNullOrEmpty(rebinds))
-            playerInput.actions.LoadBindingOverridesFromJson(rebinds);
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
@@ -51,6 +48,10 @@ public class PlayerController : MonoBehaviour
         switchAction = playerInput.actions["Switch"];
         dashAction = playerInput.actions["Dash"];
         plungeAction = playerInput.actions["Plunge"];
+        
+        var rebinds = PlayerPrefs.GetString("rebinds");
+        if (!string.IsNullOrEmpty(rebinds))
+            playerInput.actions.LoadBindingOverridesFromJson(rebinds);
 
         //player
     }
