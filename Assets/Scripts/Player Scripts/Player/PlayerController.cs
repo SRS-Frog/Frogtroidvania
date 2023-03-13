@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //playerStates = GetComponent<PlayerStates>();
+        var rebinds = PlayerPrefs.GetString("rebinds");
+        if (!string.IsNullOrEmpty(rebinds))
+            playerInput.actions.LoadBindingOverridesFromJson(rebinds);
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
