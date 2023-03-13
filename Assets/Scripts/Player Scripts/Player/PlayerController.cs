@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour
         switchAction = playerInput.actions["Switch"];
         dashAction = playerInput.actions["Dash"];
         plungeAction = playerInput.actions["Plunge"];
+        
+        var rebinds = PlayerPrefs.GetString("rebinds");
+        if (!string.IsNullOrEmpty(rebinds))
+            playerInput.actions.LoadBindingOverridesFromJson(rebinds);
 
         //player
     }
