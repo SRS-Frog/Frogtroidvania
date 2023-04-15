@@ -21451,8 +21451,12 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: frappleLength
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleMaxSpeed
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.size
@@ -21460,7 +21464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].time
-      value: 0.0022058825
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].time
@@ -21476,35 +21480,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].inSlope
-      value: 0.29315275
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].inSlope
-      value: 1.2738314
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].outSlope
-      value: 0.29315275
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].inWeight
-      value: 0.03242457
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].outSlope
-      value: 1.2738314
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].outWeight
-      value: 0.03541563
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: daehyunController

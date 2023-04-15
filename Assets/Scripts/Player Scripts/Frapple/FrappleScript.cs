@@ -77,7 +77,7 @@ public class FrappleScript : MonoBehaviour
                 // earlier in frapple = faster
                 rb.velocity = (targetPos - rb.position).normalized * frappleMaxSpeed * frappleExtendSpeedCurve.Evaluate(Vector2.Distance(targetPos, rb.position)/frappleLength); // move frapple toward a position
 
-                if (Vector2.Distance(rb.position, targetPos) <= 0.3f) // if the distance is small enough, target reached
+                if (Vector2.Distance(rb.position, targetPos) <= 0.3f || Vector2.Distance(rb.position, startingPos) >= frappleLength) // if the distance is small enough, target reached
                 {
                     RetractFrapple(); // retract frapple
                 }
@@ -190,28 +190,28 @@ public class FrappleScript : MonoBehaviour
         if (!isLaunched) // if not already launched, prevents spamming
         {
             targetPos = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
-            rb.position = startingPos; // move to the starting position
+            // rb.position = startingPos; // move to the starting position
 
-            // CHEATING ON PLAYER'S BEHALF, FOR SMOOTHER FRAPPLE
-            Vector3 virtualStartingPos = startingPos; // starting pos to be modified if player is moving
-            if (Mathf.Abs(daehyunRB.velocity.x) > 2f && daehyunRB.velocity.y > 1f) // if daehyun is moving a particular direction at a certain speed in the air
-            {
-                // Debug.Log("Cheating");
-                Vector2 veloc = daehyunRB.velocity;
+            // // CHEATING ON PLAYER'S BEHALF, FOR SMOOTHER FRAPPLE
+            // Vector3 virtualStartingPos = startingPos; // starting pos to be modified if player is moving
+            // if (Mathf.Abs(daehyunRB.velocity.x) > 2f && daehyunRB.velocity.y > 1f) // if daehyun is moving a particular direction at a certain speed in the air
+            // {
+            //     // Debug.Log("Cheating");
+            //     Vector2 veloc = daehyunRB.velocity;
 
-                float cheatFactor = 0.5f;
-                targetPos = new Vector2((veloc.x + targetPos.x) * cheatFactor, targetPos.y); // move the target position slightly to match the velocity
-                virtualStartingPos = new Vector2((veloc.x + targetPos.x) * cheatFactor, startingPos.y); // moving starting pos according to daehyun's velocity
-            }
+            //     float cheatFactor = 0.5f;
+            //     targetPos = new Vector2((veloc.x + targetPos.x) * cheatFactor, targetPos.y); // move the target position slightly to match the velocity
+            //     virtualStartingPos = new Vector2((veloc.x + targetPos.x) * cheatFactor, startingPos.y); // moving starting pos according to daehyun's velocity
+            // }
 
-            // clamp frapple to max length
-            if (Vector2.Distance(targetPos, virtualStartingPos) >= frappleLength) // if the point is too far
-            {
-                // shoot frapple in the direction of that point, but not exceeding the frapple length
-                Vector2 distanceBtwn = targetPos - rb.position; // the vector between the two points
-                distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength - 0.2f); // clamp the distance to slightly less than the maximum length
-                targetPos = rb.position + distanceBtwn; //new target position to shoot toward
-            }
+            // // clamp frapple to max length
+            // if (Vector2.Distance(targetPos, virtualStartingPos) >= frappleLength) // if the point is too far
+            // {
+            //     // shoot frapple in the direction of that point, but not exceeding the frapple length
+            //     Vector2 distanceBtwn = targetPos - rb.position; // the vector between the two points
+            //     distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength - 0.2f); // clamp the distance to slightly less than the maximum length
+            //     targetPos = rb.position + distanceBtwn; //new target position to shoot toward
+            // }
             Toggle(true);
         }
     }
