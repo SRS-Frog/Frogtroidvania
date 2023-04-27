@@ -7,13 +7,14 @@ public class DartScript : MonoBehaviour
     public GameObject projectile;
     public Transform projectileTransform;
     // public float timeBetweenFiring;
-    public bool canFire;
+    public bool canFire; 
     public bool enableCrosshairFiring;
 
     //Daehyun variables
     private GameObject daehyun;
     private Rigidbody2D daehyunRB;
     private StateManager player;
+    private PlayerAttributes playerAttributes;
 
     private void Awake() 
     {
@@ -21,6 +22,7 @@ public class DartScript : MonoBehaviour
         daehyun = transform.parent.GetChild(0).gameObject; // get a reference to daehyun's game object
         daehyunRB = daehyun.GetComponent<Rigidbody2D>(); // daehyun's rigidbody
         player = daehyun.GetComponent<StateManager>();
+        playerAttributes = daehyun.GetComponent<PlayerAttributes>();
     }
     // Start is called before the first frame update
     void Start()
@@ -51,7 +53,12 @@ public class DartScript : MonoBehaviour
 
     public void Shoot() 
     {
-        if (canFire) {
+        bool isStateValidForFiring = true;
+        if(playerAttributes.state == PlayerAttributes.PlayerStates.Plunging || playerAttributes.state == PlayerAttributes.PlayerStates.Dashing) {
+            isStateValidForFiring = false;
+        }
+
+        if (isStateValidForFiring && canFire) {
             GameObject dart = Instantiate(projectile, projectileTransform.position, Quaternion.identity);
             dart.GetComponent<ProjectileScript>().enableCrosshairFiring = enableCrosshairFiring;
             
