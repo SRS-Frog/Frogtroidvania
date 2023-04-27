@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 // using static Unity.VisualScripting.Round<TInput, TOutput>;
-using UnityEngine.UIElements.Experimental;
 
 public class PlayerAttributes : MonoBehaviour
 {

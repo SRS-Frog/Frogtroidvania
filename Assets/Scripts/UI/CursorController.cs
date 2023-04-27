@@ -3,7 +3,7 @@ using UnityEngine;
 public class CursorController : MonoBehaviour
 {
     public Texture2D cursorPassive;
-    public Texture2D cursorClicked;
+    public Texture2D cursorClicked; // For now, we don't set the separate cursorClicked
     private void Awake() {
         ChangeCursor(cursorPassive);
         Cursor.lockState = CursorLockMode.Confined;
