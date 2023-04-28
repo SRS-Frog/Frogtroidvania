@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-    [SerializeField] private int startingHealth = 100;
+    [SerializeField] private int maxHealth = MAX_HEALTH;
+    [SerializeField] private int maxHearts = 10;
+    [SerializeField] private HealthUIController healthUIController;
 
     public int health { get; private set; }
-
     public const int MAX_HEALTH = 100; 
 
     void Awake() {
-        health = startingHealth;
+        health = maxHealth;
+        UpdateHeartsUI();
     }
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.U)) {
-            // Damage(10);
+            Damage(10);
         }
 
         if (Input.GetKeyDown(KeyCode.H)) {
@@ -41,6 +43,7 @@ public class Health : MonoBehaviour {
         if(health <= 0) {
             Die();
         }
+        UpdateHeartsUI();
     }
 
     public void Heal(int amount) {
@@ -56,6 +59,14 @@ public class Health : MonoBehaviour {
         else {
             this.health += amount;
         }
+        UpdateHeartsUI();
+    }
+
+    public void UpdateHeartsUI() 
+    {
+        int currNumHearts = (health * maxHearts)/maxHealth;
+        Debug.Log("NUM HEARTS:" + currNumHearts.ToString());
+        healthUIController.DrawHearts(currNumHearts, maxHearts);
     }
 
     private void Die() {
