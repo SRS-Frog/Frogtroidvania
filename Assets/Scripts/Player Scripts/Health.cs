@@ -3,26 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-    [SerializeField] private int maxHealth = MAX_HEALTH;
-    [SerializeField] private int maxHearts = 10;
+    [SerializeField] private int maxHearts = STARTING_MAX_HEARTS;
     [SerializeField] private HealthUIController healthUIController;
+    public bool isImmortalityOn; // Immortality flag, can be set from Unity editor
 
-    public int health { get; private set; }
-    public const int MAX_HEALTH = 100; 
+    public int hearts { get; private set; }
+    public const int STARTING_MAX_HEARTS = 10;
 
     void Awake() {
-        health = maxHealth;
+        hearts = maxHearts;
         UpdateHeartsUI();
     }
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.U)) {
-            Damage(10);
+            if (!isImmortalityOn) {
+                Damage(1);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.H)) {
-            Heal(10);
+            Heal(1);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.P)) {
+            ExpandMaxHealth(1);
         }
     }
 
@@ -38,9 +44,9 @@ public class Health : MonoBehaviour {
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
 
-        this.health -= amount;
+        this.hearts -= amount;
         StartCoroutine(VisualIndicator(Color.red));
-        if(health <= 0) {
+        if(hearts <= 0) {
             Die();
         }
         UpdateHeartsUI();
@@ -51,22 +57,24 @@ public class Health : MonoBehaviour {
             throw new System.ArgumentOutOfRangeException("Cannot have negative healing");
         }
 
-        bool wouldBeOverMaxHealth = health + amount > MAX_HEALTH;
+        bool wouldBeOverMaxHearts = hearts + amount > maxHearts;
         StartCoroutine(VisualIndicator(Color.green));
-        if (wouldBeOverMaxHealth) {
-            this.health = MAX_HEALTH;
+        if (wouldBeOverMaxHearts) {
+            this.hearts = maxHearts;
         }
         else {
-            this.health += amount;
+            this.hearts += amount;
         }
         UpdateHeartsUI();
     }
 
+    public void ExpandMaxHealth(int amount) {
+        maxHearts += amount;
+    }
+
     public void UpdateHeartsUI() 
     {
-        int currNumHearts = (health * maxHearts)/maxHealth;
-        Debug.Log("NUM HEARTS:" + currNumHearts.ToString());
-        healthUIController.DrawHearts(currNumHearts, maxHearts);
+        healthUIController.DrawHearts(hearts, maxHearts);
     }
 
     private void Die() {
