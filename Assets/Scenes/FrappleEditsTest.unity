@@ -21472,23 +21472,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].value
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].value
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].inSlope
-      value: 0.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].inSlope
-      value: 0.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].outSlope
-      value: 0.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].inWeight
@@ -21496,7 +21496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].outSlope
-      value: 0.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].outWeight
@@ -21518,5 +21518,13 @@ PrefabInstance:
       propertyPath: froghyunController
       value: 
       objectReference: {fileID: 9100000, guid: dafd2c0279ab1ce4e821ec7b628a3d41, type: 2}
+    - target: {fileID: 6927025429179283114, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.28235292
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927025429179283114, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.85586846
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}

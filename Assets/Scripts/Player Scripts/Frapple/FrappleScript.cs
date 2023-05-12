@@ -15,6 +15,7 @@ public class FrappleScript : MonoBehaviour
     //Daehyun variables
     private GameObject daehyun;
     private Rigidbody2D daehyunRB;
+    private Camera cam;
 
     // inspector variables
     [SerializeField] float frappleLength, frappleMaxSpeed = 25f, retractSpeed = 30f, shortenSpeed = 10f; // retract speed for when nothing was hit, shorten acceleration for when hooked
@@ -26,7 +27,8 @@ public class FrappleScript : MonoBehaviour
     private bool isLaunched = false;
     private bool isRetracting = false;
     private bool isHooked = false;
-    private Vector2 targetPos;
+    private Vector2 targetPos_screen;
+    private Vector2 hookedPos;
     private Vector2 startingPos;
 
 
@@ -50,6 +52,8 @@ public class FrappleScript : MonoBehaviour
 
         //bandaid solution
         attributes = rope.connectedBody.GetComponent<PlayerAttributes>(); // get the human attributes from the connected body
+
+        cam = Camera.main;
     }
 
     private void Update()
@@ -68,16 +72,17 @@ public class FrappleScript : MonoBehaviour
         {
             if (isRetracting) // if frapple is in retracting state
             {
-                rb.velocity = (startingPos - rb.position).normalized * retractSpeed; // move frapple toward starting position
+                rb.velocity = daehyunRB.velocity + (startingPos - rb.position).normalized * retractSpeed; // move frapple toward starting position
             }
             else if (isLaunched) // frapple is being launched outward
             {
                 // update frapple velocity depending on how long the frapple is
                 // later in frapple = slower
                 // earlier in frapple = faster
-                rb.velocity = (targetPos - rb.position).normalized * frappleMaxSpeed * frappleExtendSpeedCurve.Evaluate(Vector2.Distance(targetPos, rb.position)/frappleLength); // move frapple toward a position
+                Vector2 targetPos_world = cam.ScreenToWorldPoint(targetPos_screen);
+                rb.velocity = daehyunRB.velocity + (targetPos_world - rb.position).normalized * frappleMaxSpeed * frappleExtendSpeedCurve.Evaluate(Vector2.Distance(rb.position, startingPos)/frappleLength); // move frapple toward a position
 
-                if (Vector2.Distance(rb.position, targetPos) <= 0.3f || Vector2.Distance(rb.position, startingPos) >= frappleLength) // if the distance is small enough, target reached
+                if (Vector2.Distance(rb.position, targetPos_world) <= 0.3f || Vector2.Distance(rb.position, startingPos) >= frappleLength) // if the distance is small enough, target reached
                 {
                     RetractFrapple(); // retract frapple
                 }
@@ -136,6 +141,7 @@ public class FrappleScript : MonoBehaviour
         if (!isRetracting && isLaunched && collision.transform.CompareTag("Frappable")) // if it is frappable
         {
             // Debug.Log("collided with " + collision);
+            hookedPos = rb.position;
             Frapple();
         }
         else if (isRetracting && collision.transform.CompareTag("Player"))
@@ -162,7 +168,7 @@ public class FrappleScript : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Static; // stop moving
 
         // rope distance is distance from hooked point to the startingpos (or maximum of rope length)
-        rope.distance = Mathf.Clamp(Vector2.Distance(targetPos, startingPos), 0f, frappleLength);
+        rope.distance = Mathf.Clamp(Vector2.Distance(hookedPos, startingPos), 0f, frappleLength);
 
         //bandaid solution
         attributes.isHooked = isHooked; // this is only changed when the frapple is hooked, and turned off when character hits the ground
@@ -189,29 +195,8 @@ public class FrappleScript : MonoBehaviour
 
         if (!isLaunched) // if not already launched, prevents spamming
         {
-            targetPos = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
-            // rb.position = startingPos; // move to the starting position
-
-            // // CHEATING ON PLAYER'S BEHALF, FOR SMOOTHER FRAPPLE
-            // Vector3 virtualStartingPos = startingPos; // starting pos to be modified if player is moving
-            // if (Mathf.Abs(daehyunRB.velocity.x) > 2f && daehyunRB.velocity.y > 1f) // if daehyun is moving a particular direction at a certain speed in the air
-            // {
-            //     // Debug.Log("Cheating");
-            //     Vector2 veloc = daehyunRB.velocity;
-
-            //     float cheatFactor = 0.5f;
-            //     targetPos = new Vector2((veloc.x + targetPos.x) * cheatFactor, targetPos.y); // move the target position slightly to match the velocity
-            //     virtualStartingPos = new Vector2((veloc.x + targetPos.x) * cheatFactor, startingPos.y); // moving starting pos according to daehyun's velocity
-            // }
-
-            // // clamp frapple to max length
-            // if (Vector2.Distance(targetPos, virtualStartingPos) >= frappleLength) // if the point is too far
-            // {
-            //     // shoot frapple in the direction of that point, but not exceeding the frapple length
-            //     Vector2 distanceBtwn = targetPos - rb.position; // the vector between the two points
-            //     distanceBtwn = Vector3.ClampMagnitude(distanceBtwn, frappleLength - 0.2f); // clamp the distance to slightly less than the maximum length
-            //     targetPos = rb.position + distanceBtwn; //new target position to shoot toward
-            // }
+            targetPos_screen = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
+            rb.position = startingPos; // move to the starting position
             Toggle(true);
         }
     }
