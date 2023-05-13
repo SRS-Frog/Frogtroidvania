@@ -107,6 +107,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot Dart"",
+                    ""type"": ""Button"",
+                    ""id"": ""cd0a2095-491c-44aa-879c-a312452361c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -362,6 +371,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Plunge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f02f08b3-e0d1-4b86-889b-3ac334bf199e"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot Dart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -396,6 +416,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Release = m_Player.FindAction("Release", throwIfNotFound: true);
         m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
+        m_Player_ShootDart = m_Player.FindAction("Shoot Dart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -464,6 +485,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Release;
     private readonly InputAction m_Player_Point;
     private readonly InputAction m_Player_Switch;
+    private readonly InputAction m_Player_ShootDart;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -477,6 +499,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Release => m_Wrapper.m_Player_Release;
         public InputAction @Point => m_Wrapper.m_Player_Point;
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
+        public InputAction @ShootDart => m_Wrapper.m_Player_ShootDart;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -513,6 +536,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Switch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
                 @Switch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
                 @Switch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                @ShootDart.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShootDart;
+                @ShootDart.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShootDart;
+                @ShootDart.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShootDart;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -544,6 +570,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Switch.started += instance.OnSwitch;
                 @Switch.performed += instance.OnSwitch;
                 @Switch.canceled += instance.OnSwitch;
+                @ShootDart.started += instance.OnShootDart;
+                @ShootDart.performed += instance.OnShootDart;
+                @ShootDart.canceled += instance.OnShootDart;
             }
         }
     }
@@ -568,5 +597,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnRelease(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
+        void OnShootDart(InputAction.CallbackContext context);
     }
 }
