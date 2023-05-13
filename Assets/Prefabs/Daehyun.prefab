@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 1503719458892697351}
   - component: {fileID: 1503719458892697350}
   - component: {fileID: 1503719458892697345}
+  - component: {fileID: -5789289712664399849}
   m_Layer: 0
   m_Name: Daehyun
   m_TagString: Untagged
@@ -449,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317cefd8ea5c24b95819117390ccf4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanAttributes: {fileID: 0}
+  playerAttributes: {fileID: 0}
   playerController: {fileID: 0}
 --- !u!114 &1503719458892697358
 MonoBehaviour:
@@ -464,18 +465,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  moveSpeed: 500
-  jumpForce: 700
+  humanCollider: {fileID: 0}
+  frogCollider: {fileID: 0}
+  topSpeed: 10
+  acceleration: 40
+  jumpStrength: 10
+  isHooked: 0
+  frappleTopSpeed: 15
   isGrounded: 0
   GroundCheck: {fileID: 1503719458356419657}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   facingRight: 1
+  dashStrength: 30
+  dashTime: 0.2
+  baseGravity: 0
+  canDash: 0
   maxRayLength: 0
   plungeSpeed: 0
+  canPlunge: 0
   attackArea: {fileID: 1503719456866627460}
   timeToAttack: 0.15
+  spriteRenderer: {fileID: 0}
+  humanSprite: {fileID: 0}
+  frogSprite: {fileID: 0}
+  anim: {fileID: 0}
+  daehyunController: {fileID: 0}
+  froghyunController: {fileID: 0}
+  state: 0
 --- !u!70 &1503719458892697351
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -530,6 +548,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a15e5165da5f4d48ae68cc5b7280a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frappleDistance: 3
-  frappleSpeed: 150
-  offSet: {x: 0, y: 1, z: 0}
+--- !u!95 &-5789289712664399849
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503719458892697392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7d857542b6596a45952425e0f8125a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
