@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Enemy
@@ -15,15 +16,20 @@ namespace Enemy
     
         [SerializeField] private bool right = true;
         [SerializeField] private LayerMask climbableLayer;
+        [SerializeField] private int damage;
 
         private float raycastLength;
         private float raycastOffset;
+
+        private Health health;
 
         // Start is called before the first frame update
         void Start()
         {
             raycastLength = GetComponent<SpriteRenderer>().bounds.size.y/2;
             raycastOffset = GetComponent<SpriteRenderer>().bounds.size.x/2;
+
+            health = GetComponent<Health>();
         }
 
         // Update is called once per frame
@@ -32,6 +38,16 @@ namespace Enemy
             Move();
             
             CheckStateChange();
+            
+            CheckDeath();
+        }
+
+        private void CheckDeath()
+        {
+            if (health.health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void Move()
@@ -41,7 +57,6 @@ namespace Enemy
                 case States.FALLING:
                     transform.position += Vector3.down * Time.fixedDeltaTime;
                     break;
-                
                 case States.FORWARD:
                     transform.position += transform.right * Time.fixedDeltaTime;
                     break;
@@ -69,8 +84,7 @@ namespace Enemy
                 case States.FORWARD:
                     if (!checkBit(bRaycast, 1) && !(right ? checkBit(bRaycast, 2) : checkBit(bRaycast, 0)))
                     {
-                        curState = Physics2D.Raycast(transform.position - transform.up * raycastLength - transform.right * raycastOffset,
-                            transform.right, raycastOffset, climbableLayer) ? States.CONCAVE_ROT : States.ROTATION;
+                        curState = States.ROTATION;
                     }
                     break;
                 case States.ROTATION:
@@ -109,6 +123,17 @@ namespace Enemy
             }
 
             return output;
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            Health h = col.gameObject.GetComponent<Health>();
+            if (h && col.gameObject.CompareTag("Player"))
+            {
+                GameObject p = h.gameObject;
+                h.Damage(damage);
+                p.GetComponent<Rigidbody2D>().AddForce((p.transform.position - transform.position).normalized * 3f);
+            }
         }
     }
 }
