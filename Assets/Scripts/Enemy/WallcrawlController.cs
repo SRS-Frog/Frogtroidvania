@@ -91,8 +91,6 @@ namespace Enemy
                     if (right ? checkBit(bRaycast, 2) : checkBit(bRaycast, 0))
                     {
                         curState = States.FORWARD;
-                        transform.up = Physics2D.Raycast(transform.position + transform.right * raycastOffset,
-                            -transform.up, raycastLength, climbableLayer).normal;
                     }
                     break;
             }
