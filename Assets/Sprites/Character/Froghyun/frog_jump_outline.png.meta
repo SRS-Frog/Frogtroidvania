@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f667b8e64d304da4ebf568b091d143b6
+guid: fcb72ff0c2b479e40bc4d9c88da124d8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,11 +128,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: frog_jump_frames_with_outline_0
+      name: frog_jump_outline_0
       rect:
         serializedVersion: 2
         x: 7
-        y: 15
+        y: 14
         width: 46
         height: 31
       alignment: 7
@@ -142,18 +142,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a34d19b74ce1f764d8ec0c7634b7349e
-      internalID: -1689876396
+      spriteID: ad4dbe111f529c9479ce006f153eaf64
+      internalID: 17554689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_jump_frames_with_outline_1
+      name: frog_jump_outline_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 9
+        x: 58
+        y: 8
         width: 53
         height: 43
       alignment: 7
@@ -163,18 +163,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61d084c6f40b68943bd31f469e1cd62d
-      internalID: 1610323391
+      spriteID: 3b00ee477fa9bca4196ce4642e10f150
+      internalID: 1212845535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_jump_frames_with_outline_2
+      name: frog_jump_outline_2
       rect:
         serializedVersion: 2
-        x: 105
-        y: 14
+        x: 114
+        y: 13
         width: 60
         height: 29
       alignment: 7
@@ -184,18 +184,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c4dbb810c92be4b9c2466ac55079f1
-      internalID: -392122279
+      spriteID: 18d3d8f36e470ce4283ee0bdd031d3ba
+      internalID: -1669863804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_jump_frames_with_outline_3
+      name: frog_jump_outline_3
       rect:
         serializedVersion: 2
-        x: 166
-        y: 6
+        x: 181
+        y: 5
         width: 47
         height: 45
       alignment: 7
@@ -205,18 +205,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5adb5b9b701fe05479ad2d9d4acdd35f
-      internalID: 554632129
+      spriteID: 0f3197ca586839c49a2ed5ae10b38d40
+      internalID: -1062095047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_jump_frames_with_outline_4
+      name: frog_jump_outline_4
       rect:
         serializedVersion: 2
-        x: 223
-        y: 10
+        x: 238
+        y: 9
         width: 43
         height: 40
       alignment: 7
@@ -226,18 +226,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b20916f43e32da4e994c5586c52c013
-      internalID: 1116438467
+      spriteID: 726b47979decbc243aa644adfd34f4e4
+      internalID: -1836048998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_jump_frames_with_outline_5
+      name: frog_jump_outline_5
       rect:
         serializedVersion: 2
-        x: 273
-        y: 14
+        x: 288
+        y: 13
         width: 47
         height: 33
       alignment: 7
@@ -247,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6277fe8bb2093a44ba4425e555cfb72
-      internalID: -1289943963
+      spriteID: 079ec2225212c944caf659f5dfd1aede
+      internalID: -1675890716
       vertices: []
       indices: 
       edges: []
@@ -264,12 +264,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      frog_jump_frames_with_outline_1: 1610323391
-      frog_jump_frames_with_outline_0: -1689876396
-      frog_jump_frames_with_outline_2: -392122279
-      frog_jump_frames_with_outline_3: 554632129
-      frog_jump_frames_with_outline_5: -1289943963
-      frog_jump_frames_with_outline_4: 1116438467
+      frog_jump_outline_3: -1062095047
+      frog_jump_outline_4: -1836048998
+      frog_jump_outline_0: 17554689
+      frog_jump_outline_5: -1675890716
+      frog_jump_outline_1: 1212845535
+      frog_jump_outline_2: -1669863804
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
