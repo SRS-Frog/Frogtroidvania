@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Frapple
   - Frappable
+  - Boundary
   layers:
   - Default
   - TransparentFX
