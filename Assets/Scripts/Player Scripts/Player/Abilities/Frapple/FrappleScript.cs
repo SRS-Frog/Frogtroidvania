@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static Yarn.Compiler.BasicBlock;
 
-public class FrappleScript : MonoBehaviour
+public class FrappleScript : BaseAbilityScript
 {
     // frapple variables
     private Rigidbody2D rb;
@@ -32,8 +32,19 @@ public class FrappleScript : MonoBehaviour
     // bandaid solution
     private PlayerAttributes attributes;
 
-    private void Awake()
+    public override bool IsHumanAbility() {
+        return false;
+    }
+
+    public override bool IsFrogAbility() {
+        return true;
+    }
+
+    public override void Awake()
     {
+        // Call parent class's Awake()
+        base.Awake();
+
         rb = GetComponent<Rigidbody2D>(); // rigidbody
         rope = GetComponent<DistanceJoint2D>(); // distance joint
         rope.distance = frappleLength; // set the joint distance to frapple length
@@ -183,7 +194,7 @@ public class FrappleScript : MonoBehaviour
     {
         isHooked = false;
 
-        if (!isLaunched) // if not already launched, prevents spamming
+        if (CanTriggerAbility() && !isLaunched) // if not already launched, prevents spamming
         {
             targetPos = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
             rb.position = startingPos; // move to the starting position

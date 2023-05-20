@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DartScript : MonoBehaviour
+public class DartScript : BaseAbilityScript
 {
     private Camera mainCamera;
     private Vector3 mousePos;
@@ -16,8 +16,18 @@ public class DartScript : MonoBehaviour
     private StateManager player;
     private PlayerAttributes playerAttributes;
 
-    private void Awake() 
+    public override bool IsHumanAbility() {
+        return false;
+    }
+
+    public override bool IsFrogAbility() {
+        return true;
+    }
+
+    public override void Awake() 
     {
+        // Call parent class's Awake()
+        base.Awake();
         // daehyun references
         daehyun = transform.parent.GetChild(0).gameObject; // get a reference to daehyun's game object
         daehyunRB = daehyun.GetComponent<Rigidbody2D>(); // daehyun's rigidbody
@@ -58,7 +68,7 @@ public class DartScript : MonoBehaviour
             isStateValidForFiring = false;
         }
 
-        if (isStateValidForFiring && canFire) {
+        if (CanTriggerAbility() && isStateValidForFiring && canFire) {
             GameObject dart = Instantiate(projectile, projectileTransform.position, Quaternion.identity);
             dart.GetComponent<ProjectileScript>().enableCrosshairFiring = enableCrosshairFiring;
             

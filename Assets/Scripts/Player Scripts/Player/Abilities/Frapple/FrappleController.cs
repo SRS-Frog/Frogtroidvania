@@ -74,4 +74,5 @@ public class FrappleController : MonoBehaviour
         frappleScript.ReturnToStartPos();
         frappleScript.RetractFrapple();
     }
+
 }
