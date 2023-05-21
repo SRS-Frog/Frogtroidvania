@@ -6,13 +6,12 @@ public abstract class BaseAbilityScript : MonoBehaviour {
     public abstract bool IsHumanAbility();
     public abstract bool IsFrogAbility();
     
-    private StateManager stateManager;
+    protected StateManager stateManager;
     public virtual void Awake() {
         stateManager = transform.parent.GetChild(0).gameObject.GetComponent<StateManager>();
-        Debug.Log(stateManager);
     }
-    public bool CanTriggerAbility() {
-        return (IsHumanAbility() == stateManager.isHuman() ||
-                IsFrogAbility() == !stateManager.isHuman());
+    public virtual bool CanTriggerAbility() {
+        return (IsHumanAbility() == stateManager.IsHuman() ||
+                IsFrogAbility() == !stateManager.IsHuman());
     }
 }

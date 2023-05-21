@@ -115,7 +115,7 @@ public class StateManager : MonoBehaviour
         state.EnterState(this, playerAttributes);
     }
 
-    public bool isHuman() {
+    public bool IsHuman() {
         return currentState.IsHumanState();
     }
 }
