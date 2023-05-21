@@ -21,6 +21,7 @@ public class AttackScript : BaseAbilityScript
         return false;
     }
 
+    // assign stateManager variable in parent class
     public override void Awake() {
         base.stateManager = transform.parent.gameObject.GetComponent<StateManager>();
     }
