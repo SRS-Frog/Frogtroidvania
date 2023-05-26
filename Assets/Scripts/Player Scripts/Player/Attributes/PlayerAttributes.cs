@@ -23,7 +23,7 @@ public class PlayerAttributes : MonoBehaviour
     public const float frogAcceleration = 60f;
     [HideInInspector] public float acceleration = humanAcceleration; // acceleration to pick up speed, and actual acceleration depends on GRAVITY and FRICTION
     //add these after you have showed movement left and right on Unity
-    public const float humanJumpStrength = 10f;
+    public const float humanJumpStrength = 11.5f;
     public const float frogJumpStrength = 20f;
     [HideInInspector] public float jumpStrength = humanJumpStrength; // jump force of player
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ public class PlayerAttributes : MonoBehaviour
     ////add these after you have showed movement left and right on Unity
     
     // coyote time
-    float coyoteTime = 0.1f;
+    float coyoteTime = 0.17f;
     float coyoteTimer = 0f;
     ////you could also type public float jumpForce
 
