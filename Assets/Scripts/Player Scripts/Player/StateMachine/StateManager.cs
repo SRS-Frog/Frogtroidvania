@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StateManager : MonoBehaviour
 {
     BaseState currentState;
     [HideInInspector] public PlayerAttributes playerAttributes;
     [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public FrappleController frappleController;
 
     // Instantiate Human states
     public IdleState HumanIdleState = new HumanIdleState();
@@ -38,6 +40,7 @@ public class StateManager : MonoBehaviour
     {
         playerAttributes = GetComponent<PlayerAttributes>();
         playerController = GetComponent<PlayerController>();
+        frappleController = GetComponent<FrappleController>();
 
         IdleState = HumanIdleState; 
         AirState = HumanAirState;
@@ -94,6 +97,9 @@ public class StateManager : MonoBehaviour
                 playerAttributes.topSpeed = PlayerAttributes.humanTopSpeed;
                 playerAttributes.acceleration = PlayerAttributes.humanAcceleration;
                 playerAttributes.jumpStrength = PlayerAttributes.humanJumpStrength;
+
+                // Retract frapple
+                frappleController.FrappleFullRetract();
             } else {
                 // Switch to Frog States, sprites and attributes
                 IdleState = FrogIdleState;
