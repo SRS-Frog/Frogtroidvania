@@ -69,7 +69,13 @@ public class FrappleController : MonoBehaviour
         frappleScript.RetractFrapple(); // retracts the frapple
     }
 
-    private void FrappleFullRetract(InputAction.CallbackContext context)
+    public void FrappleFullRetract(InputAction.CallbackContext context)
+    {
+        frappleScript.ReturnToStartPos();
+        frappleScript.RetractFrapple();
+    }
+    
+    public void FrappleFullRetract()
     {
         frappleScript.ReturnToStartPos();
         frappleScript.RetractFrapple();
