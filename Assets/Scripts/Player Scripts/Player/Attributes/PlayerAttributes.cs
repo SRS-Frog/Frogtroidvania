@@ -20,7 +20,7 @@ public class PlayerAttributes : MonoBehaviour
     public const float frogTopSpeed = 20f;
    [HideInInspector] public float topSpeed = humanTopSpeed; // horizontal speed of player. 
     public const float humanAcceleration = 40f; // can be editied via inspector
-    public const float frogAcceleration = 60f;
+    public const float frogAcceleration = 50f;
     [HideInInspector] public float acceleration = humanAcceleration; // acceleration to pick up speed, and actual acceleration depends on GRAVITY and FRICTION
     //add these after you have showed movement left and right on Unity
     public const float humanJumpStrength = 11.5f;

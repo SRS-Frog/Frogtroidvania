@@ -56,7 +56,9 @@ public class DartScript : BaseAbilityScript
             transform.rotation = Quaternion.Euler(0, 0, rotationInZ);
         } else {
             // TODO: Don't use magic numbers, also get consensus on how far the dart origination point should be
-            float xPosition = player.playerController.GetDir() == 1 ? 3f : -3f;
+
+            float dartDisplacement = 0.5f;
+            float xPosition = player.playerController.GetDir() == 1 ? 3f + dartDisplacement : -3f - dartDisplacement;
             transform.GetChild(0).localPosition = new Vector3(xPosition, 1f, 0f);
         }
     }

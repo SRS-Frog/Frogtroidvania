@@ -69,6 +69,13 @@ public abstract class MovingState : BaseState
         // Debug.Log("Moving " + attributes.rb.velocity);
         // changes horizontal velocity of player
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
+        ///
+
+        if(Mathf.Sign(horizontal) != Mathf.Sign(attributes.rb.velocity.x))
+        {
+            attributes.rb.velocity = new Vector2(0, attributes.rb.velocity.y); // reset velocity to zero for tighter movement
+        }
+
         attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration
         float clampedX = Vector2.ClampMagnitude(new Vector2(attributes.rb.velocity.x, 0), attributes.topSpeed).x; // clamp horizontal value to top speed
         attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);

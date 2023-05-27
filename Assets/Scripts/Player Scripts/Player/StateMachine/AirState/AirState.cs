@@ -99,6 +99,13 @@ public abstract class AirState : BaseState
 
         // changes horizontal velocity of player
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
+        ///
+
+        if (Mathf.Sign(horizontal) != Mathf.Sign(attributes.rb.velocity.x))
+        {
+            attributes.rb.velocity = new Vector2(0, attributes.rb.velocity.y); // reset velocity to zero for tighter movement
+        }
+
         attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration
 
         if (attributes.isHooked) // if the player is hooked, then clamp velocity to frapple top speed (else frapple along!!)

@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06f3a5514052f74387a41556836fa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 5
+  lifeTime: 1
+  force: 20
   enableCrosshairFiring: 0
 --- !u!50 &7366694622255523327
 Rigidbody2D:

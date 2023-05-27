@@ -5,6 +5,7 @@ public class ProjectileScript : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
+    public float lifeTime = 1f;
     public float force;
     public bool enableCrosshairFiring; // depends on enableCrosshairFiring in DartScript.cs
 
@@ -27,6 +28,11 @@ public class ProjectileScript : MonoBehaviour
             rb.velocity = transform.right * force;
             transform.rotation = Quaternion.Euler(0, 0, 90);
         }
+    }
+
+    private void Awake()
+    {
+        Destroy(gameObject, lifeTime);
     }
 
     void Update ()
