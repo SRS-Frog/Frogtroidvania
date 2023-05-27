@@ -11,7 +11,7 @@ public abstract class MovingState : BaseState
 
     public override void EnterState(StateManager player, PlayerAttributes attributes)
     {
-        Debug.Log("Hello from the Moving State");
+        // Debug.Log("Hello from the Moving State");
         
         this.attributes = attributes;
         attributes.state = PlayerAttributes.PlayerStates.Walking;
@@ -39,7 +39,7 @@ public abstract class MovingState : BaseState
         }
         else if (jumpContext == "performed" || jumpContext == "started")
         {
-            Debug.Log("Jump");
+            // Debug.Log("Jump");
             Jump();
             player.SwitchState(player.AirState);
         }
@@ -66,7 +66,7 @@ public abstract class MovingState : BaseState
     // deals with the the velocity of the player, and calls Flip() when applicable
     public void Move(int dir, float horizontal)
     {
-        Debug.Log("Moving " + attributes.rb.velocity);
+        // Debug.Log("Moving " + attributes.rb.velocity);
         // changes horizontal velocity of player
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
         attributes.rb.velocity += new Vector2(horizontal * attributes.acceleration * Time.deltaTime, 0); // move with acceleration
