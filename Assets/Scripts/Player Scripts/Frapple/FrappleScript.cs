@@ -17,9 +17,10 @@ public class FrappleScript : MonoBehaviour
     private Rigidbody2D daehyunRB;
 
     // inspector variables
-    [SerializeField] float frappleLength, frappleSpeed = 10f, retractSpeed = 30f, shortenSpeed = 0.5f; // retract speed for when nothing was hit, shorten acceleration for when hooked
+    [SerializeField] float frappleLength, frappleMaxSpeed = 25f, retractSpeed = 30f, shortenSpeed = 10f; // retract speed for when nothing was hit, shorten acceleration for when hooked
+    [SerializeField] AnimationCurve frappleExtendSpeedCurve;
     [SerializeField] float releaseLength = 1.8f; // if too close to the top or daehyun is above the frapple, release
-    [SerializeField] private Vector2 offset = new Vector2(0, 1); // offset of frapple's starting point relative to character
+    [SerializeField] private Vector2 offset = new Vector2(0, 0.5f); // offset of frapple's starting point relative to character
 
     // changes on runtime
     private bool isLaunched = false;
@@ -71,7 +72,10 @@ public class FrappleScript : MonoBehaviour
             }
             else if (isLaunched) // frapple is being launched outward
             {
-                rb.velocity = (targetPos - rb.position).normalized * frappleSpeed; // move frapple toward a position
+                // update frapple velocity depending on how long the frapple is
+                // later in frapple = slower
+                // earlier in frapple = faster
+                rb.velocity = (targetPos - rb.position).normalized * frappleMaxSpeed * frappleExtendSpeedCurve.Evaluate(Vector2.Distance(targetPos, rb.position)/frappleLength); // move frapple toward a position
 
                 if (Vector2.Distance(rb.position, targetPos) <= 0.3f) // if the distance is small enough, target reached
                 {
