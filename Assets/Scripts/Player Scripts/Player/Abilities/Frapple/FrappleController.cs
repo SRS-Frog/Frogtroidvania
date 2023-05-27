@@ -59,7 +59,7 @@ public class FrappleController : MonoBehaviour
 
     private void FrappleControl(InputAction.CallbackContext context)
     {
-        Vector2 pos = cam.ScreenToWorldPoint(context.ReadValue<Vector2>()); // position of the click in world space
+        Vector2 pos = context.ReadValue<Vector2>(); // position of the click in screen space
         frappleScript.ShootFrapple(pos); // shoot the frapple toward target location
     }
 
