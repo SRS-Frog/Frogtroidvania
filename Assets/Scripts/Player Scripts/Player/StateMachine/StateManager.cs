@@ -114,4 +114,8 @@ public class StateManager : MonoBehaviour
         currentState = state;
         state.EnterState(this, playerAttributes);
     }
+
+    public bool IsHuman() {
+        return currentState.IsHumanState();
+    }
 }

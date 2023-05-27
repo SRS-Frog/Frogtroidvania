@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     //store our controls
     private InputAction moveAction;
     private InputAction jumpAction;
-    private InputAction attackAction;
     private InputAction switchAction;
     private InputAction dashAction;
     private InputAction plungeAction;
@@ -18,7 +17,6 @@ public class PlayerController : MonoBehaviour
     //bool for if keys are pressed
     private bool movePressed;
     private bool jumpPressed;
-    private bool attackPressed;
     private bool switchPressed;
     private bool dashPressed;
     private bool plungePressed;
@@ -42,7 +40,6 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
-        attackAction = playerInput.actions["Attack"];
         switchAction = playerInput.actions["Switch"];
         dashAction = playerInput.actions["Dash"];
         plungeAction = playerInput.actions["Plunge"];
@@ -62,10 +59,6 @@ public class PlayerController : MonoBehaviour
         jumpAction.started += JumpControl;
         jumpAction.performed += JumpControl;
         jumpAction.canceled += JumpControl;
-
-        attackAction.started += AttackControl;
-        attackAction.performed += AttackControl;
-        attackAction.canceled += AttackControl;
 
         switchAction.started += SwitchControl;
         switchAction.performed += SwitchControl;
@@ -89,10 +82,6 @@ public class PlayerController : MonoBehaviour
         jumpAction.started -= JumpControl;
         jumpAction.performed -= JumpControl;
         jumpAction.canceled -= JumpControl;
-
-        attackAction.started -= AttackControl;
-        attackAction.performed -= AttackControl;
-        attackAction.canceled -= AttackControl;
 
         switchAction.started += SwitchControl;
         switchAction.performed += SwitchControl;
@@ -149,15 +138,6 @@ public class PlayerController : MonoBehaviour
             jumpPressed = false;
             jumpState = JumpStates.canceled;
         }      
-    }
-
-    private void AttackControl(InputAction.CallbackContext context)
-    {
-        if(context.started)
-            attackPressed = true;
-        else if(context.canceled)
-            attackPressed = false;
-        //Debug.Log("AttackPressed");
     }
 
     private void SwitchControl(InputAction.CallbackContext context)
@@ -217,11 +197,6 @@ public class PlayerController : MonoBehaviour
     public JumpStates JumpState()
     {
         return jumpState;
-    }
-
-    public bool IsAttackPressed()
-    {
-        return attackPressed;
     }
 
     public bool IsSwitchPressed()

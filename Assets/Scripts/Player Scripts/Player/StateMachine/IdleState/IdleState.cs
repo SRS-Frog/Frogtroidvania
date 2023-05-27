@@ -37,8 +37,6 @@ public abstract class IdleState : BaseState
 
         if (!attributes.isGrounded)
             player.SwitchState(player.AirState);
-        else if (player.playerController.IsAttackPressed())
-            player.SwitchState(player.AttackState);
         else if (jumpContext == "performed")
         {
             Debug.Log("Jump");

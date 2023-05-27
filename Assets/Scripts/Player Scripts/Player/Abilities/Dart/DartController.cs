@@ -16,7 +16,7 @@ public class DartController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         shootDartAction = playerInput.actions["Shoot Dart"];
 
-        dartScript = transform.parent.GetChild(2).gameObject.GetComponent<DartScript>(); // reference the frapple script of the frappleEnd
+        dartScript = transform.parent.GetChild(2).gameObject.GetComponent<DartScript>();
     }
 
     private void OnEnable()

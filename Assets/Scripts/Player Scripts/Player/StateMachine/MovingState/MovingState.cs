@@ -43,10 +43,6 @@ public abstract class MovingState : BaseState
             Jump();
             player.SwitchState(player.AirState);
         }
-        else if (player.playerController.IsAttackPressed())
-        {
-            player.SwitchState(player.AttackState);
-        }
     }
 
     public override void FixedUpdateState(StateManager player)
