@@ -95,7 +95,7 @@ public abstract class AirState : BaseState
     // deals with the the velocity of the player, and calls Flip() when applicable
     public void Move(int dir, float horizontal)
     {
-        Debug.Log("Air Moving " + attributes.rb.velocity);
+        // Debug.Log("Air Moving " + attributes.rb.velocity);
 
         // changes horizontal velocity of player
         ////Time.deltaTime makes the speed more constant between different computers with different frames per second
@@ -105,7 +105,7 @@ public abstract class AirState : BaseState
         {
             float clampedX = Vector2.ClampMagnitude( new Vector2 (attributes.rb.velocity.x, 0), attributes.frappleTopSpeed).x; // clamp horizontal value to top speed
             attributes.rb.velocity = new Vector2(clampedX, attributes.rb.velocity.y);
-            Debug.Log("Frapple Speed");
+            // Debug.Log("Frapple Speed");
         } else
         {
             float clampedX = Vector2.ClampMagnitude(new Vector2(attributes.rb.velocity.x, 0), attributes.topSpeed).x; // clamp horizontal value to top speed

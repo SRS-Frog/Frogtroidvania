@@ -7,6 +7,7 @@ public class AttackScript : BaseAbilityScript
     // Written in ref to this tutorial https://youtu.be/sPiVz1k-fEs
     public float attackRange = 0.75f;  // Circular range of attakc
     public LayerMask enemyLayers;
+    public int attackPoints = 10;    // How many hitpoints the attack does
 
     // 
     public float attackRate = 2f;       // How many attacks per second
@@ -32,8 +33,11 @@ public class AttackScript : BaseAbilityScript
             // Check if enough time has passed to attack again
             if (Time.time >= nextAttackTime) {
                 nextAttackTime = Time.time + 1f/attackRate;
-                Debug.Log("Attack");
-                // TODO: add more after enemies are merged
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayers);
+
+                foreach(Collider2D enemy in hitEnemies) {
+                    enemy.GetComponent<Health>().Damage(attackPoints);
+                }
             }
         }
 
