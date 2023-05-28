@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1ab3c4a-2691-43a4-b339-4a4eada0db72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/DiveState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/DiveState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/HeronGraphNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/HeronGraphNode.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/IdleState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/IdleState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/RiseState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/RiseState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/State.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/State.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frogtroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frogtroidvania/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/DiveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/DiveState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/HeronController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/HeronController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

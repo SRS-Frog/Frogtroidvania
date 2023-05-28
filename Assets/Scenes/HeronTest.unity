@@ -16889,6 +16889,8 @@ MonoBehaviour:
   nodes2: {fileID: 792226147}
   timePerAttack: 10
   waitDuration: 3
+  horizontalMin: 7
+  diveHeight: 8
   speed: 1600
   player: {fileID: 17172049}
 --- !u!66 &1296082436

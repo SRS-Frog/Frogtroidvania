@@ -13,6 +13,10 @@ public class HeronController : MonoBehaviour
     
     //Idle State
     [SerializeField] public float waitDuration;
+    
+    //Dive SState
+    [SerializeField] public float horizontalMin;
+    [SerializeField] public float diveHeight;
 
     #region StateMachine
 
