@@ -1,121 +1,58 @@
 using System;
-using Pathfinding;
+using Enemy.Heron;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using IdleState = Enemy.Heron.IdleState;
 
 public class HeronController : MonoBehaviour
 {
+    //Rise State
 
-    #region Base State
-
-    [Serializable]
-    struct GraphNode
-    {
-        public GraphNode(Transform t, int[] g)
-        {
-            pos = t;
-            neighbors = g;
-        }
-
-        public Transform pos;
-        public int[] neighbors;
-    }
-
-    [SerializeField] private GraphNode[] nodes1;
-    private int curPosition1 = 0;
-
-    [SerializeField] private GraphNode[] nodes2;
-    private int curPosition2 = 0;
+    [SerializeField] public HeronGraphNode nodes1;
+    [SerializeField] public HeronGraphNode nodes2;
+    [SerializeField] public float timePerAttack;
     
-    //Constants
-    private const float NextWaypointRadius = 3f;
-    
-    private void BaseStateBehaviour()
-    {
-        if (path == null) return;
-        
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            UpdatePath();
-            return;
-        };
-            
-        rb.AddForce((path.vectorPath[currentWaypoint] - transform.position).normalized * Time.deltaTime * speed);
-        // if (rb.velocity.magnitude > speed) rb.velocity = rb.velocity.normalized * speed;
-            
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+    //Idle State
+    [SerializeField] public float waitDuration;
 
-        if (distance < NextWaypointRadius)
-        {
-            currentWaypoint++;
-        }
-    }
-    
-    private void UpdatePath() 
-    {
-        if (!seeker.IsDone()) return;
-            
-        seeker.StartPath(transform.position, generatePos(), p =>
-        {
-            path = p;
-            currentWaypoint = 0;
-        });
-    }
+    #region StateMachine
 
-    private Vector3 generatePos()
+    public RiseState riseState;
+    public Enemy.Heron.IdleState idleState;
+    public DiveState diveState;
+    private State<HeronController> curState;
+    
+    [NonSerialized] public bool isLeft = true;
+
+    public void ChangeState(State<HeronController> s)
     {
-        if (isLeft)
-        {
-            curPosition1 = nodes1[curPosition1].neighbors[Random.Range(0, nodes1[curPosition1].neighbors.Length)];
-            return nodes1[curPosition1].pos.position;
-        }
-        else
-        {
-            curPosition2 = nodes2[curPosition2].neighbors[Random.Range(0, nodes2[curPosition2].neighbors.Length)];
-            return nodes2[curPosition2].pos.position;
-        }
+        if(curState != null) curState.Exit();
+        curState = s;
+        curState.Enter();
     }
 
     #endregion
 
-    enum States
-    {
-        BASE_STATE
-    }
-
-    private States curState = States.BASE_STATE;
-    private bool isLeft = true;
-
-    [SerializeField] private float speed;
-
-    [SerializeField] private Transform bottomLeft1;
-    [SerializeField] private Transform upperRight1;
-
-    private Rigidbody2D rb;
-    private Health health;
+    [SerializeField] public float speed;
+    [SerializeField] public PlayerController player;
     
-    // Astar Variables
-    private Path path;
-    private int currentWaypoint = 0;
-    private Seeker seeker;
+    private Health health;
     
     // Start is called before the first frame update
     void Start()
     {
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
-        
-        UpdatePath();
+
+        riseState = new RiseState(this);
+        idleState = new Enemy.Heron.IdleState(this);
+        diveState = new DiveState(this);
+
+        ChangeState(diveState);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (curState == States.BASE_STATE)
-        {
-            BaseStateBehaviour();
-        }
+        curState.Update();
 
         isLeft = health.health > 50;
     }
