@@ -23,7 +23,7 @@ namespace Enemy.Heron
             rb.drag = 0;
 
             startingHeight = (parent.transform.position.y + parent.player.transform.position.y)/2;
-            bottomHeight = parent.player.transform.position.y + 2;
+            bottomHeight = parent.player.transform.position.y;
             bottomed = false;
             prepared = false;
         }
@@ -42,23 +42,22 @@ namespace Enemy.Heron
                 }
                 else if (parent.transform.position.y > startingHeight)
                 {
-                    parent.ChangeState(parent.idleState);
+                    parent.ChangeState(parent.riseState);
                 }
             }
             else
             {
-
                 Vector3 goalPos = parent.player.transform.position
                                   + Vector3.up * parent.diveHeight
                                   + (parent.player.transform.position.x > parent.transform.position.x ? Vector3.left : Vector3.right) * parent.horizontalMin;
-
+                
                 rb.AddForce((goalPos - parent.transform.position).normalized * parent.speed * Time.deltaTime);
                 
-                if (Vector2.Distance(parent.transform.position, goalPos) < 3f)
+                if (Vector2.Distance(parent.transform.position, goalPos) < 5f)
                 {
                     //Initial Velocity
                     float height = 
-                        Mathf.Abs(parent.transform.position.y - parent.player.transform.position.y);
+                        Mathf.Abs(parent.transform.position.y - parent.player.transform.position.y) + 1;
                     float hDist = parent.player.transform.position.x - parent.transform.position.x;
                     float diveMagnitude = Mathf.Sqrt(Physics.gravity.magnitude * 2 * height);
             
