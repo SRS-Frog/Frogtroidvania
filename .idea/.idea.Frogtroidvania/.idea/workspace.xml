@@ -4,7 +4,6 @@
     <list default="true" id="f1ab3c4a-2691-43a4-b339-4a4eada0db72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frogtroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frogtroidvania/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/DiveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Heron/DiveState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +83,7 @@
       <workItem from="1682391496641" duration="9383000" />
       <workItem from="1683943470893" duration="4414000" />
       <workItem from="1685164330804" duration="6469000" />
+      <workItem from="1685598968183" duration="1842000" />
     </task>
     <servers />
   </component>
