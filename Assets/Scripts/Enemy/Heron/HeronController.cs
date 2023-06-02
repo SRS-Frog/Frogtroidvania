@@ -14,15 +14,21 @@ public class HeronController : MonoBehaviour
     //Idle State
     [SerializeField] public float waitDuration;
     
-    //Dive SState
+    //Dive State
     [SerializeField] public float horizontalMin;
     [SerializeField] public float diveHeight;
+    
+    //Feather State
+    [SerializeField] public float featherDuration;
+    [SerializeField] private GameObject feather;
+    [SerializeField] private float spreadAngle;
 
     #region StateMachine
 
     public RiseState riseState;
     public Enemy.Heron.IdleState idleState;
     public DiveState diveState;
+    public FeatherState featherState;
     private State<HeronController> curState;
     
     [NonSerialized] public bool isLeft = true;
@@ -49,6 +55,7 @@ public class HeronController : MonoBehaviour
         riseState = new RiseState(this);
         idleState = new Enemy.Heron.IdleState(this);
         diveState = new DiveState(this);
+        featherState = new FeatherState(this);
 
         ChangeState(diveState);
     }
@@ -59,5 +66,17 @@ public class HeronController : MonoBehaviour
         curState.Update();
 
         isLeft = health.health > 50;
+    }
+
+    public void SummonFeathers()
+    {
+        float angle = -spreadAngle;
+        Vector3 dir = player.transform.position - transform.position;
+
+        for (; angle <= spreadAngle; angle += spreadAngle)
+        {
+            GameObject g = Instantiate(feather, transform.position, Quaternion.identity);
+            g.GetComponent<Feather>().Init(Quaternion.Euler(0,0, angle) * dir);
+        }
     }
 }

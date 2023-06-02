@@ -31,7 +31,7 @@ namespace Enemy.Heron
             attackTimer += Time.deltaTime;
             if (attackTimer > parent.timePerAttack)
             {
-                parent.ChangeState(parent.diveState);
+                parent.ChangeState(parent.idleState);
             }
 
             if (path == null) return;

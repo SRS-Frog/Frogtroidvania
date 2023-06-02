@@ -2,19 +2,20 @@ using UnityEngine;
 
 namespace Enemy.Heron
 {
-    public class IdleState : State<HeronController>
+    public class FeatherState : State<HeronController>
     {
         private float waitDuration;
         private float waitTimer;
         
-        public IdleState(HeronController p) : base(p)
+        public FeatherState(HeronController p) : base(p)
         {
-            waitDuration = parent.waitDuration;
+            waitDuration = parent.featherDuration;
         }
 
         public override void Enter()
         {
             waitTimer = 0f;
+            parent.SummonFeathers();
         }
 
         public override void Update()
@@ -22,7 +23,7 @@ namespace Enemy.Heron
             waitTimer += Time.deltaTime;
             if (waitTimer > waitDuration)
             {
-                parent.ChangeState(Random.Range(0, 2) == 1 ? parent.diveState : parent.featherState);
+                parent.ChangeState(parent.riseState);
             }
         }
 
