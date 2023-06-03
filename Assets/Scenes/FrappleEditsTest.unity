@@ -20168,56 +20168,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &673549583
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 673549584}
-  - component: {fileID: 673549585}
-  m_Layer: 0
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &673549584
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673549583}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.71, y: 0.9499998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1303902123}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &673549585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673549583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516eddc3c31d24b64997c39fc2006ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 0.75
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  attackPoints: 10
-  attackRate: 2
 --- !u!1 &737855711
 GameObject:
   m_ObjectHideFlags: 0
@@ -20429,11 +20379,6 @@ Transform:
   m_Father: {fileID: 304736762}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &875048773 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6106584676155727084, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-  m_PrefabInstance: {fileID: 4638912717248474687}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &890213010
 GameObject:
   m_ObjectHideFlags: 0
@@ -20920,39 +20865,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6106584676155727086, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
   m_PrefabInstance: {fileID: 4638912717248474687}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1303902133
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875048773}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e7d857542b6596a45952425e0f8125a5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1303902135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875048773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: affb8380aa61f4f79bdeccdccb66b5a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackPoint: {fileID: 673549583}
 --- !u!1 &1348895433
 GameObject:
   m_ObjectHideFlags: 0
@@ -21541,14 +21453,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1828278151, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828278151, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -398593037
-      objectReference: {fileID: 0}
     - target: {fileID: 4638912717219582304, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -21597,89 +21501,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: offset.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: offset.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: retractSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: shortenSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleLength
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleMaxSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].value
-      value: 0.7189453
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].inSlope
-      value: -0.28105468
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].inSlope
-      value: -0.28105468
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].outSlope
-      value: -0.28105468
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].outSlope
-      value: -0.28105468
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[0].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638912717988143281, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: frappleExtendSpeedCurve.m_Curve.Array.data[1].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: daehyunController
-      value: 
-      objectReference: {fileID: 9100000, guid: e7d857542b6596a45952425e0f8125a5, type: 2}
-    - target: {fileID: 6106584676155727058, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
-      propertyPath: froghyunController
-      value: 
-      objectReference: {fileID: 9100000, guid: dafd2c0279ab1ce4e821ec7b628a3d41, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2148a02ba9a026e4f88e9184467ce2c7, type: 3}
