@@ -48,7 +48,8 @@ public class PlayerAttributes : MonoBehaviour
 
     public const int playerMaxHealth = 3;
     public int playerHealth = playerMaxHealth;
-    private bool isDead = false; // true if player is dead
+    public float invincibilityTime = 1.5f;
+    public bool isDead = false; // true if player is dead
 
     private RaycastHit2D hit;
 
