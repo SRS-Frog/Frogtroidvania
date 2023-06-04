@@ -15,13 +15,13 @@ public class Health : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.U)) {
-            // Damage(10);
-        }
+        // if (Input.GetKeyDown(KeyCode.U)) {
+        //     // Damage(10);
+        // }
 
-        if (Input.GetKeyDown(KeyCode.H)) {
-            Heal(10);
-        }
+        // if (Input.GetKeyDown(KeyCode.H)) {
+        //     Heal(10);
+        // }
     }
 
     private IEnumerator VisualIndicator(Color color){

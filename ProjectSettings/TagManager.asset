@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Frapple
   - Frappable
+  - Boundary
+  - HealthBarRoot
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - UI
   - Ground
   - Bounds
-  - Enemy
-  - 
+  - Enemies
+  - Player
   - 
   - 
   - 
