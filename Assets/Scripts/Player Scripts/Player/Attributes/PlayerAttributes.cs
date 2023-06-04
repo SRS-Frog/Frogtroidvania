@@ -46,6 +46,8 @@ public class PlayerAttributes : MonoBehaviour
 
     [HideInInspector] public bool facingRight = true; // true if player is facing right
 
+    public const int playerMaxHealth = 3;
+    public int playerHealth = playerMaxHealth;
     private bool isDead = false; // true if player is dead
 
     private RaycastHit2D hit;
