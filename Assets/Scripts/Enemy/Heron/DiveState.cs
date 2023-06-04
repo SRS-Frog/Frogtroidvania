@@ -5,6 +5,8 @@ namespace Enemy.Heron
     public class DiveState : State<HeronController>
     {
         private Rigidbody2D rb;
+        private SpriteRenderer sp;
+        private Animator anim;
 
         private float liftAcceleration = 9.8f;
         private float startingHeight;
@@ -15,6 +17,8 @@ namespace Enemy.Heron
         public DiveState(HeronController p) : base(p)
         {
             rb = parent.GetComponent<Rigidbody2D>();
+            sp = p.GetComponent<SpriteRenderer>();
+            anim = p.GetComponent<Animator>();
         }
 
         public override void Enter()
@@ -26,6 +30,8 @@ namespace Enemy.Heron
             bottomHeight = parent.player.transform.position.y;
             bottomed = false;
             prepared = false;
+            
+            anim.SetBool("Dive", true);
         }
 
         public override void Update()
@@ -33,6 +39,9 @@ namespace Enemy.Heron
             if (prepared)
             {
                 rb.velocity += Vector2.up * liftAcceleration * Time.deltaTime;
+                sp.flipX = rb.velocity.x > 0;
+                parent.transform.right = rb.velocity.normalized;
+                
                 if (!bottomed)
                 {
                     if (parent.transform.position.y < bottomHeight)
@@ -52,6 +61,7 @@ namespace Enemy.Heron
                                   + (parent.player.transform.position.x > parent.transform.position.x ? Vector3.left : Vector3.right) * parent.horizontalMin;
                 
                 rb.AddForce((goalPos - parent.transform.position).normalized * parent.speed * Time.deltaTime);
+                sp.flipX = rb.velocity.x > 0;
                 
                 if (Vector2.Distance(parent.transform.position, goalPos) < 5f)
                 {
@@ -72,7 +82,10 @@ namespace Enemy.Heron
 
         public override void Exit()
         {
+            parent.transform.right = Vector3.right;
             rb.drag = 1.5f;
+            
+            anim.SetBool("Dive", false);
         }
     }
 }

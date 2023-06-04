@@ -7,15 +7,22 @@ namespace Enemy.Heron
         private float waitDuration;
         private float waitTimer;
         
+        private Animator anim;
+        private SpriteRenderer sp;
+        
         public FeatherState(HeronController p) : base(p)
         {
             waitDuration = parent.featherDuration;
+            anim = parent.GetComponent<Animator>();
+            sp = parent.GetComponent<SpriteRenderer>();
         }
 
         public override void Enter()
         {
             waitTimer = 0f;
             parent.SummonFeathers();
+            sp.flipX = parent.transform.position.x < parent.player.transform.position.x;
+            anim.SetBool("Feather", true);
         }
 
         public override void Update()
@@ -29,7 +36,7 @@ namespace Enemy.Heron
 
         public override void Exit()
         {
-            
+            anim.SetBool("Feather", false);
         }
     }
 }

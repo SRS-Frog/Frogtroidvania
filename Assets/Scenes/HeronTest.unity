@@ -16845,12 +16845,11 @@ GameObject:
   - component: {fileID: 1296082434}
   - component: {fileID: 1296082435}
   - component: {fileID: 1296082442}
-  - component: {fileID: 1296082438}
   - component: {fileID: 1296082439}
   - component: {fileID: 1296082437}
-  - component: {fileID: 1296082436}
   - component: {fileID: 1296082441}
   - component: {fileID: 1296082443}
+  - component: {fileID: 1296082444}
   m_Layer: 8
   m_Name: Heron
   m_TagString: Untagged
@@ -16896,28 +16895,6 @@ MonoBehaviour:
   spreadAngle: 30
   speed: 1600
   player: {fileID: 17172049}
---- !u!66 &1296082436
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296082432}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 1
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!50 &1296082437
 Rigidbody2D:
   serializedVersion: 4
@@ -16939,22 +16916,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1296082438
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296082432}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.29602647, y: -0.46404123}
-  m_Size: {x: 1.3680468, y: 2.1521168}
-  m_Direction: 0
 --- !u!58 &1296082439
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16968,9 +16929,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.63205606, y: 1.3361182}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.35599452
+  m_Radius: 1.22
 --- !u!114 &1296082441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17053,17 +17014,37 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1971267735, guid: 6f2c612cafa743945b8add9cd5b81c8b, type: 3}
+  m_Sprite: {fileID: 1268631580, guid: be84385af2da5454baf779c44dde3ed5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.6875, y: 5.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1296082444
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296082432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8abcd6592481eb40a427d2bbff50fe1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1353565116
 GameObject:
   m_ObjectHideFlags: 0
@@ -17651,7 +17632,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972570314}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 52.769997, y: 3.9700005, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

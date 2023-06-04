@@ -11,6 +11,7 @@ namespace Enemy.Heron
         private Path path;
         private Seeker seeker;
         private Rigidbody2D rb;
+        private SpriteRenderer sp;
 
         private float attackTimer;
         
@@ -18,6 +19,7 @@ namespace Enemy.Heron
         {
             seeker = p.GetComponent<Seeker>();
             rb = p.GetComponent<Rigidbody2D>();
+            sp = p.GetComponent<SpriteRenderer>();
         }
         
         public override void Enter()
@@ -43,6 +45,7 @@ namespace Enemy.Heron
             };
             
             rb.AddForce((path.vectorPath[currentWaypoint] - parent.transform.position).normalized * Time.deltaTime * parent.speed);
+            sp.flipX = rb.velocity.x > 0;
             
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
