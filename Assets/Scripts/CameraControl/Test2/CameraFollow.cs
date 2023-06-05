@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -57,6 +58,23 @@ public class CameraFollow : MonoBehaviour
         float xTarget = camBox.size.x < targetBounds.size.x ? Mathf.Clamp(player.position.x, targetBounds.min.x + camBox.size.x/2, targetBounds.max.x - camBox.size.x/2) : (targetBounds.min.x + targetBounds.max.x)/2;
         float yTarget = camBox.size.y < targetBounds.size.y ? Mathf.Clamp(player.position.y, targetBounds.min.y + camBox.size.y/2, targetBounds.max.y - camBox.size.y/2) : (targetBounds.min.y + targetBounds.max.y)/2;
         Vector3 target = new Vector3(xTarget, yTarget, transform.position.z);
+        if (timer > 0f)
+        {
+            transform.eulerAngles = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0);
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
         transform.position = Vector3.Lerp(transform.position, target, speed * Time.deltaTime);
+    }
+
+    private float timer;
+    
+    [YarnCommand("Screenshake")]
+    public void Screenshake()
+    {
+        timer = 1f;
     }
 }

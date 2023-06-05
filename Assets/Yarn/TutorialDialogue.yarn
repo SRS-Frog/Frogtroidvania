@@ -9,16 +9,73 @@ Sooyeon: I'm with you, let's end our careers with a bang! #line:0c0b985
 ===
 
 title: TutorialGameplay
-position: -496,-443
+position: -531,-483
 ---
-Sooyeon: I think we can get in through here. #line:0fd59d2 
-Daehyun: What's that over there? #line:0c049ef 
-Sooyeon: Looks like a relic of sorts. #line:0a118c4 
-Daehyun: Oh wow, there must be some history behind this one. #line:0204fcb 
-Sooyeon: Woah! Look at the craftsmanship on it. I have to write this down. #line:00434e6 
-Daehyun: Ah right, better do that before I forget.  #line:08d11d5 
-Sooyeon: ... #line:0f7d4e6 
-Sooyeon: Done. #line:049ca23 
-Sooyeon: Daehyun can you hold my log?  #line:08fe054 
-Daehyun: Yeah, of course.  #line:00f4eaf 
+Sooyeon: I think we can get in through here.
+Daehyun: What's that over there?
+Sooyeon: Looks like a relic of sorts.
+Daehyun: Oh wow, there must be some history behind this one.
+Sooyeon: Woah! Look at the craftsmanship on it. I have to write this down.
+Daehyun: Ah right, better do that before I forget. 
+Sooyeon: ...
+Sooyeon: Done.
+Sooyeon: Daehyun can you hold my log? 
+Daehyun: Yeah, of course. 
+Daehyun: Alright, let's get a move on!
+Sooyeon: Wait, what's that?
+Daehyun: What's what?
+Sooyeon: Get to cover! I think a tremor is coming! 
+<<Screenshake Camera>>
+<<wait 1>>
+<<StartCut1 HardCut>>
+Sooyeon: DAEHYUN!
+Daehyun: Ugh, ahhhhhhh!
+Sooyeon: Try to land together.
+Daehyun: I think I see a spot we can try to land on over there.
+Sooyeon: We don't have much time, brace for impact!
+<<StartCut2 HardCut>>
+===
+title: TutorialDeath
+position: -522,-327
+---
+Sooyeon: Damn that hurt. I can't move my legs…
+Sooyeon: Daehyun? 
+Sooyeon: Daehyun please, wake up!
+Sooyeon: Daehyun!!
+Some Time Later: ...
+<<wait 2>>
+Daehyun: Shit, that was one hell of a fall.
+Daehyun:  Sooyeon, you alright?
+Daehyun: ...
+Daehyun: ...Sooyeon?
+Daehyun: Sooyeon…
+Daehyun: SOOYEON!! 
+Jeoseung Chasa: *appears*
+Daehyun: Oh?
+Daehyun: You there, please help me!
+Daehyun: My sister is trapped underneath this rubble! You have to help me get her out!
+Jeoseung Chasa: I'm afraid it's too late.
+Daehyun: What? No, please, I think I see her hand. Please!
+Jeoseung Chasa: I cannot do that.
+Daehyun: What do you mean you can't?! Help me, I'm begging you! She had so much to live for…
+Daehyun: She was going to be a teacher… Please, you have to help me… 
+Jeoseung Chasa: Her time is already up, I'm afraid. 
+Daehyun: ...what?
+Jeoseung Chasa: As for you…
+Daehyun: I don't understand, just please help me save my sister!
+Jeoseung Chasa: I'm afraid I wasn't clear enough. Your sister is already dead. 
+Daehyun: No…
+Jeoseung Chasa: She used the last of her strength to save you. I would suggest you not throw away the remaining life she gave you. 
+Daehyun: But… she's my sister. How can I live without her?
+Jeoseung Chasa: I've seen countless lives come and go over the course of countless eons.
+Jeoseung Chasa: You first need to accept her loss.
+Daehyun: How can you say something like that?!
+Jeoseung Chasa: I'm telling you not to throw away your life! I was only sent to claim one soul here, I would rather not take yours too. 
+Daehyun: My life has no meaning without her, you don't understand! I don't amount to anything without Sooyeon!
+Jeoseung Chasa: You don't understand the magnitude of what you're saying.
+Jeoseung Chasa: Grief pushes people to such extremes, and you're reckless as it is.
+Jeoseung Chasa: I refuse to reap your soul today, so I will instead teach you a lesson.
+Daehyun: What do you mean..?
+Jeoseung Chasa: You will learn the value of life. 
+<<NextScene HardCut>>
 ===

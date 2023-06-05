@@ -4,20 +4,38 @@
     <list default="true" id="f1ab3c4a-2691-43a4-b339-4a4eada0db72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frogtroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frogtroidvania/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/HealthOverlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/HealthOverlay.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LilypadHeart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LilypadHeart.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CameraTest2.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CameraTest2.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player/Attributes/PlayerAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player/Attributes/PlayerAttributes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/PlayerHealthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/PlayerHealthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Canon.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Canon.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CanonZone1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CanonZone1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/HeronTest.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraControl/Test2/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraControl/Test2/CameraFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Heron.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/YarnScripts/Portraits.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/YarnScripts/Portraits.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Portraits/Daehyun depressed (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Portraits/Daehyun depressed (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Portraits/Daehyun sad (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Portraits/Daehyun sad (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yarn/Tutorial.yarnproject.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yarn/Tutorial.yarnproject.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yarn/TutorialDialogue.yarn" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yarn/TutorialDialogue.yarn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yarn/TutorialDialogue.yarn.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yarn/TutorialDialogue.yarn.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../FishingUpTheColossus/Assets/Player/States/GroundedState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@2.2.3/Runtime/Views/LineView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../FishingUpTheColossus/Assets/Player/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../FishingUpTheColossus/Assets/Player/States/GroundedStates/GroundedMovingState.cs" root0="SKIP_HIGHLIGHTING" />

@@ -1,0 +1,80 @@
+﻿title: Zone1Intro
+tags:
+---
+Iroh: Hey, wake up.
+Iroh: Daehyun?
+Iroh: Ah finally!
+<<EndCut HardCut>>
+Daehyun: Huh, what's going on?
+Daehyun: W-where's Sooyeon? Where am I?
+Iroh: It is as the Jeoseung Chasa told you, Sooyeon is no longer with us.
+Daehyun: No… it can't be true…
+Iroh: It is thus.
+===
+title: Zone1Midway
+position: -1,156
+---
+Iroh: Daehyun wait-
+Daehyun: Who are you? What do you want?
+
+Iroh: I am Iroh, a Frog Spirit. I am an entity who resides in this Mangrove.
+Iroh: I implore you to wait a moment.
+Iroh: Concentrate hard on your emotions, and Press the C key.
+Daehyun: The hell you mean 'C key' ?
+Daehyun: Wait…
+Daehyun: I'M A FROG?! 
+
+Iroh: If you would just stop and listen for a moment, I can answer your questions.
+Daehyun: Why am I a frog? Why are you a frog? Who are you?
+
+Iroh: Just calm down-
+Daehyun: Where's Sooyeon? Do you know?
+Iroh: I thought the Jeoseung Chasa explained it to you.
+Daehyun: That duck thing?
+Daehyun: No, no, I refuse to believe that the Jeoseung Chasa is a duck in a grim reaper outfit.
+Iroh: Yeah, about that…
+Daehyun: ...why is the Jeoseung Chasa a mallard?
+Iroh: You question that and not why you're talking to a frog?
+Daehyun: Somehow I think that's the least concerning thing that's happened to me.
+Daehyun: Am I… dead?
+Iroh: Not exactly.
+Daehyun: What do you mean?
+Iroh: The Jeoseung Chasa sent you here, a place that exists between life and death.
+Iroh: It's testing your will to live.
+Daehyun: No, no. Why would I want to live in a world without Sooyeon?
+Daehyun: She's my better half, my best friend.
+Daehyun: If I'm not dead, she's not dead. She must've been sent here too, right?
+Iroh: I don't think you've been listening to what I'm saying.
+Iroh: The answers you see lie ahead. Find a way out of the Mangrove if you wish to understand.
+Daehyun: What if I don't want to understand? 
+Iroh: Then your spirit will wander here for an eternity.
+Iroh: I implore you to seek the answers yourself.
+Iroh: Only you can convince yourself of the truth.
+
+Iroh: *fades way*
+
+Daehyun: No, there's no way Sooyeon is dead.
+Daehyun: I need to find proof that she's still alive. 
+===
+title: Zone1Midway2
+position: 4,291
+---
+The Mysterious OwO: So uh
+The Mysterious OwO: Iroh is supposed to explain grappling to you here.
+The Mysterious OwO: But dialogue wasn't written for that yet so...
+The Mysterious OwO: You get me :3
+The Mysterious OwO: To frapple click in the direction you want to shoot you tongue
+The Mysterious OwO: and you'll swing off your tongue!
+The Mysterious OwO: It only works if you're a frog though.
+The Mysterious OwO: To release your tongue use right-click.
+The Mysterious OwO: Good luck with the demo! :D
+===
+
+title: Zone1End
+position: 20,437
+---
+Iroh: You're about to enter the boss fight against the Heron.
+Iroh: But before you do, thank you for playing the demo of Requiem of the Frogs!
+Iroh: Now on you go, and good luck!
+<<NextScene2 HardCut>>
+===
