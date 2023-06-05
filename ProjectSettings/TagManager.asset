@@ -8,6 +8,7 @@ TagManager:
   - Frappable
   - Boundary
   - HealthBarRoot
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
