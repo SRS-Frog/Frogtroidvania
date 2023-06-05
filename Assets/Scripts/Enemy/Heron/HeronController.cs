@@ -6,7 +6,6 @@ using IdleState = Enemy.Heron.IdleState;
 public class HeronController : MonoBehaviour
 {
     //Rise State
-
     [SerializeField] public HeronGraphNode nodes1;
     [SerializeField] public HeronGraphNode nodes2;
     [SerializeField] public float timePerAttack;
@@ -22,6 +21,9 @@ public class HeronController : MonoBehaviour
     [SerializeField] public float featherDuration;
     [SerializeField] private GameObject feather;
     [SerializeField] private float spreadAngle;
+    
+    //The angy boolean
+    [NonSerialized] public bool enraged = false;
 
     #region StateMachine
 
@@ -73,7 +75,7 @@ public class HeronController : MonoBehaviour
         float angle = -spreadAngle;
         Vector3 dir = player.transform.position - transform.position;
 
-        for (; angle <= spreadAngle; angle += spreadAngle)
+        for (; angle <= spreadAngle; angle += (enraged ? spreadAngle / 2 : spreadAngle))
         {
             GameObject g = Instantiate(feather, transform.position, Quaternion.identity);
             g.GetComponent<Feather>().Init(Quaternion.Euler(0,0, angle) * dir);

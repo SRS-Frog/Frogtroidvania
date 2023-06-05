@@ -13,7 +13,7 @@ namespace Enemy.Heron
         private float bottomHeight;
         private bool bottomed;
         private bool prepared;
-
+        
         public DiveState(HeronController p) : base(p)
         {
             rb = parent.GetComponent<Rigidbody2D>();
@@ -30,8 +30,6 @@ namespace Enemy.Heron
             bottomHeight = parent.player.transform.position.y;
             bottomed = false;
             prepared = false;
-            
-            anim.SetBool("Dive", true);
         }
 
         public override void Update()
@@ -40,13 +38,14 @@ namespace Enemy.Heron
             {
                 rb.velocity += Vector2.up * liftAcceleration * Time.deltaTime;
                 sp.flipX = rb.velocity.x > 0;
-                parent.transform.right = rb.velocity.normalized;
                 
                 if (!bottomed)
                 {
-                    if (parent.transform.position.y < bottomHeight)
+                    if (parent.transform.position.y < bottomHeight + 2 && rb.velocity.y > 0)
                     {
                         bottomed = true;
+            
+                        anim.SetBool("Dive", false);
                     }
                 }
                 else if (parent.transform.position.y > startingHeight)
@@ -56,9 +55,9 @@ namespace Enemy.Heron
             }
             else
             {
-                Vector3 goalPos = parent.player.transform.position
-                                  + Vector3.up * parent.diveHeight
-                                  + (parent.player.transform.position.x > parent.transform.position.x ? Vector3.left : Vector3.right) * parent.horizontalMin;
+                Vector3 horizontalGoal = (parent.player.transform.position.x > parent.transform.position.x ? Vector3.left : Vector3.right) * (parent.horizontalMin * (parent.enraged ? 2f : 1));
+                Vector3 verticalGoal = Vector3.up * (parent.diveHeight * (parent.enraged ? 0.5f : 1));
+                Vector3 goalPos = parent.player.transform.position + horizontalGoal + verticalGoal;
                 
                 rb.AddForce((goalPos - parent.transform.position).normalized * parent.speed * Time.deltaTime);
                 sp.flipX = rb.velocity.x > 0;
@@ -67,7 +66,7 @@ namespace Enemy.Heron
                 {
                     //Initial Velocity
                     float height = 
-                        Mathf.Abs(parent.transform.position.y - parent.player.transform.position.y) + 1;
+                        Mathf.Abs(parent.transform.position.y - parent.player.transform.position.y) - 1;
                     float hDist = parent.player.transform.position.x - parent.transform.position.x;
                     float diveMagnitude = Mathf.Sqrt(Physics.gravity.magnitude * 2 * height);
             
@@ -76,16 +75,15 @@ namespace Enemy.Heron
                         Vector2.right * (liftAcceleration * hDist / diveMagnitude);
 
                     prepared = true;
+            
+                    anim.SetBool("Dive", true);
                 }
             }
         }
 
         public override void Exit()
         {
-            parent.transform.right = Vector3.right;
             rb.drag = 1.5f;
-            
-            anim.SetBool("Dive", false);
         }
     }
 }
