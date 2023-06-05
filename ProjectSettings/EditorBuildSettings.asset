@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CanonZone1.unity
     guid: 71e562ae8f59eb6449013b1384d91fc4
+  - enabled: 1
+    path: Assets/Scenes/HeronFight.unity
+    guid: 901eea7c71714ca4c96baf242dce89b8
   m_configObjects: {}
