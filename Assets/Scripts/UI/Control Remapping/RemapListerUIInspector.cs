@@ -2,8 +2,8 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(RemapListerUI))] 
-public class RemapListerUIInspector : Editor
+//[CustomEditor(typeof(RemapListerUI))] 
+public class RemapListerUIInspector : MonoBehaviour
 { /*
     public override void OnInspectorGUI()
     {
