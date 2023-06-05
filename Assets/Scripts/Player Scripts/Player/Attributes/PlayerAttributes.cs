@@ -46,8 +46,8 @@ public class PlayerAttributes : MonoBehaviour
 
     [HideInInspector] public bool facingRight = true; // true if player is facing right
 
-    public const int playerMaxHealth = 3;
-    public int playerHealth = playerMaxHealth;
+    public int playerMaxHealth = 3;
+    public int playerHealth;
     public float invincibilityTime = 1.5f;
     public bool isDead = false; // true if player is dead
 
@@ -112,6 +112,8 @@ public class PlayerAttributes : MonoBehaviour
         //playerStates = GetComponent<PlayerStates>();
         //playerAttributes = GetComponent<PlayerAttributes>();
         //playerController = GetComponent<PlayerController>();
+
+        playerHealth = playerMaxHealth;
     }
     // Start is called before the first frame update
     void Start()

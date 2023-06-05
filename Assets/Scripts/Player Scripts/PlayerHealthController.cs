@@ -10,9 +10,8 @@ public class PlayerHealthController : MonoBehaviour {
     public float enemyTouchKnockback = 30f;
 
     private PlayerAttributes playerAttributes;
+    private PlayerHealthUI playerHealthUI;
     private PlayerInput playerInput;
-    private Image[] hearts;
-    private Color startingColor;
     // For detecting if player is overlapping with an enemy
     private ContactFilter2D overlapEnemiesFilter;
 
@@ -23,14 +22,11 @@ public class PlayerHealthController : MonoBehaviour {
         playerAttributes = GetComponent<PlayerAttributes>();
         playerInput = GetComponent<PlayerInput>();
 
-        // Get images making up health bar
-        GameObject healthBar = GameObject.FindGameObjectWithTag("HealthBarRoot");
-        hearts = healthBar.GetComponentsInChildren<Image>();
-        startingColor = hearts[0].color;
-        UpdateHealthBar();
-
         overlapEnemiesFilter = new ContactFilter2D();
         overlapEnemiesFilter.SetLayerMask(enemyLayers);
+
+        playerHealthUI = GameObject.FindObjectOfType<PlayerHealthUI>();
+        playerHealthUI.UpdateHealthBar(playerAttributes.playerHealth, playerAttributes.playerMaxHealth);
     }
 
     void FixedUpdate() {
@@ -43,19 +39,6 @@ public class PlayerHealthController : MonoBehaviour {
                 Damage(1);
             }
             playerAttributes.rb.velocity = ((playerAttributes.rb.transform.position - overlapEnemies[0].transform.position).normalized * enemyTouchKnockback);
-        }
-    }
-
-    // Update grayed out hearts UI depending on player health value
-    public void UpdateHealthBar() {
-        int currNumHearts = playerAttributes.playerHealth;
-        
-        for (int heartIndex = 0; heartIndex < hearts.Length; ++heartIndex) {
-            if (heartIndex < currNumHearts) {
-                hearts[heartIndex].color = startingColor;
-            } else {
-                hearts[heartIndex].color = Color.grey;
-            }
         }
     }
 
@@ -79,9 +62,29 @@ public class PlayerHealthController : MonoBehaviour {
             Die();
         } else {
             playerAttributes.playerHealth -= amt;
-            UpdateHealthBar();
+            playerHealthUI.UpdateHealthBar(playerAttributes.playerHealth, playerAttributes.playerMaxHealth);
             StartCoroutine(StunPlayer(Color.red));
         }
+    }
+    
+    public void Heal(int amt) {
+        if (playerAttributes.playerHealth >= playerAttributes.playerMaxHealth) {
+            playerAttributes.playerHealth += amt;
+            playerHealthUI.UpdateHealthBar(playerAttributes.playerHealth, playerAttributes.playerMaxHealth);
+        }
+        else
+        {
+            playerAttributes.playerHealth += amt;
+            playerHealthUI.UpdateHealthBar(playerAttributes.playerHealth, playerAttributes.playerMaxHealth);
+        }
+    }
+
+    public void IncreaseMaxHealth()
+    {
+        playerAttributes.playerMaxHealth += 1;
+        playerAttributes.playerHealth = playerAttributes.playerMaxHealth;
+        
+        playerHealthUI.UpdateHealthBar(playerAttributes.playerHealth, playerAttributes.playerMaxHealth);
     }
 
     private void Die() {
