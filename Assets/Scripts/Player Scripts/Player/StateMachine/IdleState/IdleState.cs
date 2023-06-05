@@ -39,7 +39,7 @@ public abstract class IdleState : BaseState
             player.SwitchState(player.AirState);
         else if (jumpContext == "performed")
         {
-            Debug.Log("Jump");
+            // Debug.Log("Jump");
             Jump();
             player.SwitchState(player.AirState);
         }

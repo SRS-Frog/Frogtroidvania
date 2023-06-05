@@ -17,6 +17,7 @@ public class PlayerHealthController : MonoBehaviour {
 
     // Use to calculate when player can take damage again (after invincibility frames)
     private float nextTimeCanTakeDamage = 0f; 
+    public Vector2 currentRespawnPoint;
 
     void Start() {
         playerAttributes = GetComponent<PlayerAttributes>();
@@ -27,6 +28,8 @@ public class PlayerHealthController : MonoBehaviour {
 
         playerHealthUI = GameObject.FindObjectOfType<PlayerHealthUI>();
         playerHealthUI.UpdateHealthBar(playerAttributes.playerHealth, playerAttributes.playerMaxHealth);
+
+        currentRespawnPoint = this.transform.position;
     }
 
     void FixedUpdate() {
@@ -40,6 +43,7 @@ public class PlayerHealthController : MonoBehaviour {
             }
             playerAttributes.rb.velocity = ((playerAttributes.rb.transform.position - overlapEnemies[0].transform.position).normalized * enemyTouchKnockback);
         }
+
     }
 
     // Flash color twice and disable player input temporarily
@@ -58,7 +62,8 @@ public class PlayerHealthController : MonoBehaviour {
 
     // Always use this to damage player!
     public void Damage(int amt) {
-        if (playerAttributes.playerHealth <= 0) {
+        if (playerAttributes.playerHealth - amt <= 0) {
+            playerAttributes.playerHealth = 0;
             Die();
         } else {
             playerAttributes.playerHealth -= amt;
@@ -88,6 +93,15 @@ public class PlayerHealthController : MonoBehaviour {
     }
 
     private void Die() {
-        playerAttributes.isDead = true;
+        // playerAttributes.isDead = true;
+        this.transform.position = currentRespawnPoint;
+        Heal(playerAttributes.playerMaxHealth);
+        playerAttributes.rb.velocity = Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Checkpoint") {
+            currentRespawnPoint = other.gameObject.transform.position;
+        }
     }
 }
