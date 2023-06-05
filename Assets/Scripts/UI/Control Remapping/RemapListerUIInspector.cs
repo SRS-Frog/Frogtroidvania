@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CustomEditor(typeof(RemapListerUI))] 
 public class RemapListerUIInspector : Editor
-{
+{ /*
     public override void OnInspectorGUI()
     {
         RemapListerUI scriptReference = (RemapListerUI)target;    //The target script
@@ -19,4 +19,5 @@ public class RemapListerUIInspector : Editor
         
         DrawDefaultInspector ();    //This goes first
     }
+    */
 }
