@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     private InputAction switchAction;
     private InputAction dashAction;
     private InputAction plungeAction;
+    private InputAction attackAction;
+
+    // for attack animation
+    public delegate void AttackAction();
+    public static event AttackAction OnAttack;
 
     //bool for if keys are pressed
     private bool movePressed;
@@ -43,6 +48,7 @@ public class PlayerController : MonoBehaviour
         switchAction = playerInput.actions["Switch"];
         dashAction = playerInput.actions["Dash"];
         plungeAction = playerInput.actions["Plunge"];
+        attackAction = playerInput.actions["Attack"];
         var rebinds = PlayerPrefs.GetString("rebinds");
         if (!string.IsNullOrEmpty(rebinds))
             playerInput.actions.LoadBindingOverridesFromJson(rebinds);
@@ -71,6 +77,10 @@ public class PlayerController : MonoBehaviour
         plungeAction.started += PlungeControl;
         plungeAction.performed += PlungeControl;
         plungeAction.canceled += PlungeControl;
+
+        attackAction.started += AttackControl;
+        attackAction.performed += AttackControl;
+        attackAction.canceled += AttackControl;
     }
 
     private void OnDisable()
@@ -94,6 +104,10 @@ public class PlayerController : MonoBehaviour
         plungeAction.started -= PlungeControl;
         plungeAction.performed -= PlungeControl;
         plungeAction.canceled -= PlungeControl;
+
+        attackAction.started -= AttackControl;
+        attackAction.performed -= AttackControl;
+        attackAction.canceled -= AttackControl;
     }
 
     private void MoveControl(InputAction.CallbackContext context)
@@ -170,6 +184,11 @@ public class PlayerController : MonoBehaviour
             plungePressed = false;
         }
         Debug.Log("Plunge Pressed");
+    }
+
+    private void AttackControl(InputAction.CallbackContext context)
+    {
+        if (OnAttack != null) OnAttack();
     }
 
     private void Update()

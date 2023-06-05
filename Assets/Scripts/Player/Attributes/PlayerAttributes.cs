@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 // using static Unity.VisualScripting.Round<TInput, TOutput>;
 
 public class PlayerAttributes : MonoBehaviour
@@ -115,8 +116,9 @@ public class PlayerAttributes : MonoBehaviour
 
         playerHealth = playerMaxHealth;
     }
-    // Start is called before the first frame update
-    void Start()
+
+        // Start is called before the first frame update
+        void Start()
     {
         
     }
@@ -159,9 +161,15 @@ public class PlayerAttributes : MonoBehaviour
         hit = Physics2D.Raycast(transform.position, Vector3.down, maxRayLength, groundLayer.value);
     }
 
+    private void AttackAnimation()
+    {
+        anim.SetBool("Attacking", true);
+    }
+    
     private void Animate()
     {
         //Debug.Log(state);
+        anim.SetBool("Attacking", false);
         switch (state)
         {
             case PlayerStates.Plunging:
