@@ -81,22 +81,24 @@ public class FrappleScript : BaseAbilityScript
 
         if (!isHooked)
         {
-            if (isRetracting) // if frapple is in retracting state
-            {
-                rb.velocity = daehyunRB.velocity + (startingPos - rb.position).normalized * retractSpeed; // move frapple toward starting position
-            }
-            else if (isLaunched) // frapple is being launched outward
+            //Debug.Log("isLaunched" + isLaunched);
+            if (isLaunched) // frapple is being launched outward
             {
                 // update frapple velocity depending on how long the frapple is
                 // later in frapple = slower
                 // earlier in frapple = faster
                 Vector2 targetPos_world = cam.ScreenToWorldPoint(targetPos_screen);
+                Debug.Log("world target" + targetPos_world);
                 rb.velocity = daehyunRB.velocity + (targetPos_world - rb.position).normalized * frappleMaxSpeed * frappleExtendSpeedCurve.Evaluate(Vector2.Distance(rb.position, startingPos)/frappleLength); // move frapple toward a position
 
                 if (Vector2.Distance(rb.position, targetPos_world) <= 0.3f || Vector2.Distance(rb.position, startingPos) >= frappleLength) // if the distance is small enough, target reached
                 {
                     RetractFrapple(); // retract frapple
                 }
+            }
+            else if (isRetracting) // if frapple is in retracting state
+            {
+                rb.velocity = daehyunRB.velocity + (startingPos - rb.position).normalized * retractSpeed; // move frapple toward starting position
             }
             else
             {
@@ -163,10 +165,10 @@ public class FrappleScript : BaseAbilityScript
                 // Debug.Log("fully retracted");
             }
         }
-        else if (!collision.transform.CompareTag("Frappable") && !collision.transform.CompareTag("Player"))
-        {
-            RetractFrapple();
-        }
+        //else if (!collision.transform.CompareTag("Frappable")/* && !collision.transform.CompareTag("Player")*/)
+        //{
+        //    RetractFrapple();
+        //}
     }
 
     private void Frapple() // frapple interactions
@@ -207,6 +209,7 @@ public class FrappleScript : BaseAbilityScript
         if (CanTriggerAbility() && !isLaunched) // if not already launched, prevents spamming
         {
             targetPos_screen = pos; // implicitly convert vector 2 to vector 3 (so it's easier to compare to the transform)
+            Debug.Log("screen target" + targetPos_screen);
             rb.position = startingPos; // move to the starting position
             Toggle(true);
         }
