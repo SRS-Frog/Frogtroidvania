@@ -59,7 +59,7 @@ public class HeronController : MonoBehaviour
         diveState = new DiveState(this);
         featherState = new FeatherState(this);
 
-        ChangeState(diveState);
+        ChangeState(riseState);
     }
 
     // Update is called once per frame
