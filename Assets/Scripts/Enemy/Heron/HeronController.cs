@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Enemy.Heron;
 using UnityEngine;
 using IdleState = Enemy.Heron.IdleState;
@@ -80,5 +81,25 @@ public class HeronController : MonoBehaviour
             GameObject g = Instantiate(feather, transform.position, Quaternion.identity);
             g.GetComponent<Feather>().Init(Quaternion.Euler(0,0, angle) * dir);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        PlayerHealthController p = col.GetComponent<PlayerHealthController>();
+        if (p)
+        {
+            if (dontHit) return;
+            p.Damage(1);
+            
+        }
+    }
+
+    private bool dontHit = false;
+
+    IEnumerator stopHitting()
+    {
+        dontHit = true;
+        yield return new WaitForSeconds(2);
+        dontHit = false;
     }
 }

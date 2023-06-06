@@ -46,6 +46,11 @@ namespace Enemy.Heron
                         bottomed = true;
             
                         anim.SetBool("Dive", false);
+                        
+                        if (parent.transform.position.y > 100f)
+                        {
+                            parent.ChangeState(parent.riseState);
+                        }
                     }
                 }
                 else if (parent.transform.position.y > startingHeight)
