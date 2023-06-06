@@ -25,7 +25,6 @@ public class PlayerHealthController : MonoBehaviour {
 
         overlapEnemiesFilter = new ContactFilter2D();
         overlapEnemiesFilter.SetLayerMask(enemyLayers);
-        overlapEnemiesFilter.useTriggers = true;
 
         playerHealthUI = GameObject.FindObjectOfType<PlayerHealthUI>();
         playerHealthUI.UpdateHealthBar(playerAttributes.playerHealth, playerAttributes.playerMaxHealth);
